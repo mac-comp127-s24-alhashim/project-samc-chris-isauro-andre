@@ -1,3 +1,3 @@
-# Project Title Goes Here
+# F1 Game
 
 Info about your project goes here
