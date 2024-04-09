@@ -18,7 +18,7 @@ private final int friction = 0; // 0 is place holder
     }
 
     public void accelerate(){
-        currentSpeed
+        // currentSpeed;
     }
 
     public void decelerate(){
