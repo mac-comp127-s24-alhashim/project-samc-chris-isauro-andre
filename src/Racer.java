@@ -6,7 +6,6 @@ public class Racer {
     String name;
     int weight, brakepower;
     Image carBody;
-    ArrayList<Image> wheelImages;
     
     public Racer(String name, int weight, int brakepower){
 
