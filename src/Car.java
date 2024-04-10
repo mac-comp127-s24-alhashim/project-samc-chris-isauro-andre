@@ -16,20 +16,25 @@ private final int friction = 0; // 0 is place holder
 
     public Car(
         Image carModel,
-        Engine engine, 
-        Tyre tyre, 
-        Racer racer,
+        // Engine engine, 
+        // Tyre tyre, 
+        // Racer racer,
         double centerX,
         double centerY,
         double angle){
 
-        engineType = engine;
-        tyreType = tyre;
-        this.racer = racer;
+        // engineType = engine;
+        // tyreType = tyre;
+        // this.racer = racer;
         this.carModel = carModel;
+        carModel.setRotation(angle);
 
         this.velocityX = currentSpeed * Math.cos(Math.toRadians(angle));
         this.velocityY = currentSpeed * -Math.sin(Math.toRadians(angle));
+    }
+
+    public void addtoCanvas(CanvasWindow canvas){
+        canvas.add(carModel);
     }
 
     public void updateAngle(double angle){
