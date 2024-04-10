@@ -2,8 +2,7 @@ import edu.macalester.graphics.*;
 
 public class Track {
     Image map;
-    double height;
-    double width;
+    double height, width;
     Point startingPoint;
     double startingAngle;
     

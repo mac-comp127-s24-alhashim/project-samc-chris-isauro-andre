@@ -4,9 +4,7 @@ private Engine engineType;
 private Tyre tyreType;
 private Racer racer;
 
-private int acceleration;
-private int topSpeed;
-private int currentSpeed;
+private int acceleration, topSpeed, currentSpeed;
 private final int friction = 0; // 0 is place holder
 
     public Car(Engine engine, Tyre tyre, Racer racer){

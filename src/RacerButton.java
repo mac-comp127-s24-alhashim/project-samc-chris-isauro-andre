@@ -3,8 +3,7 @@ import edu.macalester.graphics.*;
 
 
 public class RacerButton implements MenuButton {
-    Image restingImage;
-    Image pressedImage;
+    Image restingImage, pressedImage;
     Racer racer;
 
 
