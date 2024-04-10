@@ -2,8 +2,7 @@ import edu.macalester.graphics.*;
 
 
 public class RacerButton implements MenuButton {
-    Image restingImage;
-    Image pressedImage;
+    Image restingImage, pressedImage, carBody;
     Racer racer;
 
     public RacerButton(Racer racer, String restingImage, String pressedImage, int x, int y, CanvasWindow canvas){

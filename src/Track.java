@@ -2,8 +2,7 @@ import edu.macalester.graphics.*;
 
 public class Track {
     Image map;
-    double height;
-    double width;
+    double height, width;
     Point startingPoint;
     double startingAngle;
     
@@ -13,5 +12,13 @@ public class Track {
         this.height = map.getImageHeight();
         this.startingPoint = startingPoint;
         this.startingAngle = startingAngle;
+    }
+
+    public Point getStartingPoint(){
+        return startingPoint;
+    }
+
+    public double getStartingAngle(){
+        return startingAngle;
     }
 }
