@@ -13,4 +13,12 @@ public class Track {
         this.startingPoint = startingPoint;
         this.startingAngle = startingAngle;
     }
+
+    public Point getStartingPoint(){
+        return startingPoint;
+    }
+
+    public double getStartingAngle(){
+        return startingAngle;
+    }
 }

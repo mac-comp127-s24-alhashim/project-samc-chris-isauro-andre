@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import edu.macalester.graphics.*;
 
 public class Racer {
@@ -8,7 +6,8 @@ public class Racer {
     Image carBody;
     
     public Racer(String name, int weight, int brakepower){
-
+        this.weight = weight;
+        this.brakepower = brakepower;
     }
 
     public String getName(){

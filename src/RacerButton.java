@@ -3,9 +3,8 @@ import edu.macalester.graphics.*;
 
 
 public class RacerButton implements MenuButton {
-    Image restingImage, pressedImage;
+    Image restingImage, pressedImage, carBody;
     Racer racer;
-    Image carBody;
 
     public RacerButton(Racer racer, String restingImage, String pressedImage){
         this.racer = racer;
