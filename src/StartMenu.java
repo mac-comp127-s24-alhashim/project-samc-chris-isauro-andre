@@ -1,11 +1,31 @@
-import java.util.ArrayList;
 
 import edu.macalester.graphics.*;
 
 public class StartMenu {
-    ArrayList<MenuButton> allButtons;
-    ArrayList<TireButton> tireButtons;
-    ArrayList<TireButton> tireButtons;
+
+    public StartMenu(CanvasWindow canvas){
+        
+
+    }
+
+    public void getRacerButtons(){
+        
+    }
+
+    public void getEngineButtons(){
+
+    }
+
+    public void getTyreButtons(){
+        
+    }
+
+    public void getTrackButtons(){
+        
+    }
+
+
+
 
 
     

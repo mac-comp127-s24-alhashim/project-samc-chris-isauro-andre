@@ -1,17 +1,13 @@
 import edu.macalester.graphics.*;
 
 
-public class TireButton implements MenuButton {
-    int x;
-    int y;
+public class EngineButton implements MenuButton {
     Image restingImage;
     Image pressedImage;
-    Tyre tyre;
+    Engine engine;
 
-    public TireButton(Tyre tyre, String restingImage, String pressedImage, int x, int y, CanvasWindow canvas){
-        this.x = x;
-        this.y = y;
-        this.tyre = tyre;
+    public EngineButton(Engine engine, String restingImage, String pressedImage, int x, int y, CanvasWindow canvas){
+        this.engine = engine;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
         canvas.add(this.restingImage, x, y);
@@ -25,5 +21,4 @@ public class TireButton implements MenuButton {
     public void pressed(){
         
     }
-    
 }

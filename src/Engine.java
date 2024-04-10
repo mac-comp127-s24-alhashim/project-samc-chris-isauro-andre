@@ -1,7 +1,6 @@
 public class Engine {
 
-    private int torque;
-    private int weight;
+    private int torque, weight;
 
     public Engine(String type, int torque, int weight){
         this.torque = torque;
