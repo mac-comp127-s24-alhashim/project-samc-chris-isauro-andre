@@ -1,32 +1,32 @@
-import java.util.ArrayList;
-
 import edu.macalester.graphics.*;
 
-public class Tyre {
+public class Tyre{
 
-    private ArrayList<Image> wheels;
+    // private ArrayList<Image> wheels = new ArrayList<>();
     private Image wheel;
     private double turningValue;
     private String tireType;
-
+    
+    
 
     public Tyre(
     // String tireType, 
     // double turningValue, 
-    ArrayList<Image> wheelImages, 
-    double wheelX, double wheelY
+    Image wheel, 
+    double wheelX, double wheelY,
+    double angle
     )
     {
         // this.tireType = tireType;
         // this.turningValue = turningValue;
-        this.wheels = wheelImages;
-        
-        this.wheel = wheelImages.get(0);
+        // this.wheels = wheelImages;
+        this.wheel = wheel;
         this.wheel.setPosition(wheelX, wheelY);
+        this.wheel.setRotation(angle);
+
     }
 
-    public Image getWheelModel(){
+    public Image getWheelModel(){   
         return wheel;
-    }
-
-} 
+    } 
+}
