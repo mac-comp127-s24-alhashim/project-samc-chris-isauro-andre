@@ -29,8 +29,4 @@ public class Tyre {
         return wheel;
     }
 
-    public void turnWheels(){
-
-    }
-
 } 
