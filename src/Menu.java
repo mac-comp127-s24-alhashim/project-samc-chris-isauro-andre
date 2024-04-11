@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 public class Menu {
     CanvasWindow canvas;
+    Track selectedTrack;
+    Racer selectedRacer;
+    Tyre selectedTires;
+    Engine selectedEngine;
     ArrayList<MenuButton> trackButtons;
     ArrayList<MenuButton> racerButtons;
     ArrayList<MenuButton> tireButtons;
@@ -20,11 +24,6 @@ public class Menu {
         setupMenu();
     }
 
-    private void setImageScaleFactor(){
-        imageScaleFactor = canvas.getWidth()/menuBackground.getImageWidth();
-        System.out.println("scaleFactor:" + imageScaleFactor);
-    }
-
     private void setupMenu(){
         createBackground();
         createStartButton();
@@ -35,12 +34,20 @@ public class Menu {
         createEngineButtons();
     }
 
+    private void setImageScaleFactor(){
+        imageScaleFactor = canvas.getWidth()/menuBackground.getImageWidth();
+        System.out.println("scaleFactor:" + imageScaleFactor);
+    }
+
     private void createBackground(){
         menuBackground = new Image("images/MenuImages/StaticMenu1.png");
         System.out.println(menuBackground.getHeight() + "    " + menuBackground.getWidth());
+
         setImageScaleFactor();
-        menuBackground.setScale(imageScaleFactor);
+
+        menuBackground.setMaxWidth(imageScaleFactor * menuBackground.getWidth());
         System.out.println(menuBackground.getHeight() + "    " + menuBackground.getWidth());
+
         menuBackground.setPosition(0, 0);
         canvas.add(menuBackground);
         
@@ -71,4 +78,19 @@ public class Menu {
         Menu menu = new Menu(canvas);
     }
 
+    public Track getSelectedTrack() {
+        return selectedTrack;
+    }
+
+    public Racer getSelectedRacer() {
+        return selectedRacer;
+    }
+
+    public Tyre getSelectedTires() {
+        return selectedTires;
+    }
+
+    public Engine getSelectedEngine() {
+        return selectedEngine;
+    }
 }
