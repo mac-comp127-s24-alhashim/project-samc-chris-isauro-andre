@@ -19,8 +19,8 @@ public class mechanicsTesting {
     }
 
     public void gameStart(){
-        final double carPositionX = canvas.getWidth()/2;
-        final double carPositionY = canvas.getHeight()/2;
+        final double carPositionX = canvas.getWidth()/3;
+        final double carPositionY = canvas.getHeight()/3;
         carAngle = 50;
 
         car = new Car(

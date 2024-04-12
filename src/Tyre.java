@@ -21,9 +21,10 @@ public class Tyre{
         // this.turningValue = turningValue;
         // this.wheels = wheelImages;
         this.wheel = wheel;
-        this.wheel.setPosition(wheelX, wheelY);
-        this.wheel.setRotation(angle);
-
+        wheel.setPosition(wheelX, wheelY);
+        wheel.setRotation(angle);
+        wheel.setScale(.5);
+        
     }
 
     public Image getWheelModel(){   

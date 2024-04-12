@@ -30,6 +30,8 @@ private final int friction = 0; // 0 is place holder
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
         tyre.getWheelModel().setPosition(centerX, centerY);
+        carModel.setScale(.5);
+        
         
         this.velocityX = currentSpeed * Math.cos(Math.toRadians(angle));
         this.velocityY = currentSpeed * -Math.sin(Math.toRadians(angle));
