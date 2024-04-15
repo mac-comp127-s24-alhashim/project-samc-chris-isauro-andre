@@ -1,8 +1,13 @@
 import edu.macalester.graphics.*;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class Tyre{
 
-    // private ArrayList<Image> wheels = new ArrayList<>();
+    private File imageFile = new File("WheelImages");
+    private ArrayList<Image> wheels = new ArrayList<>();
+    
     private Image wheel;
     private double turningValue;
     private String tireType;
@@ -17,6 +22,8 @@ public class Tyre{
     double angle
     )
     {
+
+        // for (int i = 0; )
         // this.tireType = tireType;
         // this.turningValue = turningValue;
         // this.wheels = wheelImages;
