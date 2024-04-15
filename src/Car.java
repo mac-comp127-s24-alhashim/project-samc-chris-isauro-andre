@@ -2,31 +2,28 @@ import edu.macalester.graphics.*;
 
 public class Car{
 
-private Engine engine;
-private Tyre tyre;
+private Engine engineType;
+private Tyre tyreType;
 private Racer racer;
 private Image carModel;
 
-private double currentSpeed = 0;
-private double accelaration;
-private double turningValue;
-private double velocityX;
-private double velocityY;
+private int topSpeed;
+private double currentSpeed = 0, velocityX, velocityY;
 
-private final double decelerateFriction = .3; 
+private final int friction = 0; // 0 is place holder
 
     public Car(
         Image carModel,
-        Engine engineType, 
-        Tyre tyreType, 
-        Racer racerType,
+        // Engine engine, 
+        Tyre tyre, 
+        // Racer racer,
         double centerX,
         double centerY,
         double angle){
 
-        engine = engineType;
-        tyre = tyreType;
-        racer = racerType;
+        // engineType = engine;
+        this.tyreType = tyre;
+        // this.racer = racer;
         this.carModel = carModel;
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
@@ -36,24 +33,22 @@ private final double decelerateFriction = .3;
         
         this.velocityX = currentSpeed * Math.cos(Math.toRadians(angle));
         this.velocityY = currentSpeed * -Math.sin(Math.toRadians(angle));
-
-        calculateAccelaration();
     }
 
     public void addtoCanvas(CanvasWindow canvas){
         canvas.add(carModel);
-        canvas.add(tyre.getWheelModel());
+        canvas.add(tyreType.getWheelModel());
         
     }
 
     public void updateAngle(double angle){
         double rotationAngle = angle + 1;
         carModel.rotateBy(rotationAngle);
-        tyre.getWheelModel().rotateBy(rotationAngle);
+        tyreType.getWheelModel().rotateBy(rotationAngle);
     }
 
-    public void calculateAccelaration(){
-        // this.accelaration = engine.getTorque() - (tyre.getFriction()*(engine.getWeight() + racer.getWeight()));
+    void updateSpeed(double dt){
+        currentSpeed += dt;
     }
 
     public void decelerate(){

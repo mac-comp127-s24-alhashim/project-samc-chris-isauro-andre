@@ -2,8 +2,7 @@ import edu.macalester.graphics.*;
 
 
 public class EngineButton implements MenuButton {
-    Image restingImage;
-    Image pressedImage;
+    Image restingImage, pressedImage;
     Engine engine;
 
     public EngineButton(Engine engine, String restingImage, String pressedImage, int x, int y, CanvasWindow canvas){

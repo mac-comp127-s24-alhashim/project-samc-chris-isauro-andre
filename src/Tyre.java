@@ -9,24 +9,18 @@ public class Tyre{
     private ArrayList<Image> wheels = new ArrayList<>();
     
     private Image wheel;
-    private double turningValue;
+    private double turningValue, friction;
     private String tireType;
-    
+    private int grip, ability;    
     
 
     public Tyre(
     String tireType, 
-    
-    Image wheel, 
-    double wheelX, double wheelY,
-    double angle
+    ArrayList<Image> wheelImages, 
+    double wheelX, double wheelY, double friction, double angle, int grip, int ability
     )
     {
 
-        // for (int i = 0; )
-        // this.tireType = tireType;
-        // this.turningValue = turningValue;
-        // this.wheels = wheelImages;
         this.wheel = wheel;
         wheel.setPosition(wheelX, wheelY);
         wheel.setRotation(angle);
@@ -36,5 +30,15 @@ public class Tyre{
 
     public Image getWheelModel(){   
         return wheel;
-    } 
-}
+    }
+
+    public double getFriction() {
+        return friction;
+    }
+
+    public int getGrip() {
+        return grip;
+    }
+
+} 
+
