@@ -17,19 +17,10 @@ public class Tyre{
     public Tyre(
     String tireType, 
     ArrayList<Image> wheelImages, 
-    double wheelX, double wheelY, double friction, int grip, int ability
-    // String tireType, 
-    // double turningValue, 
-    Image wheel, 
-    double wheelX, double wheelY,
-    double angle
+    double wheelX, double wheelY, double friction, double angle, int grip, int ability
     )
     {
 
-        // for (int i = 0; )
-        // this.tireType = tireType;
-        // this.turningValue = turningValue;
-        // this.wheels = wheelImages;
         this.wheel = wheel;
         wheel.setPosition(wheelX, wheelY);
         wheel.setRotation(angle);
@@ -50,5 +41,4 @@ public class Tyre{
     }
 
 } 
-    } 
-}
+
