@@ -12,7 +12,7 @@ public class RacerButton implements MenuButton {
         canvas.add(this.restingImage, x, y);
         canvas.onClick(event -> {
             if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            this.pressed();
+                this.pressed();
             }
         });
     }

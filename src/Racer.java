@@ -2,11 +2,13 @@ import edu.macalester.graphics.*;
 
 public class Racer {
     String name;
+    Image driversCar;
     int weight, brakepower;
     Image carBody;
     
-    public Racer(String name, int weight, int brakepower){
+    public Racer(String name, Image carBody, int weight, int brakepower){
         this.weight = weight;
+        this.carBody = carBody;
         this.brakepower = brakepower;
     }
 

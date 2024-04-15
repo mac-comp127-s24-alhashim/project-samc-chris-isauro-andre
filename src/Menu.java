@@ -62,26 +62,41 @@ public class Menu {
     }
 
     private void createTrackButtons(){ 
-        Button track1Button = new Button("Track 1");
-        track1Button.setPosition(canvas.getWidth()/12, canvas.getHeight()*2/5);
-        track1Button.setScale(3);
-        canvas.add(track1Button);
-
-        Button track2Button = new Button("Track 2");
-        track2Button.setScale(3);
-        track2Button.setPosition(canvas.getWidth()/12, canvas.getHeight()*3/5);
-        canvas.add(track2Button);
-
-        Button track3Button = new Button("Track 3");
-        track3Button.setScale(3);
-        track3Button.setPosition(canvas.getWidth()/12, canvas.getHeight()*4/5);
-        canvas.add(track3Button);
+        TrackButton track1Button = new TrackButton(
+            new Track(new Image("images/TrackBaseImages/suzuka.jpg"), 0, 0, 0), 
+            "images/MenuImages/Suzuka1.jpg", 
+            "images/MenuImages/Suzuka2.jpg", 
+            0, 
+            0, 
+            canvas);
+        trackButtons.add(track1Button);
+        TrackButton track2Button = new TrackButton(
+            new Track(new Image("images/TrackBaseImages/watkins.jpg"), 0, 0, 0), 
+            "images/MenuImages/Watkins1.jpg", 
+            "images/MenuImages/Watkins2.jpg", 
+            0, 
+            0, 
+            canvas);
+        trackButtons.add(track2Button);
+        TrackButton track3Button = new TrackButton(
+            new Track(new Image("images/TrackBaseImages/barcelona.jpg"), 0, 0, 0), 
+            "images/MenuImages/Barcelona1.jpg", 
+            "images/MenuImages/Barcelona2.jpg", 
+            0, 
+            0, 
+            canvas);
+        trackButtons.add(track3Button);
     }
 
     private void createRacerButtons(){
-        Button racer1Button = new Button("Racer 1");
-        racer1Button.setPosition(canvas.getWidth()/4, canvas.getHeight()*2/5);
-        canvas.add(racer1Button);
+        RacerButton racer1Button = new RacerButton(
+            new Racer("Max Verstappen", new Image("images/driver-body1.png"), 0, 0), 
+            "images/MenuImages/Suzuka1.jpg", 
+            "images/MenuImages/Suzuka2.jpg", 
+            0, 
+            0, 
+            canvas);
+        racerButtons.add(racer1Button);
 
         Button racer2Button = new Button("Racer 2");
         racer2Button.setPosition(canvas.getWidth()/4, canvas.getHeight()*3/5);
