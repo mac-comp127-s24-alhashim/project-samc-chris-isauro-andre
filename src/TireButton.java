@@ -2,10 +2,8 @@ import edu.macalester.graphics.*;
 
 
 public class TireButton implements MenuButton {
-    int x;
-    int y;
-    Image restingImage;
-    Image pressedImage;
+    int x, y;
+    Image restingImage, pressedImage;
     Tyre tyre;
 
     public TireButton(Tyre tyre, String restingImage, String pressedImage, int x, int y, CanvasWindow canvas){

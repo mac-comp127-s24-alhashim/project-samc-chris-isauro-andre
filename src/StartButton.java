@@ -1,10 +1,8 @@
 import edu.macalester.graphics.*;
 
 public class StartButton implements MenuButton {
-    int x;
-    int y;
-    Image restingImage;
-    Image pressedImage;
+    int x, y;
+    Image restingImage, pressedImage;
 
     public StartButton(String restingImage, String pressedImage, int x, int y, CanvasWindow canvas){
         this.x = x;
