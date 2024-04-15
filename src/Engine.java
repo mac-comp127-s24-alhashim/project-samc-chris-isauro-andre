@@ -1,18 +1,17 @@
 public class Engine {
 
-    private int torque, weight;
+    private int torque, weight, topSpeed;
 
-    public Engine(String type, int torque, int weight){
+    public Engine(String engineType, int torque, int topSpeed, int weight){
         this.torque = torque;
         this.weight = weight;
+        this.topSpeed = topSpeed;
         
     }
 
-    private int accelarateCalculator(){
-        int engineAccelaration = torque;
-        return torque;
+    public int getTopSpeed(){
+        return topSpeed;
     }
-
     public int getTorque(){
         return torque;
     }

@@ -15,8 +15,8 @@ public class Tyre{
     
 
     public Tyre(
-    // String tireType, 
-    // double turningValue, 
+    String tireType, 
+    
     Image wheel, 
     double wheelX, double wheelY,
     double angle

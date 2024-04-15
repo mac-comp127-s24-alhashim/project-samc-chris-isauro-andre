@@ -2,30 +2,31 @@ import edu.macalester.graphics.*;
 
 public class Car{
 
-private Engine engineType;
-private Tyre tyreType;
+private Engine engine;
+private Tyre tyre;
 private Racer racer;
 private Image carModel;
 
-private int topSpeed;
 private double currentSpeed = 0;
+private double accelaration;
+private double turningValue;
 private double velocityX;
 private double velocityY;
 
-private final int friction = 0; // 0 is place holder
+private final double decelerateFriction = .3; 
 
     public Car(
         Image carModel,
-        // Engine engine, 
-        Tyre tyre, 
-        // Racer racer,
+        Engine engineType, 
+        Tyre tyreType, 
+        Racer racerType,
         double centerX,
         double centerY,
         double angle){
 
-        // engineType = engine;
-        this.tyreType = tyre;
-        // this.racer = racer;
+        engine = engineType;
+        tyre = tyreType;
+        racer = racerType;
         this.carModel = carModel;
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
@@ -35,22 +36,24 @@ private final int friction = 0; // 0 is place holder
         
         this.velocityX = currentSpeed * Math.cos(Math.toRadians(angle));
         this.velocityY = currentSpeed * -Math.sin(Math.toRadians(angle));
+
+        calculateAccelaration();
     }
 
     public void addtoCanvas(CanvasWindow canvas){
         canvas.add(carModel);
-        canvas.add(tyreType.getWheelModel());
+        canvas.add(tyre.getWheelModel());
         
     }
 
     public void updateAngle(double angle){
         double rotationAngle = angle + 1;
         carModel.rotateBy(rotationAngle);
-        tyreType.getWheelModel().rotateBy(rotationAngle);
+        tyre.getWheelModel().rotateBy(rotationAngle);
     }
 
-    void updateSpeed(double dt){
-        currentSpeed += dt;
+    public void calculateAccelaration(){
+        // this.accelaration = engine.getTorque() - (tyre.getFriction()*(engine.getWeight() + racer.getWeight()));
     }
 
     public void decelerate(){

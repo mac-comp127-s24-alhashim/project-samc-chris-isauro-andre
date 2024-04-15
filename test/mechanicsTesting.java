@@ -23,10 +23,10 @@ public class mechanicsTesting {
         final double carPositionY = canvas.getHeight()/3;
         carAngle = 50;
 
-        car = new Car(
-        new Image("images/driver-body1.png"),
-        new Tyre(new Image("images/WheelImages/tireSoft1.png"), carPositionX, carPositionY, carAngle),
-        carPositionX, carPositionY, carAngle);
+        // car = new Car(
+        // new Image("images/driver-body1.png"),
+        // new Tyre(new Image("images/WheelImages/tireSoft/tireSoft1.png"), carPositionX, carPositionY, carAngle),
+        // carPositionX, carPositionY, carAngle);
 
         car.addtoCanvas(canvas);
         canvas.draw();
@@ -35,10 +35,10 @@ public class mechanicsTesting {
 
         canvas.animate(() -> {
             if(canvas.getKeysPressed().contains(Key.D)){
-                car.updateAngle(5);
+                car.updateAngle(8);
             }
             if(canvas.getKeysPressed().contains(Key.A)){
-                car.updateAngle(-5);
+                car.updateAngle(-8);
             }
             if(canvas.getKeysPressed().contains(Key.W)){
                 //accelarate
