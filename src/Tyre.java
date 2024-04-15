@@ -17,7 +17,11 @@ public class Tyre{
     public Tyre(
     String tireType, 
     ArrayList<Image> wheelImages, 
-    double wheelX, double wheelY, double friction, double angle, int grip, int ability
+    double wheelX, double wheelY, 
+    double friction, 
+    double angle, 
+    int grip, 
+    int durability
     )
     {
 
