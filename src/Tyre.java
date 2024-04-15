@@ -1,30 +1,43 @@
-import java.util.ArrayList;
-
 import edu.macalester.graphics.*;
 
-public class Tyre {
+import java.io.File;
+import java.util.ArrayList;
 
-    private ArrayList<Image> wheels;
+public class Tyre{
+
+    private File imageFile = new File("WheelImages");
+    private ArrayList<Image> wheels = new ArrayList<>();
+    
     private Image wheel;
     private double turningValue, friction;
     private String tireType;
-    private int grip, ability;
+    private int grip, ability;    
+    
 
     public Tyre(
     String tireType, 
     ArrayList<Image> wheelImages, 
     double wheelX, double wheelY, double friction, int grip, int ability
+    // String tireType, 
+    // double turningValue, 
+    Image wheel, 
+    double wheelX, double wheelY,
+    double angle
     )
     {
+
+        // for (int i = 0; )
         // this.tireType = tireType;
         // this.turningValue = turningValue;
-        this.wheels = wheelImages;
+        // this.wheels = wheelImages;
+        this.wheel = wheel;
+        wheel.setPosition(wheelX, wheelY);
+        wheel.setRotation(angle);
+        wheel.setScale(.5);
         
-        this.wheel = wheelImages.get(0);
-        this.wheel.setPosition(wheelX, wheelY);
     }
 
-    public Image getWheelModel(){
+    public Image getWheelModel(){   
         return wheel;
     }
 
@@ -37,3 +50,5 @@ public class Tyre {
     }
 
 } 
+    } 
+}

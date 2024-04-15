@@ -15,19 +15,21 @@ private final int friction = 0; // 0 is place holder
     public Car(
         Image carModel,
         // Engine engine, 
-        // Tyre tyre, 
+        Tyre tyre, 
         // Racer racer,
         double centerX,
         double centerY,
         double angle){
 
         // engineType = engine;
-        // tyreType = tyre;
+        this.tyreType = tyre;
         // this.racer = racer;
         this.carModel = carModel;
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
-        // tyre.getWheelModel().setPosition(centerX, centerY);
+        tyre.getWheelModel().setPosition(centerX, centerY);
+        carModel.setScale(.5);
+        
         
         this.velocityX = currentSpeed * Math.cos(Math.toRadians(angle));
         this.velocityY = currentSpeed * -Math.sin(Math.toRadians(angle));
@@ -42,6 +44,7 @@ private final int friction = 0; // 0 is place holder
     public void updateAngle(double angle){
         double rotationAngle = angle + 1;
         carModel.rotateBy(rotationAngle);
+        tyreType.getWheelModel().rotateBy(rotationAngle);
     }
 
     void updateSpeed(double dt){
@@ -49,6 +52,6 @@ private final int friction = 0; // 0 is place holder
     }
 
     public void decelerate(){
-
     }
+
 }

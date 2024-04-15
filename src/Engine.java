@@ -8,6 +8,11 @@ public class Engine {
         
     }
 
+    private int accelarateCalculator(){
+        int engineAccelaration = torque;
+        return torque;
+    }
+
     public int getTorque(){
         return torque;
     }
@@ -15,7 +20,5 @@ public class Engine {
     public int getWeight(){
         return weight;
     }
-
-
-    }
+}
 
