@@ -11,10 +11,7 @@ public class Menu {
     Racer selectedRacer;
     Tyre selectedTires;
     Engine selectedEngine;
-    ArrayList<MenuButton> trackButtons;
-    ArrayList<MenuButton> racerButtons;
-    ArrayList<MenuButton> tireButtons;
-    ArrayList<MenuButton> engineButtons;
+    ArrayList<MenuButton> trackButtons, racerButtons, tireButtons, engineButtons;
     MenuButton startButton;
     Image menuBackground;
     double imageScaleFactor;

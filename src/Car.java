@@ -8,9 +8,7 @@ private Racer racer;
 private Image carModel;
 
 private int topSpeed;
-private double currentSpeed = 0;
-private double velocityX;
-private double velocityY;
+private double currentSpeed = 0, velocityX, velocityY;
 
 private final int friction = 0; // 0 is place holder
 
