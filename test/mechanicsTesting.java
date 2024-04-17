@@ -35,10 +35,10 @@ public class mechanicsTesting {
 
         canvas.animate(() -> {
             if(canvas.getKeysPressed().contains(Key.D)){
-                car.updateAngle(8);
+                car.turn();
             }
             if(canvas.getKeysPressed().contains(Key.A)){
-                car.updateAngle(-8);
+                car.turn();
             }
             if(canvas.getKeysPressed().contains(Key.W)){
                 //accelarate

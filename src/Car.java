@@ -37,7 +37,7 @@ private final double passiveDeceleration = .3;
         currentSpeed = 0;
     }
 
-    // Getter methods belowimportant for the movement of the canvas based on the X and Y velocities of the car
+    // Getter methods below important for the movement of the canvas based on the X and Y velocities of the car
 
     public double getVelocityX(){
         return velocityX;
@@ -54,11 +54,12 @@ private final double passiveDeceleration = .3;
     }
 
     //rotates car
-    public void updateAngle(double angle){
-        double rotationAngle = angle;
-        carModel.rotateBy(rotationAngle);
-        tyre.getWheelModel().rotateBy(rotationAngle);
-        currentAngle = rotationAngle;
+    public void turn(){
+        double turningValue = (tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine. getWeight()));
+        currentAngle = currentAngle + turningValue;
+
+        carModel.rotateBy(currentAngle);
+        tyre.getWheelModel().rotateBy(currentAngle);
     }
 
     //speeds up car
@@ -76,15 +77,35 @@ private final double passiveDeceleration = .3;
         updateSpeed();
     }
 
+    public void passiveSpeedDown(){
+        if(currentSpeed >= 0){
+            currentSpeed = currentSpeed - decelarate();
+        }
+    }
+
     private double accelarate(){
         double accelaration;
-        accelaration = engine.getTorque() - (tyre.getFriction() * (racer.getWeight() + engine.getWeight()) * 9.8);
+
+        if(tyre.getDurability() > 0){
+            accelaration = engine.getTorque() - (tyre.getFriction() * (racer.getWeight() + engine.getWeight()) * 9.8);
         return accelaration;
+        }
+
+        else{
+            accelaration = 0;
+            return accelaration;
+        }
+        
+    }
+
+    private double decelarate(){
+        double decelaration;
+        decelaration = passiveDeceleration * (racer.getWeight() + engine.getWeight()) * 9.8;
+        return decelaration;
     }
     
-    private boolean updateSpeed(){
+    private void updateSpeed(){
         velocityX = currentSpeed * Math.cos(Math.toRadians(currentAngle));
         velocityY = currentSpeed * -Math.sin(Math.toRadians(currentAngle));
-        return true;
     }
 }

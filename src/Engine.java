@@ -12,6 +12,7 @@ public class Engine {
     public int getTopSpeed(){
         return topSpeed;
     }
+    
     public int getTorque(){
         return torque;
     }

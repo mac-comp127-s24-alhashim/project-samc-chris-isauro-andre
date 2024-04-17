@@ -7,25 +7,23 @@ public class Tyre{
 
     private File imageFile = new File("WheelImages");
     private ArrayList<Image> wheels = new ArrayList<>();
-    
     private Image wheel;
-    private double turningValue, friction;
+
+    private double friction;
     private String tireType;
-    private int grip, ability;    
+    private int grip, durability;    
     
 
     public Tyre(
-    String tireType, 
-    ArrayList<Image> wheelImages, 
-    double wheelX, double wheelY, 
-    double friction, 
-    double angle, 
-    int grip, 
-    int durability
+        String tireType, 
+        ArrayList<Image> wheelImages, 
+        double wheelX, double wheelY, 
+        double friction, 
+        double angle, 
+        int grip, 
+        int durability
     )
     {
-
-        this.wheel = wheel;
         wheel.setPosition(wheelX, wheelY);
         wheel.setRotation(angle);
         wheel.setScale(.5);
@@ -42,6 +40,10 @@ public class Tyre{
 
     public int getGrip() {
         return grip;
+    }
+
+    public int getDurability(){
+        return durability;
     }
 
 } 
