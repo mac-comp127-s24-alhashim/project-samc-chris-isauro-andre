@@ -70,6 +70,7 @@ private final double passiveDeceleration = .3;
         updateSpeed();
     }
 
+    //speeds down car wtih brake
     public void speedDown(){
         if(currentSpeed >= 0){
             currentSpeed = currentSpeed - racer.getBrakepower();
@@ -77,12 +78,14 @@ private final double passiveDeceleration = .3;
         updateSpeed();
     }
 
+    //car speeds down passively due to friction
     public void passiveSpeedDown(){
         if(currentSpeed >= 0){
             currentSpeed = currentSpeed - decelarate();
         }
     }
 
+    //a car can only accelarate when its tyres are still durable
     private double accelarate(){
         double accelaration;
 
@@ -95,15 +98,17 @@ private final double passiveDeceleration = .3;
             accelaration = 0;
             return accelaration;
         }
-        
+
     }
 
+    //car slows down
     private double decelarate(){
         double decelaration;
         decelaration = passiveDeceleration * (racer.getWeight() + engine.getWeight()) * 9.8;
         return decelaration;
     }
     
+    //updates the x and y velocities of the car.
     private void updateSpeed(){
         velocityX = currentSpeed * Math.cos(Math.toRadians(currentAngle));
         velocityY = currentSpeed * -Math.sin(Math.toRadians(currentAngle));
