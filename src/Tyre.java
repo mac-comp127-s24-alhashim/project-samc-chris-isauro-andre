@@ -10,12 +10,10 @@ public class Tyre{
     private Image wheel;
 
     private double friction;
-    private String tireType;
     private int grip, durability;    
     
 
     public Tyre(
-        String tireType, 
         ArrayList<Image> wheelImages, 
         double wheelX, double wheelY, 
         double friction, 

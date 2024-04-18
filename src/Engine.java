@@ -2,7 +2,7 @@ public class Engine {
 
     private int torque, weight, topSpeed;
 
-    public Engine(String engineType, int torque, int topSpeed, int weight){
+    public Engine(int torque, int topSpeed, int weight){
         this.torque = torque;
         this.weight = weight;
         this.topSpeed = topSpeed;

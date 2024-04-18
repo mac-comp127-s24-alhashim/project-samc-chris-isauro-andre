@@ -1,19 +1,9 @@
-import edu.macalester.graphics.*;
-
 public class Racer {
-    String name;
-    Image driversCar;
     int weight, brakepower;
-    Image carBody;
     
-    public Racer(String name, Image carBody, int weight, int brakepower){
-        this.weight = weight;
-        this.carBody = carBody;
+    public Racer(int weight, int brakepower){
+        this.weight = weight; 
         this.brakepower = brakepower;
-    }
-
-    public String getName(){
-        return name;
     }
 
     public int getWeight(){
@@ -24,7 +14,4 @@ public class Racer {
         return brakepower;
     }
 
-    public Image getCarBody(){
-        return carBody;
-    }
 }

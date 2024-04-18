@@ -87,7 +87,7 @@ public class Menu {
 
     private void createRacerButtons(){
         RacerButton racer1Button = new RacerButton(
-            new Racer("Max Verstappen", new Image("images/driver-body1.png"), 0, 0), 
+            new Racer(0, 0), 
             "images/MenuImages/Suzuka1.jpg", 
             "images/MenuImages/Suzuka2.jpg", 
             0, 
