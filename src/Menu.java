@@ -1,8 +1,8 @@
-import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.Image;
+import edu.macalester.graphics.*;
 import edu.macalester.graphics.ui.Button;
 
-import java.util.ArrayList;
+import java.util.*; 
+
 
 
 public class Menu {
@@ -15,6 +15,7 @@ public class Menu {
     MenuButton startButton;
     Image menuBackground;
     double imageScaleFactor;
+    Map<String, Point> buttonLocations;
 
 
     public Menu(CanvasWindow canvas){
@@ -23,42 +24,41 @@ public class Menu {
     }
 
     private void setupMenu(){
-        createBackground();
-        createStartButton();
-        createTrackButtons();
-        createRacerButtons();
-        createTireButtons();
-        createTrackButtons();
-        createEngineButtons();
+        setupBackground();
+        setupButtonLocations();
+        setupStartButton();
+        setupTrackButtons();
+        setupRacerButtons();
+        setupTireButtons();
+        setupTrackButtons();
+        setupEngineButtons();
     }
 
     private void setImageScaleFactor(){
         imageScaleFactor = canvas.getWidth()/menuBackground.getImageWidth();
-        System.out.println("scaleFactor:" + imageScaleFactor);
+        System.out.println("scaleFactor:" + imageScaleFactor);  
     }
 
-    private void createBackground(){
-        menuBackground = new Image("images/MenuImages/StaticMenu1.png");
-        System.out.println(menuBackground.getHeight() + "    " + menuBackground.getWidth());
-
-        setImageScaleFactor();
-
-        menuBackground.setMaxWidth(imageScaleFactor * menuBackground.getWidth());
-        System.out.println(menuBackground.getHeight() + "    " + menuBackground.getWidth());
-
-        menuBackground.setPosition(0, 0);
-        canvas.add(menuBackground);
+    private void setupButtonLocations(){
         
     }
 
-    private void createStartButton(){ 
+    private void setupBackground(){
+        menuBackground = new Image("images/MenuImages/StaticMenu1.png");
+        setImageScaleFactor();
+        menuBackground.setMaxWidth(imageScaleFactor * menuBackground.getWidth());
+        menuBackground.setPosition(0, 0);
+        canvas.add(menuBackground);
+    }
+
+    private void setupStartButton(){ 
         Button startButton = new Button("Start");
         startButton.setPosition(canvas.getWidth()*6/7, canvas.getHeight()*5/7);
         startButton.setScale(3);
         canvas.add(startButton);
     }
 
-    private void createTrackButtons(){ 
+    private void setupTrackButtons(){ 
         TrackButton track1Button = new TrackButton(
             new Track(new Image("images/TrackBaseImages/suzuka.jpg"), 0, 0, 0), 
             "images/MenuImages/Suzuka1.jpg", 
@@ -85,9 +85,9 @@ public class Menu {
         trackButtons.add(track3Button);
     }
 
-    private void createRacerButtons(){
+    private void setupRacerButtons(){
         RacerButton racer1Button = new RacerButton(
-            new Racer(0, 0), 
+            new Racer(new Image("images/driver-body1.png"), 0, 0), 
             "images/MenuImages/Suzuka1.jpg", 
             "images/MenuImages/Suzuka2.jpg", 
             0, 
@@ -104,7 +104,7 @@ public class Menu {
         canvas.add(racer3Button);
     }
 
-    private void createTireButtons(){ 
+    private void setupTireButtons(){ 
         Button softButton = new Button("Soft");
         softButton.setPosition(canvas.getWidth()*5/11, canvas.getHeight()*2/5);
         canvas.add(softButton);
@@ -118,7 +118,7 @@ public class Menu {
         canvas.add(hardButton);
     }
 
-    private void createEngineButtons(){ 
+    private void setupEngineButtons(){ 
         Button engine1Button = new Button("Engine 1");
         engine1Button.setPosition(canvas.getWidth()*7/11, canvas.getHeight()*2/5);
         canvas.add(engine1Button);
