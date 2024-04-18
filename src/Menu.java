@@ -1,5 +1,5 @@
 import edu.macalester.graphics.*;
-import edu.macalester.graphics.ui.Button;
+import java.io.File;
 
 import java.util.*; 
 
@@ -11,11 +11,14 @@ public class Menu {
     Racer selectedRacer;
     Tyre selectedTires;
     Engine selectedEngine;
-    ArrayList<MenuButton> trackButtons, racerButtons, tireButtons, engineButtons;
+    ArrayList<MenuButton> trackButtons = new ArrayList<MenuButton>(); 
+    ArrayList<MenuButton> racerButtons = new ArrayList<MenuButton>(); 
+    ArrayList<MenuButton> tireButtons = new ArrayList<MenuButton>(); 
+    ArrayList<MenuButton> engineButtons = new ArrayList<MenuButton>();
     MenuButton startButton;
     Image menuBackground;
     double imageScaleFactor;
-    Map<String, Integer> buttonLocations;
+    Map<String, Double> buttonLocations = new HashMap<String, Double>();;
     Point startButtonLocation;
 
 
@@ -33,6 +36,7 @@ public class Menu {
         setupTireButtons();
         setupTrackButtons();
         setupEngineButtons();
+        System.out.println("end of setup menu");
     }
 
     private void setImageScaleFactor(){
@@ -40,16 +44,17 @@ public class Menu {
     }
 
     private void setupButtonLocations(){
-        buttonLocations.put("column1", canvas.getWidth() * (2/320));
-        buttonLocations.put("column2", canvas.getWidth() * (62/320));
-        buttonLocations.put("column3", canvas.getWidth() * (122/320));
-        buttonLocations.put("column4", canvas.getWidth() * (182/320));
-        buttonLocations.put("row1", canvas.getHeight() * (2/180));
-        buttonLocations.put("row2", canvas.getHeight() * (97/180));
-        buttonLocations.put("row3", canvas.getHeight() * (135/180));
+        buttonLocations.put("column1", canvas.getWidth() * (2.0/320.0));
+        buttonLocations.put("column2", canvas.getWidth() * (62.0/320.0));
+        buttonLocations.put("column3", canvas.getWidth() * (122.0/320.0));
+        buttonLocations.put("column4", canvas.getWidth() * (182.0/320.0));
+        buttonLocations.put("row1", canvas.getHeight() * (59.0/180.0));
+        buttonLocations.put("row2", canvas.getHeight() * (97.0/180.0));
+        buttonLocations.put("row3", canvas.getHeight() * (135.0/180.0));
+        System.out.println("column3: " + buttonLocations.get("column3"));
         startButtonLocation = new Point(
-            canvas.getWidth() * (244/320), 
-            canvas.getHeight() * (109/180)
+            canvas.getWidth() * (244.0/320.0), 
+            canvas.getHeight() * (109.0/180.0)
             );
     }
 
@@ -62,35 +67,38 @@ public class Menu {
     }
 
     private void setupStartButton(){ 
-        Button startButton = new Button("Start");
-        startButton.setPosition(canvas.getWidth()*6/7, canvas.getHeight()*5/7);
-        startButton.setScale(3);
-        canvas.add(startButton);
+        new StartButton("images/MenuImages/StartButton.png", imageScaleFactor, startButtonLocation, canvas);
     }
 
     private void setupTrackButtons(){ 
         TrackButton track1Button = new TrackButton(
             new Track(new Image("images/TrackBaseImages/suzuka.jpg"), 0, 0, 0), 
-            "images/MenuImages/Suzuka1.jpg", 
-            "images/MenuImages/Suzuka2.jpg", 
-            0, 
-            0, 
+            "images/MenuImages/Suzuka1.png", 
+            "images/MenuImages/Suzuka2.png",
+            imageScaleFactor,  
+            buttonLocations.get("column1"), 
+            buttonLocations.get("row1"),
+            this, 
             canvas);
         trackButtons.add(track1Button);
         TrackButton track2Button = new TrackButton(
             new Track(new Image("images/TrackBaseImages/watkins.jpg"), 0, 0, 0), 
-            "images/MenuImages/Watkins1.jpg", 
-            "images/MenuImages/Watkins2.jpg", 
-            0, 
-            0, 
+            "images/MenuImages/Watkins1.png", 
+            "images/MenuImages/Watkins2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column1"), 
+            buttonLocations.get("row2"),
+            this,
             canvas);
         trackButtons.add(track2Button);
         TrackButton track3Button = new TrackButton(
             new Track(new Image("images/TrackBaseImages/barcelona.jpg"), 0, 0, 0), 
-            "images/MenuImages/Barcelona1.jpg", 
-            "images/MenuImages/Barcelona2.jpg", 
-            0, 
-            0, 
+            "images/MenuImages/Barcelona1.png", 
+            "images/MenuImages/Barcelona2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column1"), 
+            buttonLocations.get("row3"), 
+            this,
             canvas);
         trackButtons.add(track3Button);
     }
@@ -98,68 +106,158 @@ public class Menu {
     private void setupRacerButtons(){
         RacerButton racer1Button = new RacerButton(
             new Racer(new Image("images/driver-body1.png"), 0, 0), 
-            "images/MenuImages/Suzuka1.jpg", 
-            "images/MenuImages/Suzuka2.jpg", 
-            0, 
-            0, 
+            "images/MenuImages/Max1.png", 
+            "images/MenuImages/Max2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column2"), 
+            buttonLocations.get("row1"), 
+            this,
             canvas);
         racerButtons.add(racer1Button);
 
-        Button racer2Button = new Button("Racer 2");
-        racer2Button.setPosition(canvas.getWidth()/4, canvas.getHeight()*3/5);
-        canvas.add(racer2Button);
+        RacerButton racer2Button = new RacerButton(
+            new Racer(new Image("images/driver-body2.png"), 0, 0), 
+            "images/MenuImages/Lewis1.png", 
+            "images/MenuImages/Lewis2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column2"), 
+            buttonLocations.get("row2"),  
+            this,
+            canvas);
+        racerButtons.add(racer2Button);
 
-        Button racer3Button = new Button("Racer 3");
-        racer3Button.setPosition(canvas.getWidth()/4, canvas.getHeight()*4/5);
-        canvas.add(racer3Button);
+        RacerButton racer3Button = new RacerButton(
+            new Racer(new Image("images/driver-body3.png"), 0, 0), 
+            "images/MenuImages/Yuki1.png", 
+            "images/MenuImages/Yuki2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column2"), 
+            buttonLocations.get("row3"),   
+            this,
+            canvas);
+        racerButtons.add(racer3Button);
     }
 
     private void setupTireButtons(){ 
-        Button softButton = new Button("Soft");
-        softButton.setPosition(canvas.getWidth()*5/11, canvas.getHeight()*2/5);
-        canvas.add(softButton);
+        TireButton tire1Button = new TireButton(
+            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 0, 0), 
+            "images/MenuImages/Soft1.png", 
+            "images/MenuImages/Soft2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column3"), 
+            buttonLocations.get("row1"),   
+            this,
+            canvas);
+        tireButtons.add(tire1Button);
 
-        Button mediumButton = new Button("Medium");
-        mediumButton.setPosition(canvas.getWidth()*5/11, canvas.getHeight()*3/5);
-        canvas.add(mediumButton);
+        TireButton tire2Button = new TireButton(
+            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 0, 0), 
+            "images/MenuImages/Medium1.png", 
+            "images/MenuImages/Medium2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column3"), 
+            buttonLocations.get("row2"),   
+            this,
+            canvas);
+        tireButtons.add(tire2Button);
 
-        Button hardButton = new Button("Hard");
-        hardButton.setPosition(canvas.getWidth()*5/11, canvas.getHeight()*4/5);
-        canvas.add(hardButton);
+        TireButton tire3Button = new TireButton(
+            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 0, 0), 
+            "images/MenuImages/Hard1.png", 
+            "images/MenuImages/Hard2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column3"), 
+            buttonLocations.get("row3"),   
+            this,
+            canvas);
+        tireButtons.add(tire3Button);
     }
 
     private void setupEngineButtons(){ 
-        Button engine1Button = new Button("Engine 1");
-        engine1Button.setPosition(canvas.getWidth()*7/11, canvas.getHeight()*2/5);
-        canvas.add(engine1Button);
+        EngineButton engine1Button = new EngineButton(
+            new Engine(0, 0, 0), 
+            "images/MenuImages/VSies1.png", 
+            "images/MenuImages/VSies2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column4"), 
+            buttonLocations.get("row1"),   
+            this,
+            canvas);
+        engineButtons.add(engine1Button);
 
-        Button engine2Button = new Button("Engine 2");
-        engine2Button.setPosition(canvas.getWidth()*7/11, canvas.getHeight()*3/5);
-        canvas.add(engine2Button);
+        EngineButton engine2Button = new EngineButton(
+            new Engine(0, 0, 0), 
+            "images/MenuImages/VTen1.png", 
+            "images/MenuImages/VTen2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column4"), 
+            buttonLocations.get("row2"),   
+            this,
+            canvas);
+        engineButtons.add(engine2Button);
 
-        Button engine3Button = new Button("Engine 3");
-        engine3Button.setPosition(canvas.getWidth()*7/11, canvas.getHeight()*4/5);
-        canvas.add(engine3Button);
+        EngineButton engine3Button = new EngineButton(
+            new Engine(0, 0, 0), 
+            "images/MenuImages/VTwelve1.png", 
+            "images/MenuImages/VTwelve2.png", 
+            imageScaleFactor,  
+            buttonLocations.get("column4"), 
+            buttonLocations.get("row3"),   
+            this,
+            canvas);
+        engineButtons.add(engine3Button);
     }
 
     public Track getSelectedTrack() {
         return selectedTrack;
     }
 
+    public void setSelectedTrack(Track selectedTrack) {
+        this.selectedTrack = selectedTrack;
+    }
+
     public Racer getSelectedRacer() {
         return selectedRacer;
+    }
+
+    public void setSelectedRacer(Racer selectedRacer) {
+        this.selectedRacer = selectedRacer;
     }
 
     public Tyre getSelectedTires() {
         return selectedTires;
     }
 
+    public void setSelectedTires(Tyre selectedTires) {
+        this.selectedTires = selectedTires;
+    }
+
     public Engine getSelectedEngine() {
         return selectedEngine;
     }
 
+    public void setSelectedEngine(Engine selectedEngine) {
+        this.selectedEngine = selectedEngine;
+    }
+    
+    public ArrayList<MenuButton> getTrackButtons() {
+        return trackButtons;
+    }
+
+    public ArrayList<MenuButton> getRacerButtons() {
+        return racerButtons;
+    }
+
+    public ArrayList<MenuButton> getTireButtons() {
+        return tireButtons;
+    }
+
+    public ArrayList<MenuButton> getEngineButtons() {
+        return engineButtons;
+    }
+
     public static void main(String[] args) {
-        CanvasWindow canvas = new CanvasWindow("MenuTester", 1600, 900);
-        Menu menu = new Menu(canvas);
+        CanvasWindow canvas = new CanvasWindow("MenuTester", 1280, 720);
+        new Menu(canvas);
     }
 }
