@@ -25,10 +25,9 @@ public class mechanicsTesting {
         final double carPositionY = canvas.getHeight()/3;
 
         car = new Car(
-            new Image("images/driver-body1.png"),
             new Engine(200, 240, 30),
             new Tyre(new File("res/images/WheelImages/tireSoft"), carPositionX, carPositionY, .2, carAngle, 50, 10),
-            new Racer(20, 15),
+            new Racer(new Image("images/driver-body1.png"),20, 15),
             carPositionX, carPositionY,
             carAngle
         );

@@ -15,7 +15,6 @@ private double velocityX, velocityY;
 private final double passiveDeceleration = .3;
 
     public Car(
-        Image carModel,
         Engine engineType, 
         Tyre tyreType, 
         Racer racerType,
@@ -26,7 +25,7 @@ private final double passiveDeceleration = .3;
         engine = engineType;
         tyre = tyreType;
         racer = racerType;
-        this.carModel = carModel;
+        carModel = racer.getCar();
 
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
