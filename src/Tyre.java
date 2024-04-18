@@ -4,8 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Tyre{
-
-    private File imageFile = new File("WheelImages");
+    private File pathFile;
     private ArrayList<Image> wheels = new ArrayList<>();
     private Image wheel;
 
@@ -14,14 +13,23 @@ public class Tyre{
     
 
     public Tyre(
-        ArrayList<Image> wheelImages, 
+        File path, 
         double wheelX, double wheelY, 
         double friction, 
         double angle, 
         int grip, 
-        int durability
-    )
-    {
+        int durability){
+
+        pathFile = path;
+
+        File[] files = pathFile.listFiles();
+        for (int i = 0; i < files.length; i++){
+        if(files[i].isFile()){
+            wheels.add(loadImages(files[i]));
+        }
+        }
+        
+        wheel = wheels.get(0);
         wheel.setPosition(wheelX, wheelY);
         wheel.setRotation(angle);
         wheel.setScale(.5);
@@ -43,6 +51,12 @@ public class Tyre{
     public int getDurability(){
         return durability;
     }
+
+    private Image loadImages(File file){
+        Image image = new Image(file.toString());
+        return image;
+    }
+
 
 } 
 

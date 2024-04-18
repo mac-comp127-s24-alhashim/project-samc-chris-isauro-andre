@@ -1,3 +1,6 @@
+import java.io.File;
+
+
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.events.Key;
 
@@ -5,8 +8,7 @@ public class mechanicsTesting {
 
     private CanvasWindow canvas;
     private Car car;
-    private double carAngle; 
-
+    private double carAngle = 50.0;
 
     public static void main(String[] args) {
         mechanicsTesting game = new mechanicsTesting();
@@ -21,15 +23,18 @@ public class mechanicsTesting {
     public void gameStart(){
         final double carPositionX = canvas.getWidth()/3;
         final double carPositionY = canvas.getHeight()/3;
-        carAngle = 50;
 
-        car = new Car();
+        car = new Car(
+            new Image("images/driver-body1.png"),
+            new Engine(200, 240, 30),
+            new Tyre(new File("res/images/WheelImages/tireSoft"), carPositionX, carPositionY, .2, carAngle, 50, 10),
+            new Racer(20, 15),
+            carPositionX, carPositionY,
+            carAngle
+        );
     
-
         car.addtoCanvas(canvas);
         canvas.draw();
-
-        
 
         canvas.animate(() -> {
             if(canvas.getKeysPressed().contains(Key.D)){
