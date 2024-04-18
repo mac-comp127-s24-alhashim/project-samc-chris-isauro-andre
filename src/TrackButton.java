@@ -6,6 +6,7 @@ public class TrackButton implements MenuButton {
     Track track;
     CanvasWindow canvas;
     Menu menu;
+    boolean selected;
 
 
     public TrackButton(Track track, String restingImage, String pressedImage, 
@@ -30,17 +31,25 @@ public class TrackButton implements MenuButton {
     public void pressed(){
         for (MenuButton button : menu.getTrackButtons()){
             if (button == this){
-                canvas.add(this.pressedImage);
-                menu.setSelectedTrack(this.track);
+                selected = true;
+                canvas.add(pressedImage);
+                menu.setSelectedTrack(track);
             }
-            if (button != this){
-                button.deselected();
+            else{
+                if (button.getSelected() == true){
+                    button.deselected();
+                }
             }
         }
         
     }
 
     public void deselected(){
-        canvas.remove(this.pressedImage);
+        canvas.remove(pressedImage);
+        selected = false;
+    }
+
+    public boolean getSelected(){
+        return selected;
     }
 }

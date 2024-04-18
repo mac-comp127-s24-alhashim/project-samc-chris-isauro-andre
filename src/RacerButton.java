@@ -6,8 +6,7 @@ public class RacerButton implements MenuButton {
     Racer racer;
     CanvasWindow canvas;
     Menu menu;
-
-
+    boolean selected;
 
     public RacerButton(Racer racer, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, Menu menu, CanvasWindow canvas){
@@ -31,17 +30,26 @@ public class RacerButton implements MenuButton {
     public void pressed(){
         for (MenuButton button : menu.getRacerButtons()){
             if (button == this){
+                selected = true;
                 canvas.add(this.pressedImage);
                 menu.setSelectedRacer(racer);
             }
             else{
-                button.deselected();
+                if (button.getSelected() == true){
+                    button.deselected();
+                }
             }
         }
         
     }
     
     public void deselected(){
-        canvas.remove(this.pressedImage);
+        canvas.remove(pressedImage);
+        selected = false;
+    
+    }
+
+    public boolean getSelected(){
+        return selected;
     }
 }

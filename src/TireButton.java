@@ -7,7 +7,7 @@ public class TireButton implements MenuButton {
     Tyre tyre;
     CanvasWindow canvas;
     Menu menu;
-
+    boolean selected;
 
     public TireButton(Tyre tyre, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, Menu menu, CanvasWindow canvas){
@@ -33,17 +33,25 @@ public class TireButton implements MenuButton {
     public void pressed(){
         for (MenuButton button : menu.getTireButtons()){
             if (button == this){
+                selected = true;
                 canvas.add(this.pressedImage);
                 menu.setSelectedTires(this.tyre);
             }
             else{
-                button.deselected();
+                if (button.getSelected() == true){
+                    button.deselected();
+                }
             }
         }
         
     }
 
     public void deselected(){
-        canvas.remove(this.pressedImage);
+        canvas.remove(pressedImage);
+        selected = false;
+    }
+
+    public boolean getSelected(){
+        return selected;
     }
 }

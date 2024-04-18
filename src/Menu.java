@@ -36,7 +36,7 @@ public class Menu {
         setupTireButtons();
         setupTrackButtons();
         setupEngineButtons();
-        System.out.println("end of setup menu");
+        setupDefaultSelected();
     }
 
     private void setImageScaleFactor(){
@@ -72,7 +72,7 @@ public class Menu {
 
     private void setupTrackButtons(){ 
         TrackButton track1Button = new TrackButton(
-            new Track(new Image("images/TrackBaseImages/suzuka.jpg"), 0, 0, 0), 
+            new Track(new Image("images/TrackBaseImages/suzuka.jpg"), 5, 2, 6), 
             "images/MenuImages/Suzuka1.png", 
             "images/MenuImages/Suzuka2.png",
             imageScaleFactor,  
@@ -82,7 +82,7 @@ public class Menu {
             canvas);
         trackButtons.add(track1Button);
         TrackButton track2Button = new TrackButton(
-            new Track(new Image("images/TrackBaseImages/watkins.jpg"), 0, 0, 0), 
+            new Track(new Image("images/TrackBaseImages/watkins.jpg"), 30, 30, 10), 
             "images/MenuImages/Watkins1.png", 
             "images/MenuImages/Watkins2.png", 
             imageScaleFactor,  
@@ -92,7 +92,7 @@ public class Menu {
             canvas);
         trackButtons.add(track2Button);
         TrackButton track3Button = new TrackButton(
-            new Track(new Image("images/TrackBaseImages/barcelona.jpg"), 0, 0, 0), 
+            new Track(new Image("images/TrackBaseImages/barcelona.jpg"), 70, 60, 20), 
             "images/MenuImages/Barcelona1.png", 
             "images/MenuImages/Barcelona2.png", 
             imageScaleFactor,  
@@ -105,7 +105,7 @@ public class Menu {
 
     private void setupRacerButtons(){
         RacerButton racer1Button = new RacerButton(
-            new Racer(new Image("images/driver-body1.png"), 0, 0), 
+            new Racer(new Image("images/driver-body1.png"), 3, 6), 
             "images/MenuImages/Max1.png", 
             "images/MenuImages/Max2.png", 
             imageScaleFactor,  
@@ -116,7 +116,7 @@ public class Menu {
         racerButtons.add(racer1Button);
 
         RacerButton racer2Button = new RacerButton(
-            new Racer(new Image("images/driver-body2.png"), 0, 0), 
+            new Racer(new Image("images/driver-body2.png"), 2, 0), 
             "images/MenuImages/Lewis1.png", 
             "images/MenuImages/Lewis2.png", 
             imageScaleFactor,  
@@ -127,7 +127,7 @@ public class Menu {
         racerButtons.add(racer2Button);
 
         RacerButton racer3Button = new RacerButton(
-            new Racer(new Image("images/driver-body3.png"), 0, 0), 
+            new Racer(new Image("images/driver-body3.png"), 4, 24), 
             "images/MenuImages/Yuki1.png", 
             "images/MenuImages/Yuki2.png", 
             imageScaleFactor,  
@@ -140,7 +140,7 @@ public class Menu {
 
     private void setupTireButtons(){ 
         TireButton tire1Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 0, 0), 
+            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 34, 4), 
             "images/MenuImages/Soft1.png", 
             "images/MenuImages/Soft2.png", 
             imageScaleFactor,  
@@ -151,7 +151,7 @@ public class Menu {
         tireButtons.add(tire1Button);
 
         TireButton tire2Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 0, 0), 
+            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 4, 87), 
             "images/MenuImages/Medium1.png", 
             "images/MenuImages/Medium2.png", 
             imageScaleFactor,  
@@ -162,7 +162,7 @@ public class Menu {
         tireButtons.add(tire2Button);
 
         TireButton tire3Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 0, 0), 
+            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 32, 5), 
             "images/MenuImages/Hard1.png", 
             "images/MenuImages/Hard2.png", 
             imageScaleFactor,  
@@ -175,7 +175,7 @@ public class Menu {
 
     private void setupEngineButtons(){ 
         EngineButton engine1Button = new EngineButton(
-            new Engine(0, 0, 0), 
+            new Engine(4, 0, 2), 
             "images/MenuImages/VSies1.png", 
             "images/MenuImages/VSies2.png", 
             imageScaleFactor,  
@@ -186,7 +186,7 @@ public class Menu {
         engineButtons.add(engine1Button);
 
         EngineButton engine2Button = new EngineButton(
-            new Engine(0, 0, 0), 
+            new Engine(3, 4, 1), 
             "images/MenuImages/VTen1.png", 
             "images/MenuImages/VTen2.png", 
             imageScaleFactor,  
@@ -197,7 +197,7 @@ public class Menu {
         engineButtons.add(engine2Button);
 
         EngineButton engine3Button = new EngineButton(
-            new Engine(0, 0, 0), 
+            new Engine(4, 5, 5), 
             "images/MenuImages/VTwelve1.png", 
             "images/MenuImages/VTwelve2.png", 
             imageScaleFactor,  
@@ -206,6 +206,13 @@ public class Menu {
             this,
             canvas);
         engineButtons.add(engine3Button);
+    }
+
+    private void setupDefaultSelected(){
+        trackButtons.get(0).pressed();
+        racerButtons.get(0).pressed();
+        tireButtons.get(0).pressed();
+        engineButtons.get(0).pressed();
     }
 
     public Track getSelectedTrack() {

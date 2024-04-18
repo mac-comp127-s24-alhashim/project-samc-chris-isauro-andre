@@ -6,6 +6,7 @@ public class EngineButton implements MenuButton {
     Engine engine;
     CanvasWindow canvas;
     Menu menu;
+    boolean selected;
 
     public EngineButton(Engine engine, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, Menu menu, CanvasWindow canvas){
@@ -29,17 +30,25 @@ public class EngineButton implements MenuButton {
     public void pressed(){
         for (MenuButton button : menu.getEngineButtons()){
             if (button == this){
+                selected = true;
                 canvas.add(this.pressedImage);
                 menu.setSelectedEngine(this.engine);
             }
             else{
-                button.deselected();
+                if (button.getSelected() == true){
+                    button.deselected();
+                }
             }
         }
         
     }
 
     public void deselected(){
-        canvas.remove(this.pressedImage);
+        canvas.remove(pressedImage);
+        selected = false;
+    }
+
+    public boolean getSelected(){
+        return selected;
     }
 }
