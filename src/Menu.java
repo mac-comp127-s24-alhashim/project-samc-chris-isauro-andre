@@ -15,7 +15,8 @@ public class Menu {
     MenuButton startButton;
     Image menuBackground;
     double imageScaleFactor;
-    Map<String, Point> buttonLocations;
+    Map<String, Integer> buttonLocations;
+    Point startButtonLocation;
 
 
     public Menu(CanvasWindow canvas){
@@ -24,8 +25,8 @@ public class Menu {
     }
 
     private void setupMenu(){
-        setupBackground();
         setupButtonLocations();
+        setupBackground();
         setupStartButton();
         setupTrackButtons();
         setupRacerButtons();
@@ -36,11 +37,20 @@ public class Menu {
 
     private void setImageScaleFactor(){
         imageScaleFactor = canvas.getWidth()/menuBackground.getImageWidth();
-        System.out.println("scaleFactor:" + imageScaleFactor);  
     }
 
     private void setupButtonLocations(){
-        
+        buttonLocations.put("column1", canvas.getWidth() * (2/320));
+        buttonLocations.put("column2", canvas.getWidth() * (62/320));
+        buttonLocations.put("column3", canvas.getWidth() * (122/320));
+        buttonLocations.put("column4", canvas.getWidth() * (182/320));
+        buttonLocations.put("row1", canvas.getHeight() * (2/180));
+        buttonLocations.put("row2", canvas.getHeight() * (97/180));
+        buttonLocations.put("row3", canvas.getHeight() * (135/180));
+        startButtonLocation = new Point(
+            canvas.getWidth() * (244/320), 
+            canvas.getHeight() * (109/180)
+            );
     }
 
     private void setupBackground(){
@@ -132,11 +142,6 @@ public class Menu {
         canvas.add(engine3Button);
     }
 
-    public static void main(String[] args) {
-        CanvasWindow canvas = new CanvasWindow("MenuTester", 1600, 900);
-        Menu menu = new Menu(canvas);
-    }
-
     public Track getSelectedTrack() {
         return selectedTrack;
     }
@@ -151,5 +156,10 @@ public class Menu {
 
     public Engine getSelectedEngine() {
         return selectedEngine;
+    }
+
+    public static void main(String[] args) {
+        CanvasWindow canvas = new CanvasWindow("MenuTester", 1600, 900);
+        Menu menu = new Menu(canvas);
     }
 }

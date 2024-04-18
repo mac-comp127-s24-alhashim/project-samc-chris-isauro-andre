@@ -12,7 +12,9 @@ public class TireButton implements MenuButton {
         this.tyre = tyre;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
-        canvas.add(this.restingImage, x, y);
+        this.restingImage.setPosition(x, y);
+        this.pressedImage.setPosition(x, y);
+        canvas.add(this.restingImage);
         canvas.onClick(event -> {
             if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
             this.pressed();
