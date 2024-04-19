@@ -10,18 +10,14 @@ public class Menu {
     Track selectedTrack;
     Racer selectedRacer;
     Tire selectedTires;
-    Engine selectedEngine;
-    ArrayList<MenuButton> trackButtons = new ArrayList<MenuButton>(); 
-    ArrayList<MenuButton> racerButtons = new ArrayList<MenuButton>(); 
-    ArrayList<MenuButton> tireButtons = new ArrayList<MenuButton>(); 
-    ArrayList<MenuButton> engineButtons = new ArrayList<MenuButton>(); 
-    Image previewRacerCar;
-    Image previewRacerTires;
+    Engine selectedEngine;  
+    Image previewRacerCar, previewRacerTires, menuBackground;
     MenuButton startButton;
-    Image menuBackground;
     double imageScaleFactor;
     Map<String, Double> buttonLocations = new HashMap<String, Double>();;
     Point startButtonLocation;
+    ArrayList<MenuButton> tireButtons = new ArrayList<MenuButton>(), engineButtons = new ArrayList<MenuButton>(),
+    trackButtons = new ArrayList<MenuButton>(), racerButtons = new ArrayList<MenuButton>();
 
 
     public Menu(CanvasWindow canvas){

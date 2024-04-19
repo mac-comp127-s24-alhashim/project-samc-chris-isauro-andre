@@ -8,9 +8,7 @@ private Racer racer;
 private Image carModel;
 
 private int topSpeed;
-private double currentSpeed;
-private double currentAngle;
-private double velocityX, velocityY;
+private double currentSpeed, currentAngle, velocityX, velocityY;
 
 private final double passiveDeceleration = .3;
 
