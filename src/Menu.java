@@ -16,7 +16,6 @@ public class Menu {
     MenuButtonManager buttonManager;
 
 
-
     public Menu(CanvasWindow canvas){
         buttonManager = new MenuButtonManager(this, canvas);
         this.canvas = canvas;

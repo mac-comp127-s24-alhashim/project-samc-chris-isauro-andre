@@ -2,10 +2,8 @@ import edu.macalester.graphics.*;
 
 public class Track {
     Image map;
-    double height, width;
-    int startingX;
-    int startingY;
-    double startingAngle;
+    double height, width, startingAngle;
+    int startingX, startingY;
     
     public Track (Image map, int startingX, int startingY, double startingAngle){
         this.map = map;
