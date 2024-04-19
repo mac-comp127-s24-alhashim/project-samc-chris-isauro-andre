@@ -1,6 +1,7 @@
 import edu.macalester.graphics.*;
 // import java.io.File;
 
+import java.io.File;
 import java.util.*; 
 
 
@@ -140,8 +141,8 @@ public class Menu {
 
     private void setupTireButtons(){ 
         TireButton tire1Button = new TireButton(
-            new Tire("images/WheelImages/tireSoft/tireSoft1.png", 
-                0.0, 0.0, 0.0, 0.0, 34, 4), 
+            new Tire(new File("res/images/WheelImages/tireSoft/tireSoft"), 
+                0.0, 0.0, 0.0, 0.0, 0.0, 34, 4), 
             "images/MenuImages/Soft1.png", 
             "images/MenuImages/Soft2.png", 
             imageScaleFactor,  
@@ -152,8 +153,8 @@ public class Menu {
         tireButtons.add(tire1Button);
 
         TireButton tire2Button = new TireButton(
-            new Tire("images/WheelImages/tireMedium/tireMedium1.png",
-                0.0, 0.0, 0.0, 0.0, 4, 87), 
+            new Tire(new File("res/images/WheelImages/tireSoft/tireMedium"), 
+                0.0, 0.0, 0.0, 0.0, 0.0, 4, 87), 
             "images/MenuImages/Medium1.png", 
             "images/MenuImages/Medium2.png", 
             imageScaleFactor,  
@@ -164,8 +165,8 @@ public class Menu {
         tireButtons.add(tire2Button);
 
         TireButton tire3Button = new TireButton(
-            new Tire("images/WheelImages/tireHard/tireHard1.png", 
-                0.0, 0.0, 0.0, 0.0, 32, 5), 
+            new Tire(new File("res/images/WheelImages/tireSoft/tireHard"), 
+                0.0, 0.0, 0.0, 0.0, 0.0, 32, 5), 
             "images/MenuImages/Hard1.png", 
             "images/MenuImages/Hard2.png", 
             imageScaleFactor,  

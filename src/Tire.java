@@ -1,11 +1,11 @@
 import edu.macalester.graphics.*;
 
-// import java.io.File;
-// import java.util.ArrayList;
+import java.io.File;
+import java.util.ArrayList;
 
 public class Tire{
-    // private File pathFile;
-    // private ArrayList<Image> wheels = new ArrayList<>();
+    private File pathFile;
+    private ArrayList<Image> wheels = new ArrayList<>();
     private String wheelPreviewImagePath;
     private Image wheel;
     private double friction;
@@ -13,30 +13,31 @@ public class Tire{
     
 
     public Tire(
-        // File path, 
-        String wheelPreviewImagePath,
+        File path, 
+        // String wheelPreviewImagePath,
         double wheelX, double wheelY, 
         double friction, 
-        double angle, 
+        double angle,
+        double scale, 
         int grip, 
         int durability){
 
-        this.wheel = new Image(wheelPreviewImagePath);
-        this.wheelPreviewImagePath = wheelPreviewImagePath;
+        // this.wheel = new Image(wheelPreviewImagePath);
+        // this.wheelPreviewImagePath = wheelPreviewImagePath;
 
-        // pathFile = path;
-
-        // File[] files = pathFile.listFiles();
-        // for (int i = 0; i < files.length; i++){
-        // if(files[i].isFile()){
-        //     wheels.add(loadImages(files[i]));
-        // }
-        // }
+        pathFile = path;
         
-        // wheel = wheels.get(0);
-        // wheel.setPosition(wheelX, wheelY);
-        // wheel.setRotation(angle);
-        // wheel.setScale(.5);
+        File[] files = pathFile.listFiles();
+        for (int i = 0; i < files.length; i++){
+            if(files[i].isFile()){
+                wheels.add(loadImages(files[i]));
+            }
+        }
+        
+        wheel = wheels.get(0);
+        wheel.setPosition(wheelX, wheelY);
+        wheel.setRotation(angle);
+        wheel.setScale(scale);
         
     }
 
@@ -60,10 +61,13 @@ public class Tire{
         return wheel;
     }
 
-    // private Image loadImages(File file){
-    //     Image image = new Image(file.toString());
-    //     return image;
-    // }
+    public static Image loadImages(File file){
+        String imagePath = file.getPath();
+        imagePath = imagePath.substring(4, imagePath.length());
+        Image image = new Image(imagePath);
+        return image;
+    }
 
-} 
+}
+ 
 

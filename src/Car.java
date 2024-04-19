@@ -18,12 +18,13 @@ private final double passiveDeceleration = .3;
         Racer racerType,
         double centerX,
         double centerY,
-        double angle){
+        double angle,
+        double scale){
 
         engine = engineType;
         tyre = tyreType;
         racer = racerType;
-        carModel = racer.getRacerCar();
+        carModel = racer.getRacerCarPreview();
 
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
