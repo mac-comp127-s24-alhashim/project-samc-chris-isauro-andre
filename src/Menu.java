@@ -41,6 +41,8 @@ public class Menu {
         setupTrackButtons();
         setupEngineButtons();
         setupDefaultSelected();
+        setPreviewCar();
+        setPreviewTire();
     }
 
     private void setImageScaleFactor(){
@@ -228,22 +230,19 @@ public class Menu {
     }
 
     public void setPreviewTire(){
-        previewCar.removeAll();
-        previewRacerCar = selectedRacer.getRacerCar();
         previewRacerTires = selectedTires.getWheel();
-        previewCar.add(previewRacerCar);
-        previewCar.add(previewRacerTires);
-        positionPreviewImage(previewRacerCar);
         positionPreviewImage(previewRacerTires);
     }
 
     private void positionPreviewImage(Image image){
-        image.setMaxWidth(image.getImageWidth() * imageScaleFactor);
+        image.setMaxWidth(image.getWidth() * imageScaleFactor);
         image.rotateBy(90);
         image.setPosition(
-            canvas.getWidth() * (256/320), 
-            canvas.getHeight() * (72/180) 
+            canvas.getWidth() * (256.0/320.0), 
+            canvas.getHeight() * (72.0/180.0) 
+            // - (image.getHeight() - image.getWidth())
             );
+        canvas.add(image);
     }
 
     public Track getSelectedTrack() {

@@ -33,9 +33,9 @@ public class Tire{
         // }
         
         // wheel = wheels.get(0);
-        wheel.setPosition(wheelX, wheelY);
-        wheel.setRotation(angle);
-        wheel.setScale(.5);
+        // wheel.setPosition(wheelX, wheelY);
+        // wheel.setRotation(angle);
+        // wheel.setScale(.5);
         
     }
 

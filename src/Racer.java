@@ -1,23 +1,17 @@
 import edu.macalester.graphics.Image;
 
 public class Racer {
-    String racerCarPath;
-    Image racerCar;
+    Image racerCarImage;
     int weight, brakepower;
     
-    public Racer(String racerCarPath, int weight, int brakepower){
-        this.racerCarPath = racerCarPath;
-        racerCar = new Image(racerCarPath);
+    public Racer(Image racerCar, int weight, int brakepower){
+        this.racerCarImage = racerCar;
         this.weight = weight; 
         this.brakepower = brakepower;
     }
 
     public Image getRacerCar(){
-        return racerCar;
-    }
-
-    public String getRacerCarPath() {
-        return racerCarPath;
+        return racerCarImage;
     }
 
     public int getWeight(){
