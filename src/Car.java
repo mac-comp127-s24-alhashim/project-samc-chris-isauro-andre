@@ -29,7 +29,7 @@ private final double passiveDeceleration = .3;
 
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
-        tyre.getWheelModel().setPosition(centerX, centerY);
+        tyre.getWheel().setPosition(centerX, centerY);
         carModel.setScale(.5);
         
         currentAngle = angle;
@@ -49,7 +49,7 @@ private final double passiveDeceleration = .3;
     // puts the car physically in the canvas
     public void addtoCanvas(CanvasWindow canvas){
         canvas.add(carModel);
-        canvas.add(tyre.getWheelModel());
+        canvas.add(tyre.getWheel());
     }
 
     //rotates car
@@ -58,7 +58,7 @@ private final double passiveDeceleration = .3;
         currentAngle = currentAngle + turningValue;
 
         carModel.rotateBy(currentAngle);
-        tyre.getWheelModel().rotateBy(currentAngle);
+        tyre.getWheel().rotateBy(currentAngle);
     }
 
     //speeds up car

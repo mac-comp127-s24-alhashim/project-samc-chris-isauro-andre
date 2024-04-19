@@ -36,6 +36,7 @@ public class TireButton implements MenuButton {
                 selected = true;
                 canvas.add(this.pressedImage);
                 menu.setSelectedTires(this.tyre);
+                menu.setPreviewTire();
             }
             else{
                 if (button.getSelected() == true){

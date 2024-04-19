@@ -33,6 +33,7 @@ public class RacerButton implements MenuButton {
                 selected = true;
                 canvas.add(this.pressedImage);
                 menu.setSelectedRacer(racer);
+                menu.setPreviewCar();
             }
             else{
                 if (button.getSelected() == true){

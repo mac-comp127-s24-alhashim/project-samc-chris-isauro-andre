@@ -15,8 +15,6 @@ public class Menu {
     ArrayList<MenuButton> racerButtons = new ArrayList<MenuButton>(); 
     ArrayList<MenuButton> tireButtons = new ArrayList<MenuButton>(); 
     ArrayList<MenuButton> engineButtons = new ArrayList<MenuButton>();
-    String previewRacerCarPath;
-    String previewRacerTiresPath;
     Image previewRacerCar;
     Image previewRacerTires;
     MenuButton startButton;
@@ -111,7 +109,7 @@ public class Menu {
 
     private void setupRacerButtons(){
         RacerButton racer1Button = new RacerButton(
-            new Racer(new Image("images/driver-body1.png"), 3, 6), 
+            new Racer("images/driver-body2.png", 3, 6), 
             "images/MenuImages/Max1.png", 
             "images/MenuImages/Max2.png", 
             imageScaleFactor,  
@@ -122,7 +120,7 @@ public class Menu {
         racerButtons.add(racer1Button);
 
         RacerButton racer2Button = new RacerButton(
-            new Racer(new Image("images/driver-body2.png"), 2, 0), 
+            new Racer("images/driver-body1.png", 2, 0), 
             "images/MenuImages/Lewis1.png", 
             "images/MenuImages/Lewis2.png", 
             imageScaleFactor,  
@@ -133,7 +131,7 @@ public class Menu {
         racerButtons.add(racer2Button);
 
         RacerButton racer3Button = new RacerButton(
-            new Racer(new Image("images/driver-body3.png"), 4, 24), 
+            new Racer("images/driver-body3.png", 4, 24), 
             "images/MenuImages/Yuki1.png", 
             "images/MenuImages/Yuki2.png", 
             imageScaleFactor,  
@@ -146,7 +144,7 @@ public class Menu {
 
     private void setupTireButtons(){ 
         TireButton tire1Button = new TireButton(
-            new Tire(new Image("images/WheelImages/tireSoft/tireSoft1.png"), 
+            new Tire("images/WheelImages/tireSoft/tireSoft1.png", 
                 0.0, 0.0, 0.0, 0.0, 34, 4), 
             "images/MenuImages/Soft1.png", 
             "images/MenuImages/Soft2.png", 
@@ -158,7 +156,7 @@ public class Menu {
         tireButtons.add(tire1Button);
 
         TireButton tire2Button = new TireButton(
-            new Tire(new Image("images/WheelImages/tireMedium/tireMedium1.png"),
+            new Tire("images/WheelImages/tireMedium/tireMedium1.png",
                 0.0, 0.0, 0.0, 0.0, 4, 87), 
             "images/MenuImages/Medium1.png", 
             "images/MenuImages/Medium2.png", 
@@ -170,7 +168,7 @@ public class Menu {
         tireButtons.add(tire2Button);
 
         TireButton tire3Button = new TireButton(
-            new Tire(new Image("images/WheelImages/tireHard/tireHard1.png"), 
+            new Tire("images/WheelImages/tireHard/tireHard1.png", 
                 0.0, 0.0, 0.0, 0.0, 32, 5), 
             "images/MenuImages/Hard1.png", 
             "images/MenuImages/Hard2.png", 
@@ -225,23 +223,23 @@ public class Menu {
     }
 
     public void setPreviewCar(){
-        previewRacerCar = selectedRacer.getRacerCar();
+        previewRacerCar = selectedRacer.getRacerCarPreview();
         positionPreviewImage(previewRacerCar);
     }
 
     public void setPreviewTire(){
-        previewRacerTires = selectedTires.getWheel();
+        previewRacerTires = selectedTires.getWheelPreview();
         positionPreviewImage(previewRacerTires);
     }
 
     private void positionPreviewImage(Image image){
-        image.setMaxWidth(image.getWidth() * imageScaleFactor);
-        image.rotateBy(90);
+        image.setMaxWidth(image.getWidth() * imageScaleFactor * 1.2);
         image.setPosition(
-            canvas.getWidth() * (256.0/320.0), 
+            canvas.getWidth() * (269.0/320.0), 
             canvas.getHeight() * (72.0/180.0) 
-            // - (image.getHeight() - image.getWidth())
+            - (image.getHeight()/2 - image.getWidth()/2)
             );
+        image.rotateBy(90);
         canvas.add(image);
     }
 

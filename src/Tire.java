@@ -6,22 +6,23 @@ import edu.macalester.graphics.*;
 public class Tire{
     // private File pathFile;
     // private ArrayList<Image> wheels = new ArrayList<>();
+    private String wheelPreviewImagePath;
     private Image wheel;
-
     private double friction;
     private int grip, durability;    
     
 
     public Tire(
         // File path, 
-        Image wheel,
+        String wheelPreviewImagePath,
         double wheelX, double wheelY, 
         double friction, 
         double angle, 
         int grip, 
         int durability){
 
-        this.wheel = wheel;
+        this.wheel = new Image(wheelPreviewImagePath);
+        this.wheelPreviewImagePath = wheelPreviewImagePath;
 
         // pathFile = path;
 
@@ -39,8 +40,8 @@ public class Tire{
         
     }
 
-    public Image getWheelModel(){   
-        return wheel;
+    public Image getWheelPreview(){   
+        return new Image(wheelPreviewImagePath);
     }
 
     public double getFriction() {
