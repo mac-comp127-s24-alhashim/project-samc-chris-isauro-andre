@@ -1,35 +1,38 @@
 import edu.macalester.graphics.*;
 
-import java.io.File;
-import java.util.ArrayList;
+// import java.io.File;
+// import java.util.ArrayList;
 
-public class Tyre{
-    private File pathFile;
-    private ArrayList<Image> wheels = new ArrayList<>();
+public class Tire{
+    // private File pathFile;
+    // private ArrayList<Image> wheels = new ArrayList<>();
     private Image wheel;
 
     private double friction;
     private int grip, durability;    
     
 
-    public Tyre(
-        File path, 
+    public Tire(
+        // File path, 
+        Image wheel,
         double wheelX, double wheelY, 
         double friction, 
         double angle, 
         int grip, 
         int durability){
 
-        pathFile = path;
+        this.wheel = wheel;
 
-        File[] files = pathFile.listFiles();
-        for (int i = 0; i < files.length; i++){
-        if(files[i].isFile()){
-            wheels.add(loadImages(files[i]));
-        }
-        }
+        // pathFile = path;
+
+        // File[] files = pathFile.listFiles();
+        // for (int i = 0; i < files.length; i++){
+        // if(files[i].isFile()){
+        //     wheels.add(loadImages(files[i]));
+        // }
+        // }
         
-        wheel = wheels.get(0);
+        // wheel = wheels.get(0);
         wheel.setPosition(wheelX, wheelY);
         wheel.setRotation(angle);
         wheel.setScale(.5);
@@ -56,11 +59,10 @@ public class Tyre{
         return wheel;
     }
 
-    private Image loadImages(File file){
-        Image image = new Image(file.toString());
-        return image;
-    }
-
+    // private Image loadImages(File file){
+    //     Image image = new Image(file.toString());
+    //     return image;
+    // }
 
 } 
 

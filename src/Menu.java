@@ -1,5 +1,5 @@
 import edu.macalester.graphics.*;
-import java.io.File;
+// import java.io.File;
 
 import java.util.*; 
 
@@ -9,12 +9,16 @@ public class Menu {
     CanvasWindow canvas;
     Track selectedTrack;
     Racer selectedRacer;
-    Tyre selectedTires;
+    Tire selectedTires;
     Engine selectedEngine;
     ArrayList<MenuButton> trackButtons = new ArrayList<MenuButton>(); 
     ArrayList<MenuButton> racerButtons = new ArrayList<MenuButton>(); 
     ArrayList<MenuButton> tireButtons = new ArrayList<MenuButton>(); 
     ArrayList<MenuButton> engineButtons = new ArrayList<MenuButton>();
+    String previewRacerCarPath;
+    String previewRacerTiresPath;
+    Image previewRacerCar;
+    Image previewRacerTires;
     MenuButton startButton;
     Image menuBackground;
     double imageScaleFactor;
@@ -140,7 +144,8 @@ public class Menu {
 
     private void setupTireButtons(){ 
         TireButton tire1Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 34, 4), 
+            new Tire(new Image("images/WheelImages/tireSoft/tireSoft1.png"), 
+                0.0, 0.0, 0.0, 0.0, 34, 4), 
             "images/MenuImages/Soft1.png", 
             "images/MenuImages/Soft2.png", 
             imageScaleFactor,  
@@ -151,7 +156,8 @@ public class Menu {
         tireButtons.add(tire1Button);
 
         TireButton tire2Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireMedium"), 0.0, 0.0, 0.0, 0.0, 4, 87), 
+            new Tire(new Image("images/WheelImages/tireMedium/tireMedium1.png"),
+                0.0, 0.0, 0.0, 0.0, 4, 87), 
             "images/MenuImages/Medium1.png", 
             "images/MenuImages/Medium2.png", 
             imageScaleFactor,  
@@ -162,7 +168,8 @@ public class Menu {
         tireButtons.add(tire2Button);
 
         TireButton tire3Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireHard"), 0.0, 0.0, 0.0, 0.0, 32, 5), 
+            new Tire(new Image("images/WheelImages/tireHard/tireHard1.png"), 
+                0.0, 0.0, 0.0, 0.0, 32, 5), 
             "images/MenuImages/Hard1.png", 
             "images/MenuImages/Hard2.png", 
             imageScaleFactor,  
@@ -213,16 +220,30 @@ public class Menu {
         racerButtons.get(0).pressed();
         tireButtons.get(0).pressed();
         engineButtons.get(0).pressed();
-        setPreviewCar();
     }
 
     public void setPreviewCar(){
-        selectedRacer.getRacerCar();
-
+        previewRacerCar = selectedRacer.getRacerCar();
+        positionPreviewImage(previewRacerCar);
     }
 
     public void setPreviewTire(){
-        selectedRacer.getRacerCar();
+        previewCar.removeAll();
+        previewRacerCar = selectedRacer.getRacerCar();
+        previewRacerTires = selectedTires.getWheel();
+        previewCar.add(previewRacerCar);
+        previewCar.add(previewRacerTires);
+        positionPreviewImage(previewRacerCar);
+        positionPreviewImage(previewRacerTires);
+    }
+
+    private void positionPreviewImage(Image image){
+        image.setMaxWidth(image.getImageWidth() * imageScaleFactor);
+        image.rotateBy(90);
+        image.setPosition(
+            canvas.getWidth() * (256/320), 
+            canvas.getHeight() * (72/180) 
+            );
     }
 
     public Track getSelectedTrack() {
@@ -241,11 +262,11 @@ public class Menu {
         this.selectedRacer = selectedRacer;
     }
 
-    public Tyre getSelectedTires() {
+    public Tire getSelectedTires() {
         return selectedTires;
     }
 
-    public void setSelectedTires(Tyre selectedTires) {
+    public void setSelectedTires(Tire selectedTires) {
         this.selectedTires = selectedTires;
     }
 

@@ -24,13 +24,13 @@ public class mechanicsTesting {
         final double carPositionX = canvas.getWidth()/3;
         final double carPositionY = canvas.getHeight()/3;
 
-        car = new Car(
-            new Engine(200, 240, 30),
-            new Tyre(new File("res/images/WheelImages/tireSoft"), carPositionX, carPositionY, .2, carAngle, 50, 10),
-            new Racer(new Image("images/driver-body1.png"),20, 15),
-            carPositionX, carPositionY,
-            carAngle
-        );
+        // car = new Car(
+        //     new Engine(200, 240, 30),
+        //     // new Tyre(new File("res/images/WheelImages/tireSoft"), carPositionX, carPositionY, .2, carAngle, 50, 10),
+        //     new Racer(new Image("images/driver-body1.png"),20, 15),
+        //     carPositionX, carPositionY,
+        //     carAngle
+        // );
     
         car.addtoCanvas(canvas);
         canvas.draw();

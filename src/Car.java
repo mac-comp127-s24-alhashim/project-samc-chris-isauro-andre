@@ -3,7 +3,7 @@ import edu.macalester.graphics.*;
 public class Car{
 
 private Engine engine;
-private Tyre tyre;
+private Tire tyre;
 private Racer racer;
 private Image carModel;
 
@@ -16,7 +16,7 @@ private final double passiveDeceleration = .3;
 
     public Car(
         Engine engineType, 
-        Tyre tyreType, 
+        Tire tyreType, 
         Racer racerType,
         double centerX,
         double centerY,
