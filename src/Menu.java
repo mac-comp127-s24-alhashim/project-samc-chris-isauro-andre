@@ -151,7 +151,7 @@ public class Menu {
         tireButtons.add(tire1Button);
 
         TireButton tire2Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 4, 87), 
+            new Tyre(new File("res/images/WheelImages/tireMedium"), 0.0, 0.0, 0.0, 0.0, 4, 87), 
             "images/MenuImages/Medium1.png", 
             "images/MenuImages/Medium2.png", 
             imageScaleFactor,  
@@ -162,7 +162,7 @@ public class Menu {
         tireButtons.add(tire2Button);
 
         TireButton tire3Button = new TireButton(
-            new Tyre(new File("res/images/WheelImages/tireSoft"), 0.0, 0.0, 0.0, 0.0, 32, 5), 
+            new Tyre(new File("res/images/WheelImages/tireHard"), 0.0, 0.0, 0.0, 0.0, 32, 5), 
             "images/MenuImages/Hard1.png", 
             "images/MenuImages/Hard2.png", 
             imageScaleFactor,  
@@ -202,7 +202,7 @@ public class Menu {
             "images/MenuImages/VTwelve2.png", 
             imageScaleFactor,  
             buttonLocations.get("column4"), 
-            buttonLocations.get("row3"),   
+            buttonLocations.get("row3"), 
             this,
             canvas);
         engineButtons.add(engine3Button);
@@ -213,6 +213,16 @@ public class Menu {
         racerButtons.get(0).pressed();
         tireButtons.get(0).pressed();
         engineButtons.get(0).pressed();
+        setPreviewCar();
+    }
+
+    public void setPreviewCar(){
+        selectedRacer.getRacerCar();
+
+    }
+
+    public void setPreviewTire(){
+        selectedRacer.getRacerCar();
     }
 
     public Track getSelectedTrack() {

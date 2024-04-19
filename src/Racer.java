@@ -10,7 +10,7 @@ public class Racer {
         this.brakepower = brakepower;
     }
 
-    public Image getCar(){
+    public Image getRacerCar(){
         return racerCar;
     }
 

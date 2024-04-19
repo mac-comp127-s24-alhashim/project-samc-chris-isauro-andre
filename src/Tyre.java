@@ -52,6 +52,10 @@ public class Tyre{
         return durability;
     }
 
+    public Image getWheel() {
+        return wheel;
+    }
+
     private Image loadImages(File file){
         Image image = new Image(file.toString());
         return image;
