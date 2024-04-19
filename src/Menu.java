@@ -23,7 +23,7 @@ public class Menu {
     }
 
     private void setupMenu(){
-        buttonManager
+        buttonManager.setupMenuButtons();
         setupDefaultSelected();
         setPreviewCar();
         setPreviewTire();

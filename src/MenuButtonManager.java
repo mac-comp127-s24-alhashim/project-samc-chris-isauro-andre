@@ -17,10 +17,12 @@ public class MenuButtonManager {
 
 
     public MenuButtonManager(Menu menu, CanvasWindow canvas){
+        this.canvas = canvas;
+        this.menu = menu;
         setupMenuButtons();
     }
 
-    private void setupMenuButtons(){
+    public void setupMenuButtons(){
         setupButtonLocations();
         setupBackground();
         setupStartButton();
