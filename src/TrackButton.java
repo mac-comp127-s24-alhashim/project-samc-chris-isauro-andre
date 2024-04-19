@@ -5,12 +5,13 @@ public class TrackButton implements MenuButton {
     Image restingImage, pressedImage;
     Track track;
     CanvasWindow canvas;
+    MenuButtonManager buttonManager;
     Menu menu;
     boolean selected;
 
 
     public TrackButton(Track track, String restingImage, String pressedImage, 
-            double scalefactor, double x, double y, Menu menu, CanvasWindow canvas){
+            double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.track = track;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
@@ -20,6 +21,7 @@ public class TrackButton implements MenuButton {
         this.pressedImage.setPosition(x, y);
         this.canvas = canvas;
         canvas.add(this.restingImage);
+        this.buttonManager = buttonManager;
         this.menu = menu;
         canvas.onClick(event -> {
             if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
@@ -29,7 +31,7 @@ public class TrackButton implements MenuButton {
     }
 
     public void pressed(){
-        for (MenuButton button : menu.getTrackButtons()){
+        for (TrackButton button : buttonManager.getTrackButtons()){
             if (button == this){
                 selected = true;
                 canvas.add(pressedImage);

@@ -7,9 +7,10 @@ public class EngineButton implements MenuButton {
     CanvasWindow canvas;
     Menu menu;
     boolean selected;
+    MenuButtonManager buttonManager;
 
     public EngineButton(Engine engine, String restingImage, String pressedImage, 
-            double scalefactor, double x, double y, Menu menu, CanvasWindow canvas){
+            double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu,  CanvasWindow canvas){
         this.engine = engine;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
@@ -18,6 +19,7 @@ public class EngineButton implements MenuButton {
         this.restingImage.setPosition(x, y);
         this.pressedImage.setPosition(x, y);
         this.canvas = canvas;
+        this.buttonManager = buttonManager;
         canvas.add(this.restingImage);
         this.menu = menu;
         canvas.onClick(event -> {
@@ -28,7 +30,7 @@ public class EngineButton implements MenuButton {
     }
 
     public void pressed(){
-        for (MenuButton button : menu.getEngineButtons()){
+        for (EngineButton button : buttonManager.getEngineButtons()){
             if (button == this){
                 selected = true;
                 canvas.add(this.pressedImage);
