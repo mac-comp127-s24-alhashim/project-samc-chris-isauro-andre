@@ -24,7 +24,7 @@ private final double passiveDeceleration = .3;
         engine = engineType;
         tyre = tyreType;
         racer = racerType;
-        carModel = racer.getRacerCarPreview();
+        carModel = racer.getRacerCar();
 
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
@@ -53,11 +53,12 @@ private final double passiveDeceleration = .3;
 
     //rotates car
     public void turn(){
-        double turningValue = (tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine. getWeight()));
-        currentAngle = currentAngle + turningValue;
-
-        carModel.rotateBy(currentAngle);
-        tyre.getWheel().rotateBy(currentAngle);
+        if(currentSpeed > 0){
+            double turningValue = (tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine. getWeight()));
+            currentAngle = currentAngle + turningValue;
+            carModel.rotateBy(currentAngle);
+            tyre.getWheel().rotateBy(currentAngle);
+        }
     }
 
     //speeds up car

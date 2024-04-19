@@ -26,7 +26,10 @@ public class mechanicsTesting {
 
         car = new Car(
             new Engine(200, 240, 30),
-            new Tire(new File("res/images/WheelImages/tireSoft"), carPositionX, carPositionY, .2, carAngle, scale, 50, 10),
+            new Tire(new File("res/images/WheelImages/tireSoft"),
+            "images/WheelImages/tireSoft1.png", 
+                carPositionX, carPositionY, 
+                .2, carAngle, scale, 50, 10),
             new Racer("images/driver-body1.png", 20, 15),
             carPositionX, carPositionY,
             carAngle, scale

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Tire{
     private File pathFile;
     private ArrayList<Image> wheels = new ArrayList<>();
-    private String wheelPreviewImagePath;
+    private String wheelPreview;
     private Image wheel;
     private double friction;
     private int grip, durability;    
@@ -14,7 +14,7 @@ public class Tire{
 
     public Tire(
         File path, 
-        // String wheelPreviewImagePath,
+        String wheelPreviewImagePath,
         double wheelX, double wheelY, 
         double friction, 
         double angle,
@@ -22,11 +22,11 @@ public class Tire{
         int grip, 
         int durability){
 
-        // this.wheel = new Image(wheelPreviewImagePath);
-        // this.wheelPreviewImagePath = wheelPreviewImagePath;
+       
+        wheelPreview = wheelPreviewImagePath;
 
         pathFile = path;
-        
+
         File[] files = pathFile.listFiles();
         for (int i = 0; i < files.length; i++){
             if(files[i].isFile()){
@@ -42,7 +42,7 @@ public class Tire{
     }
 
     public Image getWheelPreview(){   
-        return new Image(wheelPreviewImagePath);
+        return new Image(wheelPreview);
     }
 
     public double getFriction() {
