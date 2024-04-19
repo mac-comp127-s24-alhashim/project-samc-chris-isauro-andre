@@ -6,11 +6,12 @@ public class TireButton implements MenuButton {
     Image restingImage, pressedImage;
     Tire tyre;
     CanvasWindow canvas;
+    MenuButtonManager buttonManager;
     Menu menu;
     boolean selected;
 
     public TireButton(Tire tyre, String restingImage, String pressedImage, 
-            double scalefactor, double x, double y, Menu menu, CanvasWindow canvas){
+            double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.x = x;
         this.y = y;
         this.tyre = tyre;
@@ -21,6 +22,7 @@ public class TireButton implements MenuButton {
         this.restingImage.setPosition(x, y);
         this.pressedImage.setPosition(x, y);
         this.canvas = canvas;
+        this.buttonManager = buttonManager;
         this.menu = menu;
         canvas.add(this.restingImage);
         canvas.onClick(event -> {
@@ -31,7 +33,7 @@ public class TireButton implements MenuButton {
     }
 
     public void pressed(){
-        for (MenuButton button : menu.getTireButtons()){
+        for (TireButton button : buttonManager.getTireButtons()){
             if (button == this){
                 selected = true;
                 canvas.add(this.pressedImage);
