@@ -37,7 +37,7 @@ public class EngineButton implements MenuButton {
                 menu.setSelectedEngine(this.engine);
             }
             else{
-                if (button.getSelected() == true){
+                if (button.getSelectedBool() == true){
                     button.deselected();
                 }
             }
@@ -50,7 +50,7 @@ public class EngineButton implements MenuButton {
         selected = false;
     }
 
-    public boolean getSelected(){
+    public boolean getSelectedBool(){
         return selected;
     }
 }

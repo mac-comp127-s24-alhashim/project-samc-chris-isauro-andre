@@ -41,7 +41,7 @@ public class TireButton implements MenuButton {
                 menu.setPreviewTire();
             }
             else{
-                if (button.getSelected() == true){
+                if (button.getSelectedBool() == true){
                     button.deselected();
                 }
             }
@@ -54,7 +54,7 @@ public class TireButton implements MenuButton {
         selected = false;
     }
 
-    public boolean getSelected(){
+    public boolean getSelectedBool(){
         return selected;
     }
 }

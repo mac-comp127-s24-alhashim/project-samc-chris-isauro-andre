@@ -6,18 +6,20 @@ public class MenuButtonManager {
     ArrayList<RacerButton> racerButtons = new ArrayList<RacerButton>();
     ArrayList<EngineButton> engineButtons = new ArrayList<EngineButton>();
     ArrayList<TireButton> tireButtons = new ArrayList<TireButton>();
-    MenuButton startButton;
-    CanvasWindow canvas;
-    double imageScaleFactor;
-    Map<String, Double> buttonLocations = new HashMap<String, Double>();;
-    Point startButtonLocation;
-    Image menuBackground;
-    Menu menu;
-    RacingObjects racingObjects = new RacingObjects();
+
     ArrayList<ArrayList<String>> inputStrings = new ArrayList<ArrayList<String>>();
     ArrayList<String> inputArray;
 
+    Map<String, Double> buttonLocations = new HashMap<String, Double>();;
 
+    RacingObjects racingObjects = new RacingObjects();
+
+    StartButton startButton;
+    Image menuBackground;
+
+    double imageScaleFactor;
+    Menu menu;
+    CanvasWindow canvas;
 
     public MenuButtonManager(Menu menu, CanvasWindow canvas){
         this.canvas = canvas;
@@ -50,10 +52,6 @@ private void setImageScaleFactor(){
         buttonLocations.put("row1", canvas.getHeight() * (59.0/180.0));
         buttonLocations.put("row2", canvas.getHeight() * (97.0/180.0));
         buttonLocations.put("row3", canvas.getHeight() * (135.0/180.0));
-        startButtonLocation = new Point(
-            canvas.getWidth() * (244.0/320.0), 
-            canvas.getHeight() * (109.0/180.0)
-            );
     }
 
     private void setupBackground(){
@@ -65,7 +63,11 @@ private void setImageScaleFactor(){
     }
 
     private void setupStartButton(){ 
-        new StartButton("images/MenuImages/StartButton.png", imageScaleFactor, startButtonLocation, canvas);
+        startButton = new StartButton(
+            "images/MenuImages/StartButton.png", 
+            imageScaleFactor, 
+            new Point(canvas.getWidth() * (244.0/320.0), canvas.getHeight() * (109.0/180.0)), 
+            canvas);
     }
 
     private void inputStringSetup(int arrayNumber, String racingObjectName, 

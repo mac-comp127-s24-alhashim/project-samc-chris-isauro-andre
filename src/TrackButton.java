@@ -38,7 +38,7 @@ public class TrackButton implements MenuButton {
                 menu.setSelectedTrack(track);
             }
             else{
-                if (button.getSelected() == true){
+                if (button.getSelectedBool() == true){
                     button.deselected();
                 }
             }
@@ -51,7 +51,7 @@ public class TrackButton implements MenuButton {
         selected = false;
     }
 
-    public boolean getSelected(){
+    public boolean getSelectedBool(){
         return selected;
     }
 }

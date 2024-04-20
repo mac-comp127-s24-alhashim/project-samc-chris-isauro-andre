@@ -55,6 +55,13 @@ public class Menu {
         image.rotateBy(90);
     }
 
+    private void setupDefaultSelected(){
+        buttonManager.getTrackButtons().get(0).pressed();
+        buttonManager.getRacerButtons().get(0).pressed();
+        buttonManager.getTireButtons().get(0).pressed();
+        buttonManager.getEngineButtons().get(0).pressed();
+    }
+
     public Track getSelectedTrack() {
         return selectedTrack;
     }
@@ -91,12 +98,4 @@ public class Menu {
         CanvasWindow canvas = new CanvasWindow("MenuTester", 1280, 720);
         new Menu(canvas);
     }
-
-    private void setupDefaultSelected(){
-        buttonManager.getTrackButtons().get(0).pressed();
-        buttonManager.getRacerButtons().get(0).pressed();
-        buttonManager.getTireButtons().get(0).pressed();
-        buttonManager.getEngineButtons().get(0).pressed();
-    }
-
 }
