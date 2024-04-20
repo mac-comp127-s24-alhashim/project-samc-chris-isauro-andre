@@ -49,7 +49,6 @@ public class RacerButton implements MenuButton {
     public void deselected(){
         canvas.remove(pressedImage);
         selected = false;
-    
     }
 
     public boolean getSelected(){

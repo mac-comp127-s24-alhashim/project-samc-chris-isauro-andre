@@ -8,6 +8,8 @@ public class Menu {
     Engine selectedEngine;
     Image previewRacerCar;
     Image previewRacerTires;
+    boolean previewRacerCarDisplayed;
+    boolean previewRacerTiresDisplayed;
     MenuButtonManager buttonManager;
 
 
@@ -18,20 +20,29 @@ public class Menu {
     }
 
     private void setupMenu(){
-        buttonManager.setupMenuButtons();
         setupDefaultSelected();
         setPreviewCar();
         setPreviewTire();
     }
 
     public void setPreviewCar(){
+        if (previewRacerCarDisplayed == true){
+            canvas.remove(previewRacerCar);
+        }
         previewRacerCar = selectedRacer.getRacerCarPreview();
         positionPreviewImage(previewRacerCar);
+        canvas.add(previewRacerCar);
+        previewRacerCarDisplayed = true;
     }
 
     public void setPreviewTire(){
+        if (previewRacerTiresDisplayed == true){
+            canvas.remove(previewRacerTires);
+        }
         previewRacerTires = selectedTires.getWheelPreview();
         positionPreviewImage(previewRacerTires);
+        canvas.add(previewRacerTires);
+        previewRacerTiresDisplayed = true;
     }
 
     private void positionPreviewImage(Image image){
@@ -42,7 +53,6 @@ public class Menu {
             - (image.getHeight()/2 - image.getWidth()/2)
             );
         image.rotateBy(90);
-        canvas.add(image);
     }
 
     public Track getSelectedTrack() {
