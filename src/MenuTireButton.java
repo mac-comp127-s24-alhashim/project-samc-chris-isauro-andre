@@ -1,18 +1,20 @@
 import edu.macalester.graphics.*;
 
 
-public class TrackButton implements MenuButton {
+public class MenuTireButton implements MenuButton {
+    double x, y;
     Image restingImage, pressedImage;
-    Track track;
+    Tire tyre;
     CanvasWindow canvas;
     MenuButtonManager buttonManager;
     Menu menu;
     boolean selected;
 
-
-    public TrackButton(Track track, String restingImage, String pressedImage, 
+    public MenuTireButton(Tire tyre, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
-        this.track = track;
+        this.x = x;
+        this.y = y;
+        this.tyre = tyre;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
@@ -20,9 +22,9 @@ public class TrackButton implements MenuButton {
         this.restingImage.setPosition(x, y);
         this.pressedImage.setPosition(x, y);
         this.canvas = canvas;
-        canvas.add(this.restingImage);
         this.buttonManager = buttonManager;
         this.menu = menu;
+        canvas.add(this.restingImage);
         canvas.onClick(event -> {
             if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
             this.pressed();
@@ -31,11 +33,12 @@ public class TrackButton implements MenuButton {
     }
 
     public void pressed(){
-        for (TrackButton button : buttonManager.getTrackButtons()){
+        for (MenuTireButton button : buttonManager.getTireButtons()){
             if (button == this){
                 selected = true;
-                canvas.add(pressedImage);
-                menu.setSelectedTrack(track);
+                canvas.add(this.pressedImage);
+                menu.setSelectedTires(this.tyre);
+                menu.setPreviewTire();
             }
             else{
                 if (button.getSelectedBool() == true){

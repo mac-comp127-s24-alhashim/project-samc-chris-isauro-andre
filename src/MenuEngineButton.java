@@ -1,7 +1,7 @@
 import edu.macalester.graphics.*;
 
 
-public class EngineButton implements MenuButton {
+public class MenuEngineButton implements MenuButton {
     Image restingImage, pressedImage;
     Engine engine;
     CanvasWindow canvas;
@@ -9,7 +9,7 @@ public class EngineButton implements MenuButton {
     boolean selected;
     MenuButtonManager buttonManager;
 
-    public EngineButton(Engine engine, String restingImage, String pressedImage, 
+    public MenuEngineButton(Engine engine, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu,  CanvasWindow canvas){
         this.engine = engine;
         this.restingImage = new Image(restingImage);
@@ -30,7 +30,7 @@ public class EngineButton implements MenuButton {
     }
 
     public void pressed(){
-        for (EngineButton button : buttonManager.getEngineButtons()){
+        for (MenuEngineButton button : buttonManager.getEngineButtons()){
             if (button == this){
                 selected = true;
                 canvas.add(this.pressedImage);

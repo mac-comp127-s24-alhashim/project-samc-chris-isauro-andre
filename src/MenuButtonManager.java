@@ -2,10 +2,10 @@ import edu.macalester.graphics.*;
 import java.util.*; 
 
 public class MenuButtonManager {
-    ArrayList<TrackButton> trackButtons = new ArrayList<TrackButton>();
-    ArrayList<RacerButton> racerButtons = new ArrayList<RacerButton>();
-    ArrayList<EngineButton> engineButtons = new ArrayList<EngineButton>();
-    ArrayList<TireButton> tireButtons = new ArrayList<TireButton>();
+    ArrayList<MenuTrackButton> trackButtons = new ArrayList<MenuTrackButton>();
+    ArrayList<MenuRacerButton> racerButtons = new ArrayList<MenuRacerButton>();
+    ArrayList<MenuEngineButton> engineButtons = new ArrayList<MenuEngineButton>();
+    ArrayList<MenuTireButton> tireButtons = new ArrayList<MenuTireButton>();
 
     ArrayList<ArrayList<String>> inputStrings = new ArrayList<ArrayList<String>>();
     ArrayList<String> inputArray;
@@ -14,7 +14,7 @@ public class MenuButtonManager {
 
     RacingObjects racingObjects = new RacingObjects();
 
-    StartButton startButton;
+    MenuStartButton startButton;
     Image menuBackground;
 
     double imageScaleFactor;
@@ -63,7 +63,7 @@ private void setImageScaleFactor(){
     }
 
     private void setupStartButton(){ 
-        startButton = new StartButton(
+        startButton = new MenuStartButton(
             "images/MenuImages/StartButton.png", 
             imageScaleFactor, 
             new Point(canvas.getWidth() * (244.0/320.0), canvas.getHeight() * (109.0/180.0)), 
@@ -91,7 +91,7 @@ private void setImageScaleFactor(){
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            TrackButton trackButton = new TrackButton(
+            MenuTrackButton trackButton = new MenuTrackButton(
                 racingObjects.getTracks().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2),
@@ -117,7 +117,7 @@ private void setImageScaleFactor(){
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            RacerButton racerButton = new RacerButton(
+            MenuRacerButton racerButton = new MenuRacerButton(
                 racingObjects.getRacers().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2), 
@@ -143,7 +143,7 @@ private void setImageScaleFactor(){
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            TireButton tireButton = new TireButton(
+            MenuTireButton tireButton = new MenuTireButton(
                 racingObjects.getTires().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2), 
@@ -169,7 +169,7 @@ private void setImageScaleFactor(){
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            EngineButton engineButton = new EngineButton(
+            MenuEngineButton engineButton = new MenuEngineButton(
                 racingObjects.getEngines().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2), 
@@ -183,19 +183,19 @@ private void setImageScaleFactor(){
         }
     }
 
-    public ArrayList<TrackButton> getTrackButtons() {
+    public ArrayList<MenuTrackButton> getTrackButtons() {
         return trackButtons;
     }
 
-    public ArrayList<RacerButton> getRacerButtons() {
+    public ArrayList<MenuRacerButton> getRacerButtons() {
         return racerButtons;
     }
 
-    public ArrayList<TireButton> getTireButtons() {
+    public ArrayList<MenuTireButton> getTireButtons() {
         return tireButtons;
     }
 
-    public ArrayList<EngineButton> getEngineButtons() {
+    public ArrayList<MenuEngineButton> getEngineButtons() {
         return engineButtons;
     }
 

@@ -1,20 +1,18 @@
 import edu.macalester.graphics.*;
 
 
-public class TireButton implements MenuButton {
-    double x, y;
+public class MenuTrackButton implements MenuButton {
     Image restingImage, pressedImage;
-    Tire tyre;
+    Track track;
     CanvasWindow canvas;
     MenuButtonManager buttonManager;
     Menu menu;
     boolean selected;
 
-    public TireButton(Tire tyre, String restingImage, String pressedImage, 
+
+    public MenuTrackButton(Track track, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
-        this.x = x;
-        this.y = y;
-        this.tyre = tyre;
+        this.track = track;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
@@ -22,9 +20,9 @@ public class TireButton implements MenuButton {
         this.restingImage.setPosition(x, y);
         this.pressedImage.setPosition(x, y);
         this.canvas = canvas;
+        canvas.add(this.restingImage);
         this.buttonManager = buttonManager;
         this.menu = menu;
-        canvas.add(this.restingImage);
         canvas.onClick(event -> {
             if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
             this.pressed();
@@ -33,12 +31,11 @@ public class TireButton implements MenuButton {
     }
 
     public void pressed(){
-        for (TireButton button : buttonManager.getTireButtons()){
+        for (MenuTrackButton button : buttonManager.getTrackButtons()){
             if (button == this){
                 selected = true;
-                canvas.add(this.pressedImage);
-                menu.setSelectedTires(this.tyre);
-                menu.setPreviewTire();
+                canvas.add(pressedImage);
+                menu.setSelectedTrack(track);
             }
             else{
                 if (button.getSelectedBool() == true){

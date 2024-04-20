@@ -1,7 +1,7 @@
 import edu.macalester.graphics.*;
 
 
-public class RacerButton implements MenuButton {
+public class MenuRacerButton implements MenuButton {
     Image restingImage, pressedImage, carBody;
     Racer racer;
     CanvasWindow canvas;
@@ -9,7 +9,7 @@ public class RacerButton implements MenuButton {
     Menu menu;
     boolean selected;
 
-    public RacerButton(Racer racer, String restingImage, String pressedImage, 
+    public MenuRacerButton(Racer racer, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.racer = racer;
         this.restingImage = new Image(restingImage);
@@ -30,7 +30,7 @@ public class RacerButton implements MenuButton {
     }
 
     public void pressed(){
-        for (RacerButton button : buttonManager.getRacerButtons()){
+        for (MenuRacerButton button : buttonManager.getRacerButtons()){
             if (button == this){
                 selected = true;
                 canvas.add(this.pressedImage);
