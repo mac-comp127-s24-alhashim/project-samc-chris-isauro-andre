@@ -1,9 +1,4 @@
 import edu.macalester.graphics.*;
-// import java.io.File;
-
-import java.util.*; 
-
-
 
 public class Menu {
     CanvasWindow canvas;

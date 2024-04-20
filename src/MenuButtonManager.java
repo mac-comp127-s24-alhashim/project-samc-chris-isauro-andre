@@ -1,13 +1,11 @@
 import edu.macalester.graphics.*;
-
-import java.io.File;
 import java.util.*; 
 
 public class MenuButtonManager {
-    ArrayList<TrackButton> trackButtons = new ArrayList<TrackButton>(); 
-    ArrayList<RacerButton> racerButtons = new ArrayList<RacerButton>(); 
-    ArrayList<TireButton> tireButtons = new ArrayList<TireButton>(); 
+    ArrayList<TrackButton> trackButtons = new ArrayList<TrackButton>();
+    ArrayList<RacerButton> racerButtons = new ArrayList<RacerButton>();
     ArrayList<EngineButton> engineButtons = new ArrayList<EngineButton>();
+    ArrayList<TireButton> tireButtons = new ArrayList<TireButton>();
     MenuButton startButton;
     CanvasWindow canvas;
     double imageScaleFactor;
@@ -15,6 +13,9 @@ public class MenuButtonManager {
     Point startButtonLocation;
     Image menuBackground;
     Menu menu;
+    RacingObjects racingObjects = new RacingObjects();
+    ArrayList<ArrayList<String>> inputStrings = new ArrayList<ArrayList<String>>();
+
 
 
     public MenuButtonManager(Menu menu, CanvasWindow canvas){
@@ -24,6 +25,9 @@ public class MenuButtonManager {
     }
 
     public void setupMenuButtons(){
+        for (int i = 0; i < 3; i++){
+            inputStrings.add(new ArrayList<String>());
+        }
         setupButtonLocations();
         setupBackground();
         setupStartButton();
@@ -65,45 +69,84 @@ private void setImageScaleFactor(){
         new StartButton("images/MenuImages/StartButton.png", imageScaleFactor, startButtonLocation, canvas);
     }
 
-    private void setupTrackButtons(){ 
-        TrackButton track1Button = new TrackButton(
-            new Track(new Image("images/TrackBaseImages/suzuka.jpg"), 5, 2, 6), 
-            "images/MenuImages/Suzuka1.png", 
-            "images/MenuImages/Suzuka2.png",
-            imageScaleFactor,  
-            buttonLocations.get("column1"), 
-            buttonLocations.get("row1"),
+    private void inputStringSetup(int arrayNumber, String racerObjectName, 
+        String restingImagePath, String pressedImagePath, String columnNumber, String rowNumber){
+            inputStrings.get(arrayNumber).add(racerObjectName);
+            inputStrings.get(arrayNumber).add(restingImagePath);
+            inputStrings.get(arrayNumber).add(pressedImagePath);
+            inputStrings.get(arrayNumber).add(columnNumber);
+            inputStrings.get(arrayNumber).add(rowNumber);
+
+    }
+
+    private void setupTrackButtons(){
+        inputStringSetup(0, "Suzuka", 
+        "images/MenuImages/Suzuka1.png", 
+        "images/MenuImages/Suzuka2.png",
+        "column1", "row1");
+
+        inputStringSetup(1, "Watkins", 
+        "images/MenuImages/Watkins1.png", 
+        "images/MenuImages/Watkins2.png",
+        "column1", "row2");
+        
+        inputStringSetup(2, "Barcelona", 
+        "images/MenuImages/Barcelona1.png", 
+        "images/MenuImages/Barcelona2.png",
+        "column1", "row3");
+
+        for (ArrayList<String> inputArray : inputStrings){
+            TrackButton trackButton = new TrackButton(
+            racingObjects.getTracks().get(inputArray.get(0)), 
+            inputArray.get(1), 
+            inputArray.get(2),
+            imageScaleFactor,
+            buttonLocations.get(inputArray.get(3)), 
+            buttonLocations.get(inputArray.get(4)),
             this,
             menu, 
             canvas);
-        trackButtons.add(track1Button);
-        TrackButton track2Button = new TrackButton(
-            new Track(new Image("images/TrackBaseImages/watkins.jpg"), 30, 30, 10), 
-            "images/MenuImages/Watkins1.png", 
-            "images/MenuImages/Watkins2.png", 
-            imageScaleFactor,  
-            buttonLocations.get("column1"), 
-            buttonLocations.get("row2"),
-            this,
-            menu,
-            canvas);
-        trackButtons.add(track2Button);
-        TrackButton track3Button = new TrackButton(
-            new Track(new Image("images/TrackBaseImages/barcelona.jpg"), 70, 60, 20), 
-            "images/MenuImages/Barcelona1.png", 
-            "images/MenuImages/Barcelona2.png", 
-            imageScaleFactor,  
-            buttonLocations.get("column1"), 
-            buttonLocations.get("row3"), 
-            this,
-            menu,
-            canvas);
-        trackButtons.add(track3Button);
+            trackButtons.add(trackButton);
+        }
+
+        // TrackButton track1Button = new TrackButton(
+        //     racingObjects.getTracks().get("Suzuka"), 
+        //     "images/MenuImages/Suzuka1.png", 
+        //     "images/MenuImages/Suzuka2.png",
+        //     imageScaleFactor,  
+        //     buttonLocations.get("column1"), 
+        //     buttonLocations.get("row1"),
+        //     this,
+        //     menu, 
+        //     canvas);
+        // trackButtons.add(track1Button);
+        // TrackButton track2Button = new TrackButton(
+        //     racingObjects.getTracks().get("Watkins"), 
+        //     "images/MenuImages/Watkins1.png", 
+        //     "images/MenuImages/Watkins2.png", 
+        //     imageScaleFactor,  
+        //     buttonLocations.get("column1"), 
+        //     buttonLocations.get("row2"),
+        //     this,
+        //     menu,
+        //     canvas);
+        // trackButtons.add(track2Button);
+        // TrackButton track3Button = new TrackButton(
+        //     racingObjects.getTracks().get("Barcelona"), 
+        //     "images/MenuImages/Barcelona1.png", 
+        //     "images/MenuImages/Barcelona2.png", 
+        //     imageScaleFactor,  
+        //     buttonLocations.get("column1"), 
+        //     buttonLocations.get("row3"), 
+        //     this,
+        //     menu,
+        //     canvas);
+        // trackButtons.add(track3Button);
     }
 
     private void setupRacerButtons(){
         RacerButton racer1Button = new RacerButton(
-            new Racer("images/driver-body2.png", 3, 6), 
+            racingObjects.getRacers().get("Max"), 
             "images/MenuImages/Max1.png", 
             "images/MenuImages/Max2.png", 
             imageScaleFactor,  
@@ -115,7 +158,7 @@ private void setImageScaleFactor(){
         racerButtons.add(racer1Button);
 
         RacerButton racer2Button = new RacerButton(
-            new Racer("images/driver-body1.png", 2, 0), 
+            racingObjects.getRacers().get("Lewis"), 
             "images/MenuImages/Lewis1.png", 
             "images/MenuImages/Lewis2.png", 
             imageScaleFactor,  
@@ -127,7 +170,7 @@ private void setImageScaleFactor(){
         racerButtons.add(racer2Button);
 
         RacerButton racer3Button = new RacerButton(
-            new Racer("images/driver-body3.png", 4, 24), 
+            racingObjects.getRacers().get("Yuki"), 
             "images/MenuImages/Yuki1.png", 
             "images/MenuImages/Yuki2.png", 
             imageScaleFactor,  
@@ -141,10 +184,7 @@ private void setImageScaleFactor(){
 
     private void setupTireButtons(){ 
         TireButton tire1Button = new TireButton(
-            new Tire (
-                new File("res/images/WheelImages/tireSoft"), 
-                "images/WheelImages/tireSoft/tireSoft1.png",
-                0.0, 0.0, 0.0, 0.0, 0.5, 34, 4), 
+            racingObjects.getTires().get("Soft"), 
             "images/MenuImages/Soft1.png", 
             "images/MenuImages/Soft2.png", 
             imageScaleFactor,  
@@ -156,10 +196,7 @@ private void setImageScaleFactor(){
         tireButtons.add(tire1Button);
 
         TireButton tire2Button = new TireButton(
-            new Tire(
-                new File("res/images/WheelImages/tireMedium"), 
-                "images/WheelImages/tireMedium/tireMedium1.png",
-                0.0, 0.0, 0.0, 0.0, 0.5, 4, 87), 
+            racingObjects.getTires().get("Medium"), 
             "images/MenuImages/Medium1.png", 
             "images/MenuImages/Medium2.png", 
             imageScaleFactor,  
@@ -171,10 +208,7 @@ private void setImageScaleFactor(){
         tireButtons.add(tire2Button);
 
         TireButton tire3Button = new TireButton(
-            new Tire(
-                new File("res/images/WheelImages/tireHard"), 
-                "images/WheelImages/tireHard/tireHard1.png", 
-                0.0, 0.0, 0.0, 0.0, 0.5, 5, 42), 
+            racingObjects.getTires().get("Hard"), 
             "images/MenuImages/Hard1.png", 
             "images/MenuImages/Hard2.png", 
             imageScaleFactor,  
@@ -188,7 +222,7 @@ private void setImageScaleFactor(){
 
     private void setupEngineButtons(){ 
         EngineButton engine1Button = new EngineButton(
-            new Engine(4, 0, 2), 
+            racingObjects.getEngines().get("V6"), 
             "images/MenuImages/VSies1.png", 
             "images/MenuImages/VSies2.png", 
             imageScaleFactor,  
@@ -200,7 +234,7 @@ private void setImageScaleFactor(){
         engineButtons.add(engine1Button);
 
         EngineButton engine2Button = new EngineButton(
-            new Engine(3, 4, 1), 
+            racingObjects.getEngines().get("V10"), 
             "images/MenuImages/VTen1.png", 
             "images/MenuImages/VTen2.png", 
             imageScaleFactor,  
@@ -212,7 +246,7 @@ private void setImageScaleFactor(){
         engineButtons.add(engine2Button);
 
         EngineButton engine3Button = new EngineButton(
-            new Engine(4, 5, 5), 
+            racingObjects.getEngines().get("V12"), 
             "images/MenuImages/VTwelve1.png", 
             "images/MenuImages/VTwelve2.png", 
             imageScaleFactor,  
