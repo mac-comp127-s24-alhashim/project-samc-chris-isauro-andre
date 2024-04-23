@@ -35,7 +35,7 @@ public class mechanicsTesting {
             carAngle, scale
         );
     
-        car.addtoCanvas(canvas);
+        car.addCarToCanvas(canvas);
         canvas.draw();
 
         canvas.animate(() -> {

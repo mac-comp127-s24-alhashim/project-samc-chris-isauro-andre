@@ -33,6 +33,7 @@ private final double passiveDeceleration = .3;
         
         currentAngle = angle;
         currentSpeed = 0;
+        topSpeed = engine.getTopSpeed();
     }
 
     // Getter methods below important for the movement of the canvas based on the X and Y velocities of the car
@@ -46,7 +47,7 @@ private final double passiveDeceleration = .3;
     }
 
     // puts the car physically in the canvas
-    public void addtoCanvas(CanvasWindow canvas){
+    public void addCarToCanvas(CanvasWindow canvas){
         canvas.add(carModel);
         canvas.add(tyre.getWheel());
     }

@@ -1,9 +1,9 @@
 import edu.macalester.graphics.Image;
 
 public class Racer {
-    String racerCarPreview;
-    Image racerCar;
-    int weight, brakepower;
+    private String racerCarPreview;
+    private Image racerCar;
+    private int weight, brakepower;
     
     public Racer(String racerCarImagePath, int weight, int brakepower){
         racerCar = new Image(racerCarImagePath);

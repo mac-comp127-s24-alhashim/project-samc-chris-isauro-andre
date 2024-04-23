@@ -199,6 +199,10 @@ private void setImageScaleFactor(){
         return engineButtons;
     }
 
+    public MenuStartButton getStartButton(){
+        return startButton;
+    }
+    
     public double getImageScaleFactor() {
         return imageScaleFactor;
     }
