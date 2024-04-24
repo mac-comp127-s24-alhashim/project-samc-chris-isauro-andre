@@ -4,7 +4,6 @@ public class Track {
     private String TRKey;
     private Image map;
     private double xBounds, yBounds, startingAngle;
-    private double mapPositionX, mapPositionY;
     
     public Track (String trackKey, Image map, double startingX, double startingY, double startingAngle, double zoom){
         TRKey = trackKey;
@@ -16,8 +15,6 @@ public class Track {
         xBounds = map.getImageWidth();
         yBounds = map.getImageHeight();
 
-        mapPositionX = startingX;
-        mapPositionY = startingY;
         this.startingAngle = startingAngle;
     }
 
@@ -27,19 +24,15 @@ public class Track {
     }
 
     public void moveMap(CanvasWindow canvas, double dtX, double dtY){
-        map.setPosition(mapPositionX + dtX, mapPositionY + dtY);
+        map.setPosition(map.getX() - dtX, map.getY() + dtY);
     }
 
     public String getKey(){
         return TRKey;
     }
 
-    public double getStartingX(){
-        return mapPositionX;
-    }
-
-    public double getStartingY(){
-        return mapPositionY;
+    public Image getMap(){
+        return map;
     }
 
     public double getXBounds(){

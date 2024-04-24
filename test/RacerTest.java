@@ -37,10 +37,10 @@ public class RacerTest {
 
         canvas.animate(() -> {
             if(canvas.getKeysPressed().contains(Key.D)){
-                car.turn();
+                car.turnRight();
             }
             if(canvas.getKeysPressed().contains(Key.A)){
-                car.turn();
+                car.turnLeft();
             }
             if(canvas.getKeysPressed().contains(Key.W)){
                 car.speedUp();
