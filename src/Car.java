@@ -35,9 +35,6 @@ private final double passiveDeceleration = .07;
         currentAngle = angle;
         currentSpeed = 0;
         topSpeed = engine.getTopSpeed();
-
-        
-      
     }
 
     // Getter methods below important for the movement of the canvas based on the X and Y velocities of the car
@@ -111,7 +108,7 @@ private final double passiveDeceleration = .07;
 
         }
     }
-    
+
     //a car can only accelarate when its tyres are still durable
 
     // private double accelarate(){
