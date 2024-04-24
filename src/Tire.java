@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Tire{
+    private String TIKey;
     private File pathFile;
     private ArrayList<Image> wheels = new ArrayList<>();
     private String wheelPreview;
@@ -13,6 +14,7 @@ public class Tire{
     
 
     public Tire(
+        String tireKey,
         File path, 
         String wheelPreviewImagePath,
         double wheelX, double wheelY, 
@@ -22,9 +24,8 @@ public class Tire{
         int grip, 
         int durability){
 
-       
+        TIKey = tireKey;
         wheelPreview = wheelPreviewImagePath;
-
         pathFile = path;
 
         File[] files = pathFile.listFiles();
@@ -43,6 +44,10 @@ public class Tire{
 
     public Image getWheelPreview(){   
         return new Image(wheelPreview);
+    }
+
+    public String getKey(){
+        return TIKey;
     }
 
     public double getFriction() {

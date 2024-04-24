@@ -24,19 +24,19 @@ public class mechanicsTesting {
         final double carPositionX = canvas.getWidth()/3;
         final double carPositionY = canvas.getHeight()/3;
 
-        car = new Car(
-            new Engine(200, 240, 30),
-            new Tire(new File("res/images/WheelImages/tireSoft"),
-            "images/WheelImages/tireSoft1.png", 
-                carPositionX, carPositionY, 
-                .2, carAngle, scale, 50, 10),
-            new Racer("images/driver-body1.png", 20, 15),
-            carPositionX, carPositionY,
-            carAngle, scale
-        );
+        // car = new Car(
+        //     new Engine(200, 240, 30),
+        //     new Tire(new File("res/images/WheelImages/tireSoft"),
+        //     "images/WheelImages/tireSoft1.png", 
+        //         carPositionX, carPositionY, 
+        //         .2, carAngle, scale, 50, 10),
+        //     new Racer("images/driver-body1.png", 20, 15),
+        //     carPositionX, carPositionY,
+        //     carAngle, scale
+        // );
     
-        car.addCarToCanvas(canvas);
-        canvas.draw();
+        // car.addCarToCanvas(canvas);
+        // canvas.draw();
 
         canvas.animate(() -> {
             if(canvas.getKeysPressed().contains(Key.D)){

@@ -1,11 +1,14 @@
 import edu.macalester.graphics.*;
 
 public class Track {
+    private String TRKey;
     private Image map;
     private double xBounds, yBounds, startingAngle;
     private double mapPositionX, mapPositionY;
     
-    public Track (Image map, double startingX, double startingY, double startingAngle, double zoom){
+    public Track (String trackKey, Image map, double startingX, double startingY, double startingAngle, double zoom){
+        TRKey = trackKey;
+
         this.map = map;
         map.setScale(zoom);
         map.setPosition(new Point(startingX,startingY));
@@ -21,6 +24,10 @@ public class Track {
     public Image addMaptoCanvas(CanvasWindow canvas){
         canvas.add(map);
         return map;
+    }
+
+    public String getKey(){
+        return TRKey;
     }
 
     public double getStartingX(){
