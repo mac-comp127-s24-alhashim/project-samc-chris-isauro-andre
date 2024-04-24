@@ -9,6 +9,7 @@ public class RacerTest {
     private Car car;
     private double carAngle = 50.0;
     private final double scale = 0.5;
+    private RacingObjects carObjects;
 
     public static void main(String[] args) {
         mechanicsTesting game = new mechanicsTesting();
@@ -22,15 +23,17 @@ public class RacerTest {
     public void gameStart(){
         final double carPositionX = canvas.getWidth() / 2;
         final double carPositionY = canvas.getHeight() / 2;
-        Engine engine = new Engine(null, 200, 240, 30);
-        Tire tire = new Tire(null, new File("res/images/WheelImages/tireSoft"), "images/WheelImages/tireSoft1.png",  carPositionX, carPositionY, .2, carAngle, scale, 50, 10);        
-        Racer racer = new Racer(null, "images/driver-body1.png", 20, 15);
         
-        Track track = new Track("Barcelona", new Image("images/TrackBaseImages/barcelona.jpg"), 70, 60, 20, 1);
+        Track track = carObjects.getTracks()getKey();
         
-        Car car = new Car(engine, tire, racer, carPositionX, carPositionY, carAngle, scale);
+        Car car = new Car(
+            carObjects.getEngines().getKey(),
+            carObjects.getTires().getKey(),
+            carObjects.getRacers().get(),
+            carPositionX, carPositionY, carAngle, scale);
 
         track.addMaptoCanvas(canvas);
+        Image workingTrack = track.addMaptoCanvas(canvas);
         car.addCarToCanvas(canvas);
         canvas.draw();
 
@@ -43,6 +46,12 @@ public class RacerTest {
             }
             if(canvas.getKeysPressed().contains(Key.W)){
                 car.speedUp();
+                
+                //move the track image in the opposite direction to the front of the car.
+                //move it faster depending on car speed.
+                workingTrack.setPosition(
+                car.getVelocityX() - 50,
+                car.getVelocityY() - 50);
             }
             if (canvas.getKeysPressed().contains(Key.S)){
                 car.speedDown();
