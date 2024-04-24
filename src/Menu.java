@@ -10,6 +10,7 @@ public class Menu {
     private Image previewRacerTires;
     private boolean previewRacerCarDisplayed;
     private boolean previewRacerTiresDisplayed;
+    private boolean ifMenuOpen = true;
     private MenuButtonManager buttonManager;
 
 
@@ -92,5 +93,13 @@ public class Menu {
 
     public void setSelectedEngine(Engine selectedEngine) {
         this.selectedEngine = selectedEngine;
+    }
+
+    public boolean getIfMenuOpen() {
+        return ifMenuOpen;
+    }
+
+    public void setIfMenuOpen(boolean bool) {
+        this.ifMenuOpen = bool;
     }
 }

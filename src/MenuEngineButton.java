@@ -23,8 +23,10 @@ public class MenuEngineButton implements MenuButton {
         canvas.add(this.restingImage);
         this.menu = menu;
         canvas.onClick(event -> {
-            if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            this.pressed();
+            if (menu.getIfMenuOpen()){
+                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    this.pressed();
+                }
             }
         });
     }

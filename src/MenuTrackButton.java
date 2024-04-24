@@ -24,8 +24,10 @@ public class MenuTrackButton implements MenuButton {
         this.buttonManager = buttonManager;
         this.menu = menu;
         canvas.onClick(event -> {
-            if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            this.pressed();
+            if (menu.getIfMenuOpen()){
+                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    this.pressed();
+                }
             }
         });
     }

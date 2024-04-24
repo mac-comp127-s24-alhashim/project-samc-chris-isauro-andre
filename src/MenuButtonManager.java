@@ -70,6 +70,7 @@ private void setImageScaleFactor(){
             imageScaleFactor, 
             new Point(canvas.getWidth() * (244.0/320.0), canvas.getHeight() * (109.0/180.0)), 
             game,
+            menu,
             canvas);
     }
 

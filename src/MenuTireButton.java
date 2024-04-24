@@ -23,8 +23,10 @@ public class MenuTireButton implements MenuButton {
         this.menu = menu;
         canvas.add(this.restingImage);
         canvas.onClick(event -> {
-            if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            this.pressed();
+            if (menu.getIfMenuOpen()){
+                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    this.pressed();
+                }
             }
         });
     }

@@ -4,15 +4,17 @@ public class MenuStartButton {
     private Image restingImage;
     private Game game;
 
-    public MenuStartButton(String restingImage, double scalefactor, Point location, Game game, CanvasWindow canvas){
+    public MenuStartButton(String restingImage, double scalefactor, Point location, Game game, Menu menu, CanvasWindow canvas){
         this.game = game;
         this.restingImage = new Image(restingImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
         this.restingImage.setPosition(location);
         canvas.add(this.restingImage);
         canvas.onClick(event -> {
-            if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            pressed(canvas);
+            if (menu.getIfMenuOpen()){
+                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    this.pressed();
+                }
             }
         });
     }
@@ -22,7 +24,7 @@ public class MenuStartButton {
         return restingImage;
     }
     
-    public void pressed(CanvasWindow canvas){
+    public void pressed(){
         game.prepareGame();
     }
     

@@ -11,7 +11,7 @@ public class Game{
     
         public static void main(String[] args) {
             Game game = new Game();
-            game.prepareGame();
+            // game.prepareGame();
         }
         
         public Game(){
@@ -22,6 +22,7 @@ public class Game{
 
         public void prepareGame(){
             canvas.removeAll();
+            menu.setIfMenuOpen(false);
             gameStart();
         }
 
