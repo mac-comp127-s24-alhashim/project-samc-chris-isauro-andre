@@ -43,8 +43,9 @@ public class Game{
 
             Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
 
-            car.addCarToCanvas(canvas);
             track.addMaptoCanvas(canvas);
+            Image workingTrack = track.addMaptoCanvas(canvas);
+            car.addCarToCanvas(canvas);
             canvas.draw();
     
             canvas.animate(() -> {
@@ -56,12 +57,18 @@ public class Game{
                 }
                 if(canvas.getKeysPressed().contains(Key.W)){
                     car.speedUp();
+                    
+                    //move the track image in the opposite direction to the front of the car.
+                    //move it faster depending on car speed.
+                    workingTrack.setPosition(
+                    car.getVelocityX() - 50,
+                    car.getVelocityY() - 50);
                 }
                 if (canvas.getKeysPressed().contains(Key.S)){
                     car.speedDown();
                 }
             });
-    
+
         }
     }
     
