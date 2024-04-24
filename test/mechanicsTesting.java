@@ -18,7 +18,7 @@ public class mechanicsTesting {
 
     public mechanicsTesting(){
         canvas = new CanvasWindow("PROJECT TEST", 1240,700);
-        menu = new Menu(canvas);
+        // menu = new Menu(canvas);
         carObjects = new RacingObjects();
     }
 

@@ -19,11 +19,13 @@ public class MenuButtonManager {
 
     double imageScaleFactor;
     Menu menu;
+    Game game;
     CanvasWindow canvas;
 
-    public MenuButtonManager(Menu menu, CanvasWindow canvas){
+    public MenuButtonManager(Menu menu, Game game, CanvasWindow canvas){
         this.canvas = canvas;
         this.menu = menu;
+        this.game = game;
         setupMenuButtons();
     }
 
@@ -67,6 +69,7 @@ private void setImageScaleFactor(){
             "images/MenuImages/StartButton.png", 
             imageScaleFactor, 
             new Point(canvas.getWidth() * (244.0/320.0), canvas.getHeight() * (109.0/180.0)), 
+            game,
             canvas);
     }
 

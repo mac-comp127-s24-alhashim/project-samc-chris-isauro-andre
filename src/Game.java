@@ -16,18 +16,13 @@ public class Game{
         
         public Game(){
             canvas = new CanvasWindow("MacF1", 1280, 720);
-            menu = new Menu(canvas);
+            menu = new Menu(canvas, this);
             carObjects = new RacingObjects();
-
         }
 
         public void prepareGame(){
-            canvas.onClick(event -> {
-                if (menu.buttonManager.getStartButton().getRestingImage().testHit(event.getPosition().getX(), event.getPosition().getY())){
-                canvas.removeAll();
-                gameStart();
-                }
-            });
+            canvas.removeAll();
+            gameStart();
         }
 
         public void gameStart(){

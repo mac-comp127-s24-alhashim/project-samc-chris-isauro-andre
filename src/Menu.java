@@ -1,20 +1,20 @@
 import edu.macalester.graphics.*;
 
 public class Menu {
-    CanvasWindow canvas;
-    Track selectedTrack;
-    Racer selectedRacer;
-    Tire selectedTires;
-    Engine selectedEngine;
-    Image previewRacerCar;
-    Image previewRacerTires;
-    boolean previewRacerCarDisplayed;
-    boolean previewRacerTiresDisplayed;
-    MenuButtonManager buttonManager;
+    private CanvasWindow canvas;
+    private Track selectedTrack;
+    private Racer selectedRacer;
+    private Tire selectedTires;
+    private Engine selectedEngine;
+    private Image previewRacerCar;
+    private Image previewRacerTires;
+    private boolean previewRacerCarDisplayed;
+    private boolean previewRacerTiresDisplayed;
+    private MenuButtonManager buttonManager;
 
 
-    public Menu(CanvasWindow canvas){
-        buttonManager = new MenuButtonManager(this, canvas);
+    public Menu(CanvasWindow canvas, Game game){
+        buttonManager = new MenuButtonManager(this, game, canvas);
         this.canvas = canvas;
         setupMenu();
     }
@@ -95,7 +95,6 @@ public class Menu {
     }
 
     public static void main(String[] args) {
-        CanvasWindow canvas = new CanvasWindow("MenuTester", 1280, 720);
-        new Menu(canvas);
+        Game game = new Game();
     }
 }
