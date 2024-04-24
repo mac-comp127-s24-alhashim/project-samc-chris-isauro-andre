@@ -2,18 +2,15 @@ import edu.macalester.graphics.*;
 
 
 public class MenuTireButton implements MenuButton {
-    double x, y;
-    Image restingImage, pressedImage;
-    Tire tyre;
-    CanvasWindow canvas;
-    MenuButtonManager buttonManager;
-    Menu menu;
-    boolean selected;
+    private Image restingImage, pressedImage;
+    private Tire tyre;
+    private CanvasWindow canvas;
+    private MenuButtonManager buttonManager;
+    private Menu menu;
+    private boolean selected;
 
     public MenuTireButton(Tire tyre, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
-        this.x = x;
-        this.y = y;
         this.tyre = tyre;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
@@ -26,8 +23,10 @@ public class MenuTireButton implements MenuButton {
         this.menu = menu;
         canvas.add(this.restingImage);
         canvas.onClick(event -> {
-            if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            this.pressed();
+            if (menu.getIfMenuOpen()){
+                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    this.pressed();
+                }
             }
         });
     }

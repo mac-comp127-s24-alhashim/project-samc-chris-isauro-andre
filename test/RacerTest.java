@@ -17,7 +17,6 @@ public class RacerTest {
 
     public RacerTest(){
         canvas = new CanvasWindow("PROJECT TEST", 1240,700);
-
     }
 
     public void gameStart(){

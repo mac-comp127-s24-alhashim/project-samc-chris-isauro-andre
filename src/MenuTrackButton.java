@@ -2,12 +2,12 @@ import edu.macalester.graphics.*;
 
 
 public class MenuTrackButton implements MenuButton {
-    Image restingImage, pressedImage;
-    Track track;
-    CanvasWindow canvas;
-    MenuButtonManager buttonManager;
-    Menu menu;
-    boolean selected;
+    private Image restingImage, pressedImage;
+    private Track track;
+    private CanvasWindow canvas;
+    private MenuButtonManager buttonManager;
+    private Menu menu;
+    private boolean selected;
 
 
     public MenuTrackButton(Track track, String restingImage, String pressedImage, 
@@ -24,8 +24,10 @@ public class MenuTrackButton implements MenuButton {
         this.buttonManager = buttonManager;
         this.menu = menu;
         canvas.onClick(event -> {
-            if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-            this.pressed();
+            if (menu.getIfMenuOpen()){
+                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    this.pressed();
+                }
             }
         });
     }

@@ -5,10 +5,10 @@ import java.io.File;
 
 
 public class RacingObjects {
-    Map<String, Track> tracks = new HashMap<String, Track>();
-    Map<String, Racer> racers = new HashMap<String, Racer>();
-    Map<String, Tire> tires = new HashMap<String, Tire>();
-    Map<String, Engine> engines = new HashMap<String, Engine>();
+    private Map<String, Track> tracks = new HashMap<String, Track>();
+    private Map<String, Racer> racers = new HashMap<String, Racer>();
+    private Map<String, Tire> tires = new HashMap<String, Tire>();
+    private Map<String, Engine> engines = new HashMap<String, Engine>();
 
 
     public RacingObjects(){

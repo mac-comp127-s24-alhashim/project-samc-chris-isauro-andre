@@ -19,7 +19,6 @@ public class GameMain{
             canvas = new CanvasWindow("MacF1", 1280, 720);
             menu = new Menu(canvas);
             carObjects = new RacingObjects();
-
         }
 
         private void prepareGame(){
