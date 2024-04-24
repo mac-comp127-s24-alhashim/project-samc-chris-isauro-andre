@@ -112,7 +112,6 @@ private final double passiveDeceleration = .07;
         }
     }
     
-
     //a car can only accelarate when its tyres are still durable
 
     // private double accelarate(){

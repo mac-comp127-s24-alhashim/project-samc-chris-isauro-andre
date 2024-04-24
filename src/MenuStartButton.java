@@ -2,21 +2,19 @@ import edu.macalester.graphics.*;
 
 public class MenuStartButton {
     private Image restingImage;
-    private Game game;
 
-    public MenuStartButton(String restingImage, double scalefactor, Point location, Game game, Menu menu, CanvasWindow canvas){
-        this.game = game;
+    public MenuStartButton(String restingImage, double scalefactor, Point location, Menu menu, CanvasWindow canvas){
         this.restingImage = new Image(restingImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
         this.restingImage.setPosition(location);
         canvas.add(this.restingImage);
-        canvas.onClick(event -> {
-            if (menu.getIfMenuOpen()){
-                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-                    this.pressed();
-                }
-            }
-        });
+        // canvas.onClick(event -> {
+        //     if (menu.getIfMenuOpen()){
+        //         if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+        //             this.pressed();
+        //         }
+        //     }
+        // });
     }
     
 
@@ -24,8 +22,8 @@ public class MenuStartButton {
         return restingImage;
     }
     
-    public void pressed(){
-        game.prepareGame();
-    }
+    // public void pressed(){
+    //     game.prepareGame();
+    // }
     
 }
