@@ -2,12 +2,12 @@ import edu.macalester.graphics.*;
 
 
 public class MenuEngineButton implements MenuButton {
-    Image restingImage, pressedImage;
-    Engine engine;
-    CanvasWindow canvas;
-    Menu menu;
-    boolean selected;
-    MenuButtonManager buttonManager;
+    private Image restingImage, pressedImage;
+    private Engine engine;
+    private CanvasWindow canvas;
+    private Menu menu;
+    private boolean selected;
+    private MenuButtonManager buttonManager;
 
     public MenuEngineButton(Engine engine, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu,  CanvasWindow canvas){

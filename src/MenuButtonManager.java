@@ -2,25 +2,25 @@ import edu.macalester.graphics.*;
 import java.util.*; 
 
 public class MenuButtonManager {
-    ArrayList<MenuTrackButton> trackButtons = new ArrayList<MenuTrackButton>();
-    ArrayList<MenuRacerButton> racerButtons = new ArrayList<MenuRacerButton>();
-    ArrayList<MenuEngineButton> engineButtons = new ArrayList<MenuEngineButton>();
-    ArrayList<MenuTireButton> tireButtons = new ArrayList<MenuTireButton>();
+    private ArrayList<MenuTrackButton> trackButtons = new ArrayList<MenuTrackButton>();
+    private ArrayList<MenuRacerButton> racerButtons = new ArrayList<MenuRacerButton>();
+    private ArrayList<MenuEngineButton> engineButtons = new ArrayList<MenuEngineButton>();
+    private ArrayList<MenuTireButton> tireButtons = new ArrayList<MenuTireButton>();
 
-    ArrayList<ArrayList<String>> inputStrings = new ArrayList<ArrayList<String>>();
-    ArrayList<String> inputArray;
+    private ArrayList<ArrayList<String>> inputStrings = new ArrayList<ArrayList<String>>();
+    private ArrayList<String> inputArray;
 
-    Map<String, Double> buttonLocations = new HashMap<String, Double>();;
+    private  Map<String, Double> buttonLocations = new HashMap<String, Double>();;
 
-    RacingObjects racingObjects = new RacingObjects();
+    private RacingObjects racingObjects = new RacingObjects();
 
-    MenuStartButton startButton;
-    Image menuBackground;
+    private MenuStartButton startButton;
+    private Image menuBackground;
 
-    double imageScaleFactor;
-    Menu menu;
-    Game game;
-    CanvasWindow canvas;
+    private double imageScaleFactor;
+    private Menu menu;
+    private Game game;
+    private CanvasWindow canvas;
 
     public MenuButtonManager(Menu menu, Game game, CanvasWindow canvas){
         this.canvas = canvas;

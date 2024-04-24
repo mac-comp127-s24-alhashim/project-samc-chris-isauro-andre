@@ -1,12 +1,10 @@
 import edu.macalester.graphics.*;
 
 public class MenuStartButton {
-    Point location;
-    Image restingImage, pressedImage;
-    Game game;
+    private Image restingImage;
+    private Game game;
 
     public MenuStartButton(String restingImage, double scalefactor, Point location, Game game, CanvasWindow canvas){
-        this.location = location; 
         this.game = game;
         this.restingImage = new Image(restingImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);

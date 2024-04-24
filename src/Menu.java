@@ -93,8 +93,4 @@ public class Menu {
     public void setSelectedEngine(Engine selectedEngine) {
         this.selectedEngine = selectedEngine;
     }
-
-    public static void main(String[] args) {
-        Game game = new Game();
-    }
 }

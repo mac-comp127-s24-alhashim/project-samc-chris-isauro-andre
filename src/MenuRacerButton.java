@@ -2,12 +2,12 @@ import edu.macalester.graphics.*;
 
 
 public class MenuRacerButton implements MenuButton {
-    Image restingImage, pressedImage, carBody;
-    Racer racer;
-    CanvasWindow canvas;
-    MenuButtonManager buttonManager;
-    Menu menu;
-    boolean selected;
+    private Image restingImage, pressedImage;
+    private Racer racer;
+    private CanvasWindow canvas;
+    private MenuButtonManager buttonManager;
+    private Menu menu;
+    private boolean selected;
 
     public MenuRacerButton(Racer racer, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){

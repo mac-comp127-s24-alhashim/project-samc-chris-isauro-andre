@@ -2,12 +2,12 @@ import edu.macalester.graphics.*;
 
 
 public class MenuTrackButton implements MenuButton {
-    Image restingImage, pressedImage;
-    Track track;
-    CanvasWindow canvas;
-    MenuButtonManager buttonManager;
-    Menu menu;
-    boolean selected;
+    private Image restingImage, pressedImage;
+    private Track track;
+    private CanvasWindow canvas;
+    private MenuButtonManager buttonManager;
+    private Menu menu;
+    private boolean selected;
 
 
     public MenuTrackButton(Track track, String restingImage, String pressedImage, 
