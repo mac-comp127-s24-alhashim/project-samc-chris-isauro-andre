@@ -1,4 +1,4 @@
-import java.io.File;
+
 
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.events.Key;
@@ -6,7 +6,8 @@ import edu.macalester.graphics.events.Key;
 public class mechanicsTesting {
 
     private CanvasWindow canvas;
-    private Car car;
+    private Menu menu;
+    private RacingObjects carObjects;
     private double carAngle = 50.0;
     private final double scale = 0.5;
 
@@ -17,26 +18,23 @@ public class mechanicsTesting {
 
     public mechanicsTesting(){
         canvas = new CanvasWindow("PROJECT TEST", 1240,700);
-
+        menu = new Menu(canvas);
+        carObjects = new RacingObjects();
     }
 
     public void gameStart(){
         final double carPositionX = canvas.getWidth()/3;
         final double carPositionY = canvas.getHeight()/3;
 
-        // car = new Car(
-        //     new Engine(200, 240, 30),
-        //     new Tire(new File("res/images/WheelImages/tireSoft"),
-        //     "images/WheelImages/tireSoft1.png", 
-        //         carPositionX, carPositionY, 
-        //         .2, carAngle, scale, 50, 10),
-        //     new Racer("images/driver-body1.png", 20, 15),
-        //     carPositionX, carPositionY,
-        //     carAngle, scale
-        // );
+        Car car = new Car(
+            carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
+            carObjects.getTires().get(menu.getSelectedTires().getKey()),
+            carObjects.getRacers().get(menu.getSelectedRacer().getKey()),
+            carPositionX, carPositionY, carAngle, scale);
+
     
-        // car.addCarToCanvas(canvas);
-        // canvas.draw();
+        car.addCarToCanvas(canvas);
+        canvas.draw();
 
         canvas.animate(() -> {
             if(canvas.getKeysPressed().contains(Key.D)){

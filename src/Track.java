@@ -26,6 +26,10 @@ public class Track {
         return map;
     }
 
+    public void moveMap(CanvasWindow canvas, double dtX, double dtY){
+        map.setPosition(mapPositionX + dtX, mapPositionY + dtY);
+    }
+
     public String getKey(){
         return TRKey;
     }

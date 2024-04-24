@@ -29,6 +29,7 @@ private final double passiveDeceleration = .3;
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
         tyre.getWheel().setPosition(centerX, centerY);
+        tyre.getWheel().setRotation(angle);
         carModel.setScale(.5);
         
         currentAngle = angle;
@@ -54,12 +55,12 @@ private final double passiveDeceleration = .3;
 
     //rotates car
     public void turn(){
-        if(currentSpeed > 0){
+        // if(currentSpeed > 0){
             double turningValue = (tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine. getWeight()));
             currentAngle = currentAngle + turningValue;
             carModel.rotateBy(currentAngle);
             tyre.getWheel().rotateBy(currentAngle);
-        }
+        // }
     }
 
     //speeds up car

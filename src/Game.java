@@ -6,7 +6,7 @@ public class Game{
         private CanvasWindow canvas;
         private Menu menu;
         private RacingObjects carObjects;
-        private double carAngle = 50.0;
+        private double carAngle = 90.0;
         private final double scale = 0.5;
     
         public static void main(String[] args) {
@@ -31,8 +31,10 @@ public class Game{
         }
 
         public void gameStart(){
-            final double carPositionX = canvas.getWidth()/3;
-            final double carPositionY = canvas.getHeight()/3;
+            final double carPositionX = canvas.getWidth()/2.34;
+            final double carPositionY = canvas.getHeight()/4.7;
+
+            Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
@@ -40,13 +42,11 @@ public class Game{
                 carObjects.getRacers().get(menu.getSelectedRacer().getKey()),
                 carPositionX, carPositionY, carAngle, scale);
 
-
-            Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
-
-            car.addCarToCanvas(canvas);
             track.addMaptoCanvas(canvas);
+            car.addCarToCanvas(canvas);
             canvas.draw();
-    
+            
+
             canvas.animate(() -> {
                 if(canvas.getKeysPressed().contains(Key.D)){
                     car.turn();
@@ -56,9 +56,11 @@ public class Game{
                 }
                 if(canvas.getKeysPressed().contains(Key.W)){
                     car.speedUp();
+                    track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
                 }
-                if (canvas.getKeysPressed().contains(Key.S)){
+                if(canvas.getKeysPressed().contains(Key.S)){
                     car.speedDown();
+                    track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
                 }
             });
     
