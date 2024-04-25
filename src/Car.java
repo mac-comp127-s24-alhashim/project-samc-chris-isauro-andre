@@ -10,7 +10,7 @@ private Image carModel;
 private int topSpeed;
 private double currentSpeed, currentAngle, velocityX, velocityY;
 
-private final double passiveDeceleration = .07;
+private final double passiveDeceleration = .01;
 
     public Car(
         Engine engineType, 

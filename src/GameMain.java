@@ -12,7 +12,6 @@ public class GameMain{
         public static void main(String[] args) {
             GameMain game = new GameMain();
             game.prepareGame();
-            
         }
         
         public GameMain(){
