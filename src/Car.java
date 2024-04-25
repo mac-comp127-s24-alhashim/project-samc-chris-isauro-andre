@@ -107,7 +107,6 @@ private final double passiveDeceleration = .01;
                 currentSpeed = 0;
             }
             updateSpeed();
-
         }
     }
 
