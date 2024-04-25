@@ -82,6 +82,8 @@ private final double passiveDeceleration = .01;
 
         if(currentSpeed < topSpeed){
             currentSpeed = currentSpeed + accelaration;
+        } else {
+            currentSpeed = topSpeed;
         }
         updateSpeed();
     }
