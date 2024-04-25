@@ -6,8 +6,8 @@ public class GameMain{
         private CanvasWindow canvas;
         private Menu menu;
         private RacingObjects carObjects;
-        private double carAngle = 90.0;
-        private final double scale = 0.5;
+        private double carAngle = -90.0;
+        private final double scale = 0.21;
     
         public static void main(String[] args) {
             GameMain game = new GameMain();
@@ -35,7 +35,8 @@ public class GameMain{
             final double carPositionX = canvas.getWidth()/2.34;
             final double carPositionY = canvas.getHeight()/4.7;
 
-            Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
+            // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
+            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -140, -1505, 0, 3);
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
@@ -57,7 +58,6 @@ public class GameMain{
                 }
                 if(canvas.getKeysPressed().contains(Key.W)){
                     car.speedUp();
-                    track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
                 }
 
                 // else {
