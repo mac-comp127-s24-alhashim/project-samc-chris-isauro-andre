@@ -49,9 +49,9 @@ public class RacingObjects {
     }
 
     private void createEngines(){
-        engines.put("V6", new Engine("V6", 0.57, 32, 8));
-        engines.put("V10", new Engine("V10", 90, 230, 1));
-        engines.put("V12", new Engine("V12", 120, 260, 5));
+        engines.put("V6", new Engine("V6", 0.57, 32, 1));
+        engines.put("V10", new Engine("V10", 0.85, 40, 5));
+        engines.put("V12", new Engine("V12", 1.1, 45, 8));
     }
 
     public Map<String, Track> getTracks() {
