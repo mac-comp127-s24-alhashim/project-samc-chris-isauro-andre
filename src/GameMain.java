@@ -1,5 +1,8 @@
+import java.text.DecimalFormat;
+
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.events.Key;
+import edu.macalester.graphics.ui.TextField;
 
 public class GameMain{
 
@@ -37,6 +40,11 @@ public class GameMain{
 
             // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
             Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -140, -1505, 0, 3);
+            
+            // Speedometer Creation formatted to 2 places
+            TextField speedHUD = new TextField();
+            canvas.add(speedHUD);
+            final DecimalFormat df = new DecimalFormat("00");
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
@@ -70,6 +78,13 @@ public class GameMain{
                 }                 
 
                 track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
+
+                //Speedometer calculations
+                speedHUD.setText("Speed = " + 
+                df.format(Math.sqrt(Math.pow(car.getVelocityX(),2)+
+                (Math.pow(car.getVelocityX(),2)
+                ))));
+                speedHUD.setPosition(canvas.getWidth()*2/3, canvas.getHeight()*2/3);
 
             });
 
