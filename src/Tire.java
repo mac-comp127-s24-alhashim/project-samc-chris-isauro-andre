@@ -67,15 +67,15 @@ public class Tire{
         return durability;
     }
 
-    public Image getWheel() {
-        return wheel;
-    }
-
     public void degradeTires(){
         durability -= .02;
     }
 
-    public static Image loadImages(File file){
+    public Image getWheel() {
+        return wheel;
+    }
+
+    private static Image loadImages(File file){
         String imagePath = file.getPath();
         imagePath = imagePath.substring(4, imagePath.length());
         Image image = new Image(imagePath);
