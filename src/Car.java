@@ -120,5 +120,4 @@ private final double passiveDeceleration = .001;
         tyre.degradeTires();
         updateSpeed(); 
     }
-
 }

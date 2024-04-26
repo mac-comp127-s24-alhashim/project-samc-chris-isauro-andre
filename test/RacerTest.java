@@ -68,11 +68,10 @@ public class RacerTest{
                 if(!canvas.getKeysPressed().contains(Key.W)){
                     car.passiveSpeedDown();
                 }
-                if (track.borderDistance(canvas) == true) {
-                    track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
-                } else {
-                    track.moveMap(canvas, 0, 0);
+                if (track.borderDistance(car, canvas)) {
+                    car.speedDown();
                 }
+                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
             });
 
         }

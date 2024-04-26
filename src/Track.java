@@ -47,8 +47,9 @@ public class Track {
         return startingAngle;
     }
 
-    public boolean borderDistance(CanvasWindow canvas) {
-        if (getXBounds() - canvas.getWidth() <= 0 || getYBounds() - canvas.getHeight() <= 0) {
+    public boolean borderDistance(Car car, CanvasWindow canvas) {
+        if (map.getX() > getXBounds() / 2|| map.getY() > getYBounds() / 2
+        || map.getX() > -getXBounds() / 2|| map.getY() > -getYBounds() / 2) {
             return true;
         }
        else return false;
