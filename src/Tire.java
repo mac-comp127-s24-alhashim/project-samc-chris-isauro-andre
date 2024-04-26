@@ -17,7 +17,6 @@ public class Tire{
         String tireKey,
         File path, 
         String wheelPreviewImagePath,
-        double wheelX, double wheelY, 
         double friction, 
         double angle,
         double scale, 
@@ -32,19 +31,15 @@ public class Tire{
         this.durability = durability;
         this.grip = grip;
 
-
         File[] files = pathFile.listFiles();
         for (int i = 0; i < files.length; i++){
             if(files[i].isFile()){
                 wheels.add(loadImages(files[i]));
             }
         }
-        
+
         wheel = wheels.get(0);
-        wheel.setPosition(wheelX, wheelY);
-        wheel.setRotation(angle);
-        wheel.setScale(scale);
-        
+
     }
 
     public Image getWheelPreview(){   
@@ -68,13 +63,23 @@ public class Tire{
     }
 
     public void degradeTires(){
-        durability -= .02;
+        durability -= .008;
     }
 
     public Image getWheel() {
         return wheel;
     }
 
+    public void animateWheel(){
+        for (int i = 0; i < wheels.size() - 1;i++ ){
+            if (i < wheels.size() - 1){
+                wheel = wheels.get(i);
+            } else {
+                i = 0;
+            }
+        }
+    }
+    
     private static Image loadImages(File file){
         String imagePath = file.getPath();
         imagePath = imagePath.substring(4, imagePath.length());

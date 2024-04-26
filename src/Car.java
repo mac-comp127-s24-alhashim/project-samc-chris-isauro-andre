@@ -25,16 +25,18 @@ private final double passiveDeceleration = .001;
         tyre = tyreType;
         racer = racerType;
         carModel = racer.getRacerCar();
+        topSpeed = engine.getTopSpeed();
 
         carModel.setRotation(angle);
         carModel.setPosition(centerX, centerY);
+        carModel.setScale(scale);
+
         tyre.getWheel().setPosition(centerX, centerY);
         tyre.getWheel().setRotation(angle);
-        carModel.setScale(scale);
-        
+        tyre.getWheel().setScale(scale);
+
         currentAngle = angle;
         currentSpeed = 0;
-        topSpeed = engine.getTopSpeed();
     }
 
     // Getter methods below important for the movement of the canvas based on the X and Y velocities of the car
@@ -121,4 +123,10 @@ private final double passiveDeceleration = .001;
         updateSpeed(); 
     }
 
+    public void animateTyres(CanvasWindow canvas){
+        if(currentSpeed > 0){
+            tyre.animateWheel();
+            tyre.getWheel();
+        }
+    }
 }

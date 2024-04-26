@@ -64,11 +64,12 @@ public class GameMain{
                 if(canvas.getKeysPressed().contains(Key.W)){
                     car.speedUp();
                 } 
-                
+
                 if(!canvas.getKeysPressed().contains(Key.W)){
                     car.passiveSpeedDown();
                 }                 
 
+                car.animateTyres(canvas);
                 track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
 
             });
