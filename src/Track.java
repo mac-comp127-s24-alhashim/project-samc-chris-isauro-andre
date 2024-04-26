@@ -46,4 +46,11 @@ public class Track {
     public double getStartingAngle(){
         return startingAngle;
     }
+
+    public boolean borderDistance(CanvasWindow canvas) {
+        if (getXBounds() - canvas.getWidth() <= 0 || getYBounds() - canvas.getHeight() <= 0) {
+            return true;
+        }
+       else return false;
+    }
 }

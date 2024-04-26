@@ -71,10 +71,13 @@ private final double passiveDeceleration = .001;
 
     //speeds up car
     public void speedUp(){
-        if(currentSpeed < topSpeed){
-            currentSpeed = currentSpeed + accelarate();
+        double accelaration;
+        accelaration = engine.getTorque() - (tyre.getFriction() * ((racer.getWeight() + engine.getWeight()) * 9.8));
+
+        if(currentSpeed <= topSpeed && tyre.getDurability() > 0){
+            currentSpeed += accelaration;
         } else {
-            currentSpeed = topSpeed;
+            passiveSpeedDown();
         }
         updateSpeed();
     }
@@ -82,7 +85,7 @@ private final double passiveDeceleration = .001;
     //speeds down car wtih brake
     public void speedDown(){
         if(currentSpeed > 0){
-            currentSpeed = currentSpeed - racer.getBrakepower();
+            currentSpeed -= racer.getBrakepower();
         }
         else if(currentSpeed <= 0){
             currentSpeed = 0;
@@ -103,21 +106,6 @@ private final double passiveDeceleration = .001;
             updateSpeed();
         }
     }
-
-    //a car can only accelarate when its tyres are still durable
-
-    private double accelarate(){
-        double accelaration;
-        accelaration = engine.getTorque() - (tyre.getFriction() * ((racer.getWeight() + engine.getWeight()) * 9.8));
-
-        if(tyre.getDurability() > 0){
-        return accelaration;
-        }
-        else{
-            accelaration = 0;
-            return accelaration;
-        }
-    }
     
     //updates the x and y velocities of the car.
     private void updateSpeed(){
@@ -126,9 +114,10 @@ private final double passiveDeceleration = .001;
     }
     
     private void updateAngle(double turning){
-        currentAngle = currentAngle + turning;
+        currentAngle += turning;
         carModel.rotateBy(turning);
         tyre.getWheel().rotateBy(turning);
+        tyre.degradeTires();
         updateSpeed(); 
     }
 
