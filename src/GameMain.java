@@ -44,7 +44,7 @@ public class GameMain{
             // Speedometer Creation formatted to 2 places
             TextField speedHUD = new TextField();
             canvas.add(speedHUD);
-            final DecimalFormat df = new DecimalFormat("00");
+            final DecimalFormat df = new DecimalFormat("000");
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
@@ -80,10 +80,12 @@ public class GameMain{
                 track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
 
                 //Speedometer calculations
-                speedHUD.setText("Speed = " + 
-                df.format(Math.sqrt(Math.pow(car.getVelocityX(),2)+
-                (Math.pow(car.getVelocityX(),2)
-                ))));
+                speedHUD.setText(
+                df.format((Math.sqrt
+                (Math.pow(car.getVelocityX(),2)+
+                Math.pow(car.getVelocityY(),2)))*8 
+                )+ " KPH"
+                );
                 speedHUD.setPosition(canvas.getWidth()*2/3, canvas.getHeight()*2/3);
 
             });
