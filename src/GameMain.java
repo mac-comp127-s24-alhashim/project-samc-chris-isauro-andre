@@ -23,7 +23,7 @@ public class GameMain{
         private void prepareGame(){
             canvas.onClick(event -> {
                 if (menu.getIfMenuOpen()){
-                    if (menu.buttonManager.getStartButton().getRestingImage().testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    if (menu.getButtonManager().getStartButton().getRestingImage().testHit(event.getPosition().getX(), event.getPosition().getY())){
                     canvas.removeAll();
                     gameStart();
                     }

@@ -95,6 +95,10 @@ public class Menu {
         this.selectedEngine = selectedEngine;
     }
 
+    public MenuButtonManager getButtonManager() {
+        return buttonManager;
+    }
+
     public boolean getIfMenuOpen() {
         return ifMenuOpen;
     }
