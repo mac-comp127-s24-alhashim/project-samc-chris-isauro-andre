@@ -23,7 +23,7 @@ public class Track {
         return map;
     }
 
-    public void moveMap(CanvasWindow canvas, double dtX, double dtY){
+    public void moveMap(double dtX, double dtY){
         map.setPosition(map.getX() - dtX, map.getY() + dtY);
     }
 

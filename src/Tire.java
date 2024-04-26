@@ -70,16 +70,18 @@ public class Tire{
         return wheel;
     }
 
-    public void animateWheel(){
+    public Image animateWheel(){
         for (int i = 0; i < wheels.size() - 1;i++ ){
             if (i < wheels.size() - 1){
                 wheel = wheels.get(i);
+                return getWheel();
             } else {
                 i = 0;
             }
         }
+        return getWheel();
     }
-    
+
     private static Image loadImages(File file){
         String imagePath = file.getPath();
         imagePath = imagePath.substring(4, imagePath.length());

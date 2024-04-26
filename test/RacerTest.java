@@ -69,9 +69,9 @@ public class RacerTest{
                     car.passiveSpeedDown();
                 }
                 if (track.borderDistance(canvas) == true) {
-                    track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
+                    track.moveMap(car.getVelocityX(), car.getVelocityY());
                 } else {
-                    track.moveMap(canvas, 0, 0);
+                    track.moveMap(0, 0);
                 }
             });
 

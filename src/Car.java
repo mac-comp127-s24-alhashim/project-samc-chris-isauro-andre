@@ -123,7 +123,7 @@ private final double passiveDeceleration = .001;
         updateSpeed(); 
     }
 
-    public void animateTyres(CanvasWindow canvas){
+    public void animateTyres(){
         if(currentSpeed > 0){
             tyre.animateWheel();
             tyre.getWheel();

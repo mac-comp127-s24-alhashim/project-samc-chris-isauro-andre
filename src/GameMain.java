@@ -6,7 +6,6 @@ public class GameMain{
         private CanvasWindow canvas;
         private Menu menu;
         private RacingObjects carObjects;
-        private double carAngle = -90.0;
         private final double scale = 0.2;
     
         public static void main(String[] args) {
@@ -36,13 +35,13 @@ public class GameMain{
             final double carPositionY = canvas.getHeight()/4.7;
 
             // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
-            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -140, -1505, 0, 3);
+            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -140, -1505, -90, 3);
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
                 carObjects.getTires().get(menu.getSelectedTires().getKey()),
                 carObjects.getRacers().get(menu.getSelectedRacer().getKey()),
-                carPositionX, carPositionY, carAngle, scale);
+                carPositionX, carPositionY, track.getStartingAngle(), scale);
 
             track.addMaptoCanvas(canvas);
             car.addCarToCanvas(canvas);
@@ -69,8 +68,8 @@ public class GameMain{
                     car.passiveSpeedDown();
                 }                 
 
-                car.animateTyres(canvas);
-                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
+                // car.animateTyres();
+                track.moveMap(car.getVelocityX(), car.getVelocityY());
 
             });
 

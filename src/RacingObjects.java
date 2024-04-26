@@ -20,9 +20,9 @@ public class RacingObjects {
 
     private void createTracks(){
         tracks.put("Suzuka", 
-            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.jpg"), 5, 2, 6, 8));
+            new Track("Suzuka", new Image("images/TrackBaseImages/SuzukaPNG.png"), -6800, -1300, 0, 5));
         tracks.put("Watkins", 
-            new Track("Watkins", new Image("images/TrackBaseImages/watkins.jpg"), 30, 30, 10, 1));
+            new Track("Watkins", new Image("images/TrackBaseImages/trackTest.png"), -140, -1505, -90, 3));
         tracks.put("Barcelona", 
             new Track("Barcelona", new Image("images/TrackBaseImages/barcelona.jpg"), 70, 60, 20, 1));
     }
@@ -49,7 +49,7 @@ public class RacingObjects {
     }
 
     private void createEngines(){
-        engines.put("V6", new Engine("V6", 0.57, 32, 8));
+        engines.put("V6", new Engine("V6", 1.6, 32, 8));
         engines.put("V10", new Engine("V10", 90, 230, 1));
         engines.put("V12", new Engine("V12", 120, 260, 5));
     }
