@@ -1,62 +1,80 @@
-import java.io.File;
-
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.events.Key;
 
-public class RacerTest {
+public class RacerTest{
 
-    private CanvasWindow canvas;
-    private Car car;
-    private double carAngle = 50.0;
-    private final double scale = 0.5;
-    private RacingObjects carObjects;
-
-    public static void main(String[] args) {
-        mechanicsTesting game = new mechanicsTesting();
-        game.gameStart();
-    }
-
-    public RacerTest(){
-        canvas = new CanvasWindow("PROJECT TEST", 1240,700);
-    }
-
-    public void gameStart(){
-        final double carPositionX = canvas.getWidth() / 2;
-        final double carPositionY = canvas.getHeight() / 2;
+        private CanvasWindow canvas;
+        private Menu menu;
+        private RacingObjects carObjects;
+        private double carAngle = 90.0;
+        private final double scale = 0.25;
+    
+        public static void main(String[] args) {
+            RacerTest game = new RacerTest();
+            game.prepareGame();
+        }
         
-        Track track = carObjects.getTracks()getKey();
-        
-        Car car = new Car(
-            carObjects.getEngines().getKey(),
-            carObjects.getTires().getKey(),
-            carObjects.getRacers().get(),
-            carPositionX, carPositionY, carAngle, scale);
+        public RacerTest(){
+            canvas = new CanvasWindow("MacF1", 1280, 720);
+            menu = new Menu(canvas);
+            carObjects = new RacingObjects();
+        }
 
-        track.addMaptoCanvas(canvas);
-        Image workingTrack = track.addMaptoCanvas(canvas);
-        car.addCarToCanvas(canvas);
-        canvas.draw();
+        private void prepareGame(){
+            canvas.onClick(event -> {
+                if (menu.getIfMenuOpen()){
+                    if (menu.buttonManager.getStartButton().getRestingImage().testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    canvas.removeAll();
+                    gameStart();
+                    }
+                }
+            });
+        }
 
-        canvas.animate(() -> {
-            if(canvas.getKeysPressed().contains(Key.D)){
-                car.turnRight();
-            }
-            if(canvas.getKeysPressed().contains(Key.A)){
-                car.turnLeft();
-            }
-            if(canvas.getKeysPressed().contains(Key.W)){
-                car.speedUp();
+        private void gameStart(){
+            final double carPositionX = canvas.getWidth()/2.34;
+            final double carPositionY = canvas.getHeight()/4.7;
+
+            // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
+            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -1430, -2705, 0, 6);
+
+            Car car = new Car(
+                carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
+                carObjects.getTires().get(menu.getSelectedTires().getKey()),
+                carObjects.getRacers().get(menu.getSelectedRacer().getKey()),
+                carPositionX, carPositionY, carAngle, scale);
+
+            track.addMaptoCanvas(canvas);
+            car.addCarToCanvas(canvas);
+            canvas.draw();
+
+            canvas.animate(() -> {
+                if(canvas.getKeysPressed().contains(Key.D)){
+                    car.turnRight();
+                }
+            
+                if(canvas.getKeysPressed().contains(Key.A)){
+                    car.turnLeft();
+                }
+
+                if(canvas.getKeysPressed().contains(Key.S)){
+                    car.speedDown();
+                }
+
+                if(canvas.getKeysPressed().contains(Key.W)){
+                    car.speedUp();
+                } 
                 
-                //move the track image in the opposite direction to the front of the car.
-                //move it faster depending on car speed.
-                workingTrack.setPosition(
-                car.getVelocityX() - 50,
-                car.getVelocityY() - 50);
-            }
-            if (canvas.getKeysPressed().contains(Key.S)){
-                car.speedDown();
-            }
-        });
+                if(!canvas.getKeysPressed().contains(Key.W)){
+                    car.passiveSpeedDown();
+                }
+                if (track.borderDistance(canvas) == true) {
+                    track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
+                } else {
+                    track.moveMap(canvas, 0, 0);
+                }
+            });
 
+        }
     }
-}
+    
