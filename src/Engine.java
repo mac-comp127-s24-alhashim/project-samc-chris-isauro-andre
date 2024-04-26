@@ -1,9 +1,10 @@
 public class Engine {
 
     private String Ekey;
-    private int torque, weight, topSpeed;
+    private double torque;
+    private int weight, topSpeed;
 
-    public Engine(String engineKey, int torque, int topSpeed, int weight){
+    public Engine(String engineKey, double torque, int topSpeed, int weight){
         this.torque = torque;
         this.weight = weight;
         this.topSpeed = topSpeed;
@@ -19,7 +20,7 @@ public class Engine {
         return topSpeed;
     }
     
-    public int getTorque(){
+    public double getTorque(){
         return torque;
     }
 

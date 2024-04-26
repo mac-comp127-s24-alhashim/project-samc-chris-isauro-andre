@@ -28,7 +28,7 @@ public class RacingObjects {
     }
 
     private void createRacers(){
-        racers.put("Max",  new Racer("Max", "images/driver-body1.png", 5, 6));
+        racers.put("Max",  new Racer("Max", "images/driver-body1.png", 5, 0.67));
         racers.put("Lewis", new Racer("Lewis", "images/driver-body2.png", 2, 0));
         racers.put("Yuki",  new Racer("Yuki", "images/driver-body3.png", 4, 24));
     }
@@ -37,7 +37,7 @@ public class RacingObjects {
         tires.put("Soft", new Tire(
             "Soft",
             new File("res/images/WheelImages/tireSoft"), "images/WheelImages/tireSoft/tireSoft1.png",
-            0.0, 0.0, 0.2, 0.0, 0.21, 8, 100));
+            0.0, 0.0, 0.002, 0.0, 0.2, 3, 100));
         tires.put("Medium", new Tire(
             "Medium",
             new File("res/images/WheelImages/tireMedium"), "images/WheelImages/tireMedium/tireMedium1.png",
@@ -49,7 +49,7 @@ public class RacingObjects {
     }
 
     private void createEngines(){
-        engines.put("V6", new Engine("V6", 23, 10, 16));
+        engines.put("V6", new Engine("V6", 0.57, 32, 8));
         engines.put("V10", new Engine("V10", 90, 230, 1));
         engines.put("V12", new Engine("V12", 120, 260, 5));
     }

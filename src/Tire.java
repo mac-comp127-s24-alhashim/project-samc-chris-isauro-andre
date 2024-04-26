@@ -9,8 +9,8 @@ public class Tire{
     private ArrayList<Image> wheels = new ArrayList<>();
     private String wheelPreview;
     private Image wheel;
-    private double friction;
-    private int grip, durability;    
+    private double friction, durability;
+    private int grip;    
     
 
     public Tire(
@@ -22,11 +22,16 @@ public class Tire{
         double angle,
         double scale, 
         int grip, 
-        int durability){
+        double durability){
 
         TIKey = tireKey;
         wheelPreview = wheelPreviewImagePath;
         pathFile = path;
+
+        this.friction = friction;
+        this.durability = durability;
+        this.grip = grip;
+
 
         File[] files = pathFile.listFiles();
         for (int i = 0; i < files.length; i++){
@@ -58,7 +63,7 @@ public class Tire{
         return grip;
     }
 
-    public int getDurability(){
+    public double getDurability(){
         return durability;
     }
 

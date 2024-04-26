@@ -7,7 +7,7 @@ public class GameMain{
         private Menu menu;
         private RacingObjects carObjects;
         private double carAngle = -90.0;
-        private final double scale = 0.21;
+        private final double scale = 0.2;
     
         public static void main(String[] args) {
             GameMain game = new GameMain();
@@ -56,19 +56,21 @@ public class GameMain{
                 if(canvas.getKeysPressed().contains(Key.A)){
                     car.turnLeft();
                 }
-                if(canvas.getKeysPressed().contains(Key.W)){
-                    car.speedUp();
-                }
-
-                // else {
-                //     car.passiveSpeedDown(); further polish of mechanics is needed before this works
-                // }
 
                 if(canvas.getKeysPressed().contains(Key.S)){
                     car.speedDown();
                 }
 
+                if(canvas.getKeysPressed().contains(Key.W)){
+                    car.speedUp();
+                } 
+                
+                if(!canvas.getKeysPressed().contains(Key.W)){
+                    car.passiveSpeedDown();
+                }                 
+
                 track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
+
             });
 
         }

@@ -3,9 +3,10 @@ import edu.macalester.graphics.Image;
 public class Racer {
     private String racerCarPreview, Rkey;
     private Image racerCar;
-    private int weight, brakepower;
+    private double brakepower;
+    private int weight;
     
-    public Racer(String racerKey, String racerCarImagePath, int weight, int brakepower){
+    public Racer(String racerKey, String racerCarImagePath, int weight, double brakepower){
         racerCar = new Image(racerCarImagePath);
         racerCarPreview = racerCarImagePath;
         this.weight = weight; 
@@ -29,7 +30,7 @@ public class Racer {
         return weight;
     }
 
-    public int getBrakepower(){
+    public double getBrakepower(){
         return brakepower;
     }
 

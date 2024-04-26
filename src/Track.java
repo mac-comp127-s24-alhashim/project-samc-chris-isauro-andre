@@ -10,7 +10,7 @@ public class Track {
 
         this.map = map;
         map.setScale(zoom);
-        map.setPosition(startingX,startingY);
+        map.setPosition(startingX, startingY);
 
         xBounds = map.getImageWidth();
         yBounds = map.getImageHeight();
