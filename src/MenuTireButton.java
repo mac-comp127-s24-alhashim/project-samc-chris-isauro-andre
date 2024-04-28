@@ -13,6 +13,12 @@ public class MenuTireButton implements MenuButton {
     private Menu menu;
     private boolean selected;
 
+    /**
+     * When constructed, the object stores the references to canvas, buttonManager, and menu so that their methods can be referenced later.
+     * If then takes the strings restingImageString and pressedImageString and converts them to Image objects, and then scales and 
+     * positions them using the fed in x, y, and scalefactor variables. It then displays the restingImage and sets up a listen to 
+     * listen for a click on the pressed image. It also stores the given Tire object.
+     */
     public MenuTireButton(Tire tire, String restingImageString, String pressedImageString, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.tire = tire;

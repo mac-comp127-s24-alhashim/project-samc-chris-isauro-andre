@@ -1,5 +1,6 @@
 import edu.macalester.graphics.Image;
 
+
 public class Racer {
     private String racerCarPreview, Rkey;
     private Image racerCar;
