@@ -15,6 +15,7 @@ public class MenuRacerButton implements MenuButton {
         this.canvas = canvas;
         this.buttonManager = buttonManager;
         this.menu = menu;
+
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
@@ -27,13 +28,15 @@ public class MenuRacerButton implements MenuButton {
         setupClickMechanic();
     }
 
+    /**
+     * Adds a listener to the canvas that listens for a click. If the menu is open and the click is over this objects resting image, 
+     * this objects pressed() method runs.
+     */
     public void setupClickMechanic(){
         canvas.onClick(
             event -> {
-                if (menu.getIfMenuOpen()){
-                    if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                if (menu.getIfMenuOpen() && this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
                         this.pressed();
-                    }
                 }
             }
         );
@@ -42,7 +45,7 @@ public class MenuRacerButton implements MenuButton {
      * If the RacerButton that was pressed was this RacerButton, selected is set to true, the image
      * that indicates that this button is selected (pressedImage) is displayed over the usual image, and the selectedRacer in the 
      * Menu object is set to the racer stored in this object. For all of the RacerButtons that were not selected, if they were selected 
-     * previously then their deselected method runs.   
+     * previously then their deselected() method runs.   
      */
     public void pressed(){
         for (MenuRacerButton button : buttonManager.getRacerButtons()){

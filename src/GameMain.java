@@ -27,6 +27,7 @@ public class GameMain{
             canvas.onClick(event -> {
                 if (menu.getIfMenuOpen()){
                     if (menu.getButtonManager().getStartButton().getRestingImage().testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    menu.setIfMenuOpen(false);
                     canvas.removeAll();
                     gameStart();
                     }

@@ -15,6 +15,7 @@ public class MenuEngineButton implements MenuButton {
         this.canvas = canvas;
         this.buttonManager = buttonManager;
         this.menu = menu;
+        
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
@@ -27,13 +28,15 @@ public class MenuEngineButton implements MenuButton {
         setupClickMechanic();
     }
 
+    /**
+     * Adds a listener to the canvas that listens for a click. If the menu is open and the click is over this objects resting image, 
+     * this objects pressed() method runs.
+     */
     public void setupClickMechanic(){
         canvas.onClick(
             event -> {
-                if (menu.getIfMenuOpen()){
-                    if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                if (menu.getIfMenuOpen() && this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
                         this.pressed();
-                    }
                 }
             }
         );
@@ -44,7 +47,7 @@ public class MenuEngineButton implements MenuButton {
      * If the EngineButton that was pressed was this EngineButton, selected is set to true, the image
      * that indicates that this button is selected (pressedImage) is displayed over the usual image, and the selectedEngine in the 
      * Menu object is set to the engine stored in this object. For all of the EngineButtons that were not selected, if they were selected 
-     * previously then their deselected method runs.   
+     * previously then their deselected() method runs.   
      */
     public void pressed(){
         for (MenuEngineButton button : buttonManager.getEngineButtons()){
