@@ -20,32 +20,59 @@ public class Menu {
         setupMenu();
     }
 
+    /**
+     * After the menu is created, sets the default selected and displays the preview tires and car.
+     */
     private void setupMenu(){
         setupDefaultSelected();
         setPreviewCar();
         setPreviewTire();
     }
 
+    /**
+     * If previewRacerCarDisplayed is not true, which it is by default, then it is set to true and previewRacerCar is not removed
+     * from the canvas. This is because if it is the first time it is pressed, there is no previewRacerCar displayed and if you try
+     * and remove it makes things break. If previewRacerCarDisplayed then it removes the currently displayed previewRacerCar image 
+     * from the canvas. Either way, it takes the selectedRacer car preview image, positions it, and adds it to the canvas.
+     */
     public void setPreviewCar(){
-        if (previewRacerCarDisplayed == true){
+        if (previewRacerCarDisplayed != true){
+            previewRacerCarDisplayed = true;
+        }
+        else{
             canvas.remove(previewRacerCar);
         }
+
         previewRacerCar = selectedRacer.getRacerCarPreview();
         positionPreviewImage(previewRacerCar);
         canvas.add(previewRacerCar);
-        previewRacerCarDisplayed = true;
     }
 
+
+    /**
+     * If previewRacerTiresDisplayed is not true, which it is by default, then it is set to true and previewRacerTires is not removed
+     * from the canvas. This is because if it is the first time it is pressed, there is no previewRacerTires displayed and if you try
+     * and remove it makes things break. If previewRacerTiresDisplayed then it removes the currently displayed previewRacerTires image 
+     * from the canvas. Either way, it takes the selectedTires wheel preview image, positions it, and adds it to the canvas.
+     */
     public void setPreviewTire(){
-        if (previewRacerTiresDisplayed == true){
+        if (previewRacerTiresDisplayed != true){
+            previewRacerTiresDisplayed = true;
+        }
+        else{
             canvas.remove(previewRacerTires);
         }
+
         previewRacerTires = selectedTires.getWheelPreview();
         positionPreviewImage(previewRacerTires);
         canvas.add(previewRacerTires);
-        previewRacerTiresDisplayed = true;
     }
 
+    /**
+     * This function takes an image (either a tire image or car image) and sets it to the correct position, rotation,
+     * and scale to be displayed as a preview of what is currectly selected in the preview window. It first scales the image, 
+     * then it sets its postion, and then it rotates the image. 
+     */
     private void positionPreviewImage(Image image){
         image.setMaxWidth(image.getWidth() * buttonManager.getImageScaleFactor() * 1.2);
         image.setPosition(
@@ -56,6 +83,9 @@ public class Menu {
         image.rotateBy(90);
     }
 
+    /**
+     * Artificially selects the first option in all of the four catagories.
+     */
     private void setupDefaultSelected(){
         buttonManager.getTrackButtons().get(0).pressed();
         buttonManager.getRacerButtons().get(0).pressed();

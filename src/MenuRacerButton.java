@@ -12,25 +12,38 @@ public class MenuRacerButton implements MenuButton {
     public MenuRacerButton(Racer racer, String restingImage, String pressedImage, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.racer = racer;
+        this.canvas = canvas;
+        this.buttonManager = buttonManager;
+        this.menu = menu;
         this.restingImage = new Image(restingImage);
         this.pressedImage = new Image(pressedImage);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
         this.pressedImage.setMaxWidth(this.pressedImage.getWidth() * scalefactor);
         this.restingImage.setPosition(x, y);
         this.pressedImage.setPosition(x, y);
-        this.canvas = canvas;
+
         canvas.add(this.restingImage);
-        this.buttonManager = buttonManager;
-        this.menu = menu;
-        canvas.onClick(event -> {
-            if (menu.getIfMenuOpen()){
-                if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
-                    this.pressed();
-                }
-            }
-        });
+
+        setupClickMechanic();
     }
 
+    public void setupClickMechanic(){
+        canvas.onClick(
+            event -> {
+                if (menu.getIfMenuOpen()){
+                    if (this.restingImage.testHit(event.getPosition().getX(), event.getPosition().getY())){
+                        this.pressed();
+                    }
+                }
+            }
+        );
+    }
+    /**
+     * If the RacerButton that was pressed was this RacerButton, selected is set to true, the image
+     * that indicates that this button is selected (pressedImage) is displayed over the usual image, and the selectedRacer in the 
+     * Menu object is set to the racer stored in this object. For all of the RacerButtons that were not selected, if they were selected 
+     * previously then their deselected method runs.   
+     */
     public void pressed(){
         for (MenuRacerButton button : buttonManager.getRacerButtons()){
             if (button == this){
@@ -48,6 +61,9 @@ public class MenuRacerButton implements MenuButton {
         
     }
     
+    /**
+     * Removes the image displayed when the button is pressed to reveal the normal image underneath. Then sets selected to false.
+     */
     public void deselected(){
         canvas.remove(pressedImage);
         selected = false;
