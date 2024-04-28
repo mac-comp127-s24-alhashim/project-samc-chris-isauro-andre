@@ -35,7 +35,7 @@ public class Track {
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         else if (-(map.getY() + dtY) >= (map.getImageHeight() / 2) * (zoom - 0.40625)) {
-            map.setPosition(map.getX() - dtX, map.getY() - dtY);
+            map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         map.setPosition(map.getX() - dtX, map.getY() + dtY);
     }
