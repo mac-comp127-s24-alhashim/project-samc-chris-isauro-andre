@@ -3,12 +3,13 @@ import edu.macalester.graphics.*;
 public class Track {
     private String TRKey;
     private Image map;
-    private double xBounds, yBounds, startingAngle;
+    private double xBounds, yBounds, startingAngle, zoom;
     
     public Track (String trackKey, Image map, double startingX, double startingY, double startingAngle, double zoom){
         TRKey = trackKey;
 
         this.map = map;
+        this.zoom = zoom;
         map.setScale(zoom);
         map.setPosition(startingX, startingY);
 
@@ -24,6 +25,18 @@ public class Track {
     }
 
     public void moveMap(CanvasWindow canvas, double dtX, double dtY){
+        if ((map.getX() - dtX) >= (map.getImageWidth() / 2) * (zoom - 1)) {
+            map.setPosition(map.getX() + dtX, map.getY() + dtY);
+        }
+        else if (-(map.getX() - dtX) >= (map.getImageWidth() / 2) * (zoom - 1.5)) {
+            map.setPosition(map.getX() + dtX, map.getY() + dtY);
+        }
+        if ((map.getY() + dtY) >= (map.getImageHeight() / 2) * (zoom - 1)) {
+            map.setPosition(map.getX() + dtX, map.getY() - dtY);
+        }
+        else if (-(map.getY() + dtY) >= (map.getImageHeight() / 2) * (zoom - 0.40625)) {
+            map.setPosition(map.getX() + dtX, map.getY() - dtY);
+        }
         map.setPosition(map.getX() - dtX, map.getY() + dtY);
     }
 
@@ -47,11 +60,7 @@ public class Track {
         return startingAngle;
     }
 
-    public boolean borderDistance(Car car, CanvasWindow canvas) {
-        if (map.getX() > getXBounds() / 2|| map.getY() > getYBounds() / 2
-        || map.getX() > -getXBounds() / 2|| map.getY() > -getYBounds() / 2) {
-            return true;
-        }
-       else return false;
+    public double getZoom() {
+        return zoom;
     }
 }
