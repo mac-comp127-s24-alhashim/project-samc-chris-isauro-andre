@@ -1,6 +1,10 @@
 import edu.macalester.graphics.*;
 
-
+/**
+ * The class represents all of the Racer Buttons in the menu. The objects made from this class store an Racer object as well as two images,
+ * one for when the button is clicked and another for when the button is not clicked. When the button is clicked the selected racer in 
+ * the Menu object is set to the racer stored in the clicked racer button.
+ */
 public class MenuRacerButton implements MenuButton {
     private Image restingImage, pressedImage;
     private Racer racer;
@@ -9,15 +13,16 @@ public class MenuRacerButton implements MenuButton {
     private Menu menu;
     private boolean selected;
 
-    public MenuRacerButton(Racer racer, String restingImage, String pressedImage, 
+    
+    public MenuRacerButton(Racer racer, String restingImageString, String pressedImageString, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.racer = racer;
         this.canvas = canvas;
         this.buttonManager = buttonManager;
         this.menu = menu;
 
-        this.restingImage = new Image(restingImage);
-        this.pressedImage = new Image(pressedImage);
+        this.restingImage = new Image(restingImageString);
+        this.pressedImage = new Image(pressedImageString);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
         this.pressedImage.setMaxWidth(this.pressedImage.getWidth() * scalefactor);
         this.restingImage.setPosition(x, y);
@@ -61,7 +66,6 @@ public class MenuRacerButton implements MenuButton {
                 }
             }
         }
-        
     }
     
     /**

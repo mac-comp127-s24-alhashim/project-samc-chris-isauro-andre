@@ -1,23 +1,27 @@
 import edu.macalester.graphics.*;
 
-
+/**
+ * The class represents all of the Tire Buttons in the menu. The objects made from this class store a Tire object as well as two images,
+ * one for when the button is clicked and another for when the button is not clicked. When the button is clicked the selected tire in 
+ * the Menu object is set to the tire stored in the clicked tire button.
+ */
 public class MenuTireButton implements MenuButton {
     private Image restingImage, pressedImage;
-    private Tire tyre;
+    private Tire tire;
     private CanvasWindow canvas;
     private MenuButtonManager buttonManager;
     private Menu menu;
     private boolean selected;
 
-    public MenuTireButton(Tire tyre, String restingImage, String pressedImage, 
+    public MenuTireButton(Tire tire, String restingImageString, String pressedImageString, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
-        this.tyre = tyre;
+        this.tire = tire;
         this.canvas = canvas;
         this.buttonManager = buttonManager;
         this.menu = menu;
 
-        this.restingImage = new Image(restingImage);
-        this.pressedImage = new Image(pressedImage);
+        this.restingImage = new Image(restingImageString);
+        this.pressedImage = new Image(pressedImageString);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
         this.pressedImage.setMaxWidth(this.pressedImage.getWidth() * scalefactor);
         this.restingImage.setPosition(x, y);
@@ -53,7 +57,7 @@ public class MenuTireButton implements MenuButton {
             if (button == this){
                 selected = true;
                 canvas.add(this.pressedImage);
-                menu.setSelectedTires(this.tyre);
+                menu.setSelectedTires(this.tire);
                 menu.setPreviewTire();
             }
             else{

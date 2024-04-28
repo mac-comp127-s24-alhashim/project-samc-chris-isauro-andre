@@ -1,6 +1,10 @@
 import edu.macalester.graphics.*;
 
-
+/**
+ * The class represents all of the Track Buttons in the menu. The objects made from this class store a Track object as well as two images,
+ * one for when the button is clicked and another for when the button is not clicked. When the button is clicked the selected track in 
+ * the Menu object is set to the track stored in the clicked track button.
+ */
 public class MenuTrackButton implements MenuButton {
     private Image restingImage, pressedImage;
     private Track track;
@@ -10,15 +14,15 @@ public class MenuTrackButton implements MenuButton {
     private boolean selected;
 
 
-    public MenuTrackButton(Track track, String restingImage, String pressedImage, 
+    public MenuTrackButton(Track track, String restingImageString, String pressedImageString, 
             double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
         this.track = track;
         this.canvas = canvas;
         this.buttonManager = buttonManager;
         this.menu = menu;
 
-        this.restingImage = new Image(restingImage);
-        this.pressedImage = new Image(pressedImage);
+        this.restingImage = new Image(restingImageString);
+        this.pressedImage = new Image(pressedImageString);
         this.restingImage.setMaxWidth(this.restingImage.getWidth() * scalefactor);
         this.pressedImage.setMaxWidth(this.pressedImage.getWidth() * scalefactor);
         this.restingImage.setPosition(x, y);
