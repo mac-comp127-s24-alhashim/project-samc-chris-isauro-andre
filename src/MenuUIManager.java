@@ -1,6 +1,11 @@
 import edu.macalester.graphics.*;
 import java.util.*; 
 
+
+/**
+ * Starts off by creating three ArrayList<String>s for the within inputStrings. It then runs all of the methods that will create the menu
+ * framework and add the buttons. 
+ */
 public class MenuUIManager {
     private ArrayList<MenuTrackButton> trackButtons = new ArrayList<MenuTrackButton>();
     private ArrayList<MenuRacerButton> racerButtons = new ArrayList<MenuRacerButton>();
@@ -24,20 +29,22 @@ public class MenuUIManager {
     public MenuUIManager(Menu menu, CanvasWindow canvas){
         this.canvas = canvas;
         this.menu = menu;
-        setupMenuButtons();
+        setupMenuUI();
     }
 
     /**
-     * Starts off by creating three ArrayList<String>s for the within inputStrings. It then runs all of the methods that will create the menu
-     * framework and add the buttons. 
+     * Runs all of the methods that will create the menu framework, background, and buttons. 
      */
-    public void setupMenuButtons(){
+    public void setupMenuUI(){
         for (int i = 0; i < 3; i++){
             inputStrings.add(new ArrayList<String>());
         }
         setupButtonLocations();
         setupBackground();
         setupStartButton();
+
+        setupInputStrings();
+
         setupTrackButtons();
         setupRacerButtons();
         setupTireButtons();
@@ -53,7 +60,8 @@ public class MenuUIManager {
     }
 
     /**
-     * Because the buttons are arranged in a 3x4 grid, I figured that it would be easiest to set up the 
+     * Because the buttons are arranged in a 3x4 grid, I figured that it would be easiest to set up the row and column locations using maps
+     * so that I could just reference them later. This method does just that.
      */
     private void setupButtonLocations(){
         buttonLocations.put("column1", canvas.getWidth() * (2.0/320.0));
@@ -65,14 +73,30 @@ public class MenuUIManager {
         buttonLocations.put("row3", canvas.getHeight() * (135.0/180.0));
     }
 
+    /**
+     * This method adds three ArrayList<String> to inputStrings so that they are there when the setup(Track/Racer/etc)Buttons methods run so
+     * they can put stuff in them.
+     */
+    private void setupInputStrings(){
+        for (int i = 0; i < 3; i++){
+            inputStrings.add(new ArrayList<String>());
+        }
+    }
+
+    /**
+     * This method creates the background Image, scales it, positions it, and then adds it to the canvas.
+     */
     private void setupBackground(){
         menuBackground = new Image("images/MenuImages/StaticMenu1.png");
-        setImageScaleFactor(); //This is here because it needs the menuBackground with an image unscaled to base the scale factor off of
+        setImageScaleFactor(); //This is here because the next line needs a scale factor and this methods needs the background image.
         menuBackground.setMaxWidth(imageScaleFactor * menuBackground.getWidth());
         menuBackground.setPosition(0, 0);
         canvas.add(menuBackground);
     }
 
+    /**
+     * This method creates the start button. Literally just a declaration.
+     */
     private void setupStartButton(){ 
         startButton = new MenuStartButton(
             "images/MenuImages/StartButton.png", 
@@ -82,6 +106,11 @@ public class MenuUIManager {
             canvas);
     }
 
+    /**
+     * This method helps the setup(Track/Racer/etc)Buttons methods a lot. The array at the place of arrayNumber in inputStrings
+     * is modified so that the strings that are input into the method are placed  in the order that they are input. It is 
+     * called many times with the same arrayNumber, and each time it overwrites previous arrayNumber array with new values.
+     */
     private void inputStringSetup(int arrayNumber, String racingObjectName, 
         String restingImagePath, String pressedImagePath, String columnNumber, String rowNumber){
             inputStrings.get(arrayNumber).add(0, racingObjectName);
@@ -91,6 +120,11 @@ public class MenuUIManager {
             inputStrings.get(arrayNumber).add(4, rowNumber);
     }
 
+    /**
+     * This method sets up inputStrings so that its array lists have all of the right values to be put through the for loop at the end of
+     * this function. The for loop at the end of this function creates a track button and adds it to the array list of track buttons for
+     * each array list of strings in inputStrings.
+     */
     private void setupTrackButtons(){
         inputStringSetup(0, "Suzuka", "images/MenuImages/Suzuka1.png", 
         "images/MenuImages/Suzuka2.png","column1", "row1");
@@ -104,12 +138,12 @@ public class MenuUIManager {
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
             MenuTrackButton trackButton = new MenuTrackButton(
-                racingObjects.getTracks().get(inputArray.get(0)), 
-                inputArray.get(1), 
-                inputArray.get(2),
-                imageScaleFactor,
-                buttonLocations.get(inputArray.get(3)), 
-                buttonLocations.get(inputArray.get(4)),
+                racingObjects.getTracks().get(inputArray.get(0)), //gets the track
+                inputArray.get(1), // gets the filepath for restingImage
+                inputArray.get(2), // gets the filepath for pressedImage
+                imageScaleFactor, 
+                buttonLocations.get(inputArray.get(3)), // gets the column placement
+                buttonLocations.get(inputArray.get(4)), // gets the row placement
                 this,
                 menu, 
                 canvas);
@@ -117,6 +151,11 @@ public class MenuUIManager {
         }
     }
 
+    /**
+     * This method sets up inputStrings so that its array lists have all of the right values to be put through the for loop at the end of
+     * this function. The for loop at the end of this function creates a racer button and adds it to the array list of racer buttons for
+     * each array list of strings in inputStrings.
+     */
     private void setupRacerButtons(){
         inputStringSetup(0, "Max", "images/MenuImages/Max1.png", 
         "images/MenuImages/Max2.png","column2", "row1");
@@ -129,7 +168,7 @@ public class MenuUIManager {
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            MenuRacerButton racerButton = new MenuRacerButton(
+            MenuRacerButton racerButton = new MenuRacerButton( //check setupTrackButtons for how this works
                 racingObjects.getRacers().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2), 
@@ -143,6 +182,11 @@ public class MenuUIManager {
         }
     }
 
+    /**
+     * This method sets up inputStrings so that its array lists have all of the right values to be put through the for loop at the end of
+     * this function. The for loop at the end of this function creates a tire button and adds it to the array list of tire buttons for
+     * each array list of strings in inputStrings.
+     */
     private void setupTireButtons(){ 
         inputStringSetup(0, "Soft", "images/MenuImages/Soft1.png", 
         "images/MenuImages/Soft2.png", "column3", "row1");
@@ -155,7 +199,7 @@ public class MenuUIManager {
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            MenuTireButton tireButton = new MenuTireButton(
+            MenuTireButton tireButton = new MenuTireButton( //check setupTrackButtons for how this works
                 racingObjects.getTires().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2), 
@@ -169,6 +213,11 @@ public class MenuUIManager {
         }
     }
 
+    /**
+     * This method sets up inputStrings so that its array lists have all of the right values to be put through the for loop at the end of
+     * this function. The for loop at the end of this function creates a engine button and adds it to the array list of engine buttons for
+     * each array list of strings in inputStrings.
+     */
     private void setupEngineButtons(){ 
         inputStringSetup(0, "V6", "images/MenuImages/VSies1.png", 
         "images/MenuImages/VSies2.png","column4", "row1");
@@ -181,7 +230,7 @@ public class MenuUIManager {
 
         for (int i = 0; i < 3; i++){
             inputArray = inputStrings.get(i);
-            MenuEngineButton engineButton = new MenuEngineButton(
+            MenuEngineButton engineButton = new MenuEngineButton( //check setupTrackButtons for how this works
                 racingObjects.getEngines().get(inputArray.get(0)), 
                 inputArray.get(1), 
                 inputArray.get(2), 
