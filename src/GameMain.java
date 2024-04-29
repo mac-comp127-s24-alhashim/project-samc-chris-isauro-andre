@@ -78,7 +78,7 @@ public class GameMain{
                     car.passiveSpeedDown();
                 }                 
 
-                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY());
+                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY(), car);
 
                 //Speedometer calculations
                 speedHUD.setText(
