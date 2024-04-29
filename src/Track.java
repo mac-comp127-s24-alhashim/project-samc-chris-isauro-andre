@@ -34,37 +34,37 @@ public class Track {
 
         /* Car will passively speed down if it collides with any side of the track. */
         if ((map.getX() - dtX) >= rightBound) {
-            car.passiveSpeedDown();           
+            car.speedDown();           
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         else if (-(map.getX() - dtX) >= leftBound) {
-            car.passiveSpeedDown();           
+            car.speedDown();           
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         if ((map.getY() + dtY) >= topBound) {
-            car.passiveSpeedDown();           
+            car.speedDown();           
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         else if (-(map.getY() + dtY) >= bottomBound) {
-            car.passiveSpeedDown();           
+            car.speedDown();           
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
 
         /* Car will passively stop if it collides with any corner of the track. */
         if ((map.getX() - dtX) >= rightBound && (map.getY() + dtY) >= topBound) {
-            car.passiveSpeedDown();
+            car.speedDown();
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         }
         else if ((map.getX() - dtX) >= rightBound && -(map.getY() + dtY) >= bottomBound) {
-            car.passiveSpeedDown();
+            car.speedDown();
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         }
         if (-(map.getX() - dtX) >= leftBound && (map.getY() + dtY) >= topBound) {
-            car.passiveSpeedDown();
+            car.speedDown();
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         } 
         else if (-(map.getX() - dtX) >= leftBound && -(map.getY() + dtY) >= bottomBound) {
-            car.passiveSpeedDown();
+            car.speedDown();
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         }
 
