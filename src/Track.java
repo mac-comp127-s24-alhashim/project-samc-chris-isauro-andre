@@ -27,25 +27,18 @@ public class Track {
     /* Canvas will move specifically based on the conditions below */
     public void moveMap(CanvasWindow canvas, double dtX, double dtY, Car car){
         /* Different variables used for easy readability. */
+        
         double rightBound = (map.getImageWidth() / 2) * (zoom - 1);
         double leftBound = (map.getImageWidth() / 2) * (zoom - 1.5);
         double topBound = (map.getImageHeight() / 2) * (zoom - 1);
         double bottomBound = (map.getImageHeight() / 2) * (zoom - 0.40625);
 
         /* Car will passively speed down if it collides with any side of the track. */
-        if ((map.getX() - dtX) >= rightBound) {
+        if ((map.getX() - dtX) >= rightBound || (map.getY() + dtY) >= topBound) {
             car.speedDown();           
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
-        else if (-(map.getX() - dtX) >= leftBound) {
-            car.speedDown();           
-            map.setPosition(map.getX() + dtX, map.getY() - dtY);
-        }
-        if ((map.getY() + dtY) >= topBound) {
-            car.speedDown();           
-            map.setPosition(map.getX() + dtX, map.getY() - dtY);
-        }
-        else if (-(map.getY() + dtY) >= bottomBound) {
+        else if (-(map.getX() - dtX) >= leftBound || -(map.getY() + dtY) >= bottomBound) {
             car.speedDown();           
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
@@ -90,9 +83,5 @@ public class Track {
 
     public double getStartingAngle(){
         return startingAngle;
-    }
-
-    public double getZoom() {
-        return zoom;
     }
 }
