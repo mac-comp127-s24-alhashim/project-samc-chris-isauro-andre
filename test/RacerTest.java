@@ -36,7 +36,7 @@ public class RacerTest{
             final double carPositionY = canvas.getHeight()/4.7;
 
             // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
-            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -1430, -2705, 0, 6);
+            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), 0, 0, 0, 10);
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
@@ -68,11 +68,7 @@ public class RacerTest{
                 if(!canvas.getKeysPressed().contains(Key.W)){
                     car.passiveSpeedDown();
                 }
-                if (track.borderDistance(canvas) == true) {
-                    track.moveMap(car.getVelocityX(), car.getVelocityY());
-                } else {
-                    track.moveMap(0, 0);
-                }
+                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY(), car);
             });
 
         }

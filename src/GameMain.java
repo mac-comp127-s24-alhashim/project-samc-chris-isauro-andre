@@ -1,5 +1,8 @@
+import java.text.DecimalFormat;
+
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.events.Key;
+import edu.macalester.graphics.ui.TextField;
 
 public class GameMain{
 
@@ -23,6 +26,7 @@ public class GameMain{
             canvas.onClick(event -> {
                 if (menu.getIfMenuOpen()){
                     if (menu.getButtonManager().getStartButton().getRestingImage().testHit(event.getPosition().getX(), event.getPosition().getY())){
+                    menu.setIfMenuOpen(false);
                     canvas.removeAll();
                     gameStart();
                     }
@@ -35,7 +39,12 @@ public class GameMain{
             final double carPositionY = canvas.getHeight()/4.7;
 
             // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
-            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), -140, -1505, -90, 3);
+            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), 0, 0, 0, 9);
+            
+            // Speedometer Creation formatted to 2 places
+            TextField speedHUD = new TextField();
+            canvas.add(speedHUD);
+            final DecimalFormat df = new DecimalFormat("000");
 
             Car car = new Car(
                 carObjects.getEngines().get(menu.getSelectedEngine().getKey()),
@@ -68,8 +77,16 @@ public class GameMain{
                     car.passiveSpeedDown();
                 }                 
 
-                // car.animateTyres();
-                track.moveMap(car.getVelocityX(), car.getVelocityY());
+                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY(), car);
+
+                //Speedometer calculations
+                speedHUD.setText(
+                df.format((Math.sqrt
+                (Math.pow(car.getVelocityX(),2)+
+                Math.pow(car.getVelocityY(),2)))*8 
+                )+ " KPH"
+                );
+                speedHUD.setPosition(canvas.getWidth()*2/3, canvas.getHeight()*2/3);
 
             });
 
