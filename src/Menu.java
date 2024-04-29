@@ -11,11 +11,11 @@ public class Menu {
     private boolean previewRacerCarDisplayed;
     private boolean previewRacerTiresDisplayed;
     private boolean ifMenuOpen = true;
-    public MenuButtonManager buttonManager;
+    public MenuUIManager buttonManager;
 
 
     public Menu(CanvasWindow canvas){
-        buttonManager = new MenuButtonManager(this, canvas);
+        buttonManager = new MenuUIManager(this, canvas);
         this.canvas = canvas;
         setupMenu();
     }
@@ -125,7 +125,7 @@ public class Menu {
         this.selectedEngine = selectedEngine;
     }
 
-    public MenuButtonManager getButtonManager() {
+    public MenuUIManager getButtonManager() {
         return buttonManager;
     }
 

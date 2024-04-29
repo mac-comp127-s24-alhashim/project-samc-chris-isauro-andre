@@ -11,7 +11,7 @@ public class MenuEngineButton implements MenuButton {
     private CanvasWindow canvas;
     private Menu menu;
     private boolean selected;
-    private MenuButtonManager buttonManager;
+    private MenuUIManager buttonManager;
 
     /**
      * When constructed, the object stores the references to canvas, buttonManager, and menu so that their methods can be referenced later.
@@ -20,7 +20,7 @@ public class MenuEngineButton implements MenuButton {
      * listen for a click on the pressed image. It also stores the given Engine object.
      */
     public MenuEngineButton(Engine engine, String restingImageString, String pressedImageString, 
-            double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu,  CanvasWindow canvas){
+            double scalefactor, double x, double y, MenuUIManager buttonManager, Menu menu,  CanvasWindow canvas){
         this.engine = engine;
         this.canvas = canvas;
         this.buttonManager = buttonManager;

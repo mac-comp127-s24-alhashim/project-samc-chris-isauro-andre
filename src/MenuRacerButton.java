@@ -9,7 +9,7 @@ public class MenuRacerButton implements MenuButton {
     private Image restingImage, pressedImage;
     private Racer racer;
     private CanvasWindow canvas;
-    private MenuButtonManager buttonManager;
+    private MenuUIManager buttonManager;
     private Menu menu;
     private boolean selected;
 
@@ -20,7 +20,7 @@ public class MenuRacerButton implements MenuButton {
      * listen for a click on the pressed image. It also stores the given Racer object.
      */    
     public MenuRacerButton(Racer racer, String restingImageString, String pressedImageString, 
-            double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
+            double scalefactor, double x, double y, MenuUIManager buttonManager, Menu menu, CanvasWindow canvas){
         this.racer = racer;
         this.canvas = canvas;
         this.buttonManager = buttonManager;

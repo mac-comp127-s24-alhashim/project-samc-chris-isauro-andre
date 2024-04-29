@@ -9,7 +9,7 @@ public class MenuTrackButton implements MenuButton {
     private Image restingImage, pressedImage;
     private Track track;
     private CanvasWindow canvas;
-    private MenuButtonManager buttonManager;
+    private MenuUIManager buttonManager;
     private Menu menu;
     private boolean selected;
 
@@ -20,7 +20,7 @@ public class MenuTrackButton implements MenuButton {
      * listen for a click on the pressed image. It also stores the given Track object.
      */
     public MenuTrackButton(Track track, String restingImageString, String pressedImageString, 
-            double scalefactor, double x, double y, MenuButtonManager buttonManager, Menu menu, CanvasWindow canvas){
+            double scalefactor, double x, double y, MenuUIManager buttonManager, Menu menu, CanvasWindow canvas){
         this.track = track;
         this.canvas = canvas;
         this.buttonManager = buttonManager;

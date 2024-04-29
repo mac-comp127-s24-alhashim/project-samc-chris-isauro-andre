@@ -1,7 +1,7 @@
 import edu.macalester.graphics.*;
 import java.util.*; 
 
-public class MenuButtonManager {
+public class MenuUIManager {
     private ArrayList<MenuTrackButton> trackButtons = new ArrayList<MenuTrackButton>();
     private ArrayList<MenuRacerButton> racerButtons = new ArrayList<MenuRacerButton>();
     private ArrayList<MenuEngineButton> engineButtons = new ArrayList<MenuEngineButton>();
@@ -21,12 +21,16 @@ public class MenuButtonManager {
     private Menu menu;
     private CanvasWindow canvas;
 
-    public MenuButtonManager(Menu menu, CanvasWindow canvas){
+    public MenuUIManager(Menu menu, CanvasWindow canvas){
         this.canvas = canvas;
         this.menu = menu;
         setupMenuButtons();
     }
 
+    /**
+     * Starts off by creating three ArrayList<String>s for the within inputStrings. It then runs all of the methods that will create the menu
+     * framework and add the buttons. 
+     */
     public void setupMenuButtons(){
         for (int i = 0; i < 3; i++){
             inputStrings.add(new ArrayList<String>());
@@ -40,10 +44,17 @@ public class MenuButtonManager {
         setupEngineButtons();
     }
 
-private void setImageScaleFactor(){
+    /**
+     * Sets image scale factor by dividing the size of the canvas vs the size of the background. The background will always stay the same 
+     * size, but whatever the user might set the size of the canvas to might change, hence the need for this.
+     */
+    private void setImageScaleFactor(){
         imageScaleFactor = canvas.getWidth()/menuBackground.getImageWidth();
     }
 
+    /**
+     * Because the buttons are arranged in a 3x4 grid, I figured that it would be easiest to set up the 
+     */
     private void setupButtonLocations(){
         buttonLocations.put("column1", canvas.getWidth() * (2.0/320.0));
         buttonLocations.put("column2", canvas.getWidth() * (62.0/320.0));
@@ -56,7 +67,7 @@ private void setImageScaleFactor(){
 
     private void setupBackground(){
         menuBackground = new Image("images/MenuImages/StaticMenu1.png");
-        setImageScaleFactor();
+        setImageScaleFactor(); //This is here because it needs the menuBackground with an image unscaled to base the scale factor off of
         menuBackground.setMaxWidth(imageScaleFactor * menuBackground.getWidth());
         menuBackground.setPosition(0, 0);
         canvas.add(menuBackground);
