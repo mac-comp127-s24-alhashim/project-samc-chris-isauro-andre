@@ -3,7 +3,7 @@ import edu.macalester.graphics.*;
 public class Track {
     private String TRKey;
     private Image map;
-    private double xBounds, yBounds, startingAngle, zoom;
+    private double startingAngle, zoom;
     
     public Track (String trackKey, Image map, double startingX, double startingY, double startingAngle, double zoom){
         TRKey = trackKey;
@@ -12,9 +12,6 @@ public class Track {
         this.zoom = zoom;
         map.setScale(zoom);
         map.setPosition(startingX, startingY);
-
-        xBounds = map.getImageWidth();
-        yBounds = map.getImageHeight();
 
         this.startingAngle = startingAngle;
     }
@@ -26,8 +23,7 @@ public class Track {
 
     /* Canvas will move specifically based on the conditions below */
     public void moveMap(CanvasWindow canvas, double dtX, double dtY, Car car){
-        /* Different variables used for easy readability. */
-        
+        /* Different variables used for easy readability. */       
         double rightBound = (map.getImageWidth() / 2) * (zoom - 1);
         double leftBound = (map.getImageWidth() / 2) * (zoom - 1.5);
         double topBound = (map.getImageHeight() / 2) * (zoom - 1);
@@ -71,14 +67,6 @@ public class Track {
 
     public Image getMap(){
         return map;
-    }
-
-    public double getXBounds(){
-        return xBounds;
-    }
-
-    public double getYBounds(){
-        return yBounds;
     }
 
     public double getStartingAngle(){
