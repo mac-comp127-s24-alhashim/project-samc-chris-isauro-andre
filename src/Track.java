@@ -13,8 +13,8 @@ public class Track {
         map.setScale(zoom);
         map.setPosition(startingX, startingY);
 
-        xBounds = map.getImageWidth();
-        yBounds = map.getImageHeight();
+        xBounds = map.getWidth();
+        yBounds = map.getHeight();
 
         this.startingAngle = startingAngle;
     }
@@ -27,44 +27,44 @@ public class Track {
     /* Canvas will move specifically based on the conditions below */
     public void moveMap(CanvasWindow canvas, double dtX, double dtY, Car car){
         /* Different variables used for easy readability. */
-        double rightBound = (map.getImageWidth() / 2) * (zoom - 1);
-        double leftBound = (map.getImageWidth() / 2) * (zoom - 1.5);
-        double topBound = (map.getImageHeight() / 2) * (zoom - 1);
-        double bottomBound = (map.getImageHeight() / 2) * (zoom - 0.40625);
+        double rightBound = (map.getWidth() / 2) * (zoom - 1);
+        double leftBound = (map.getWidth() / 2) * (zoom - 1.5);
+        double topBound = (map.getHeight() / 2) * (zoom - 1);
+        double bottomBound = (map.getHeight() / 2) * (zoom - 0.40625);
 
         /* Car will passively speed down if it collides with any side of the track. */
         if ((map.getX() - dtX) >= rightBound) {
-            car.speedDown();           
+            car.setCurrentSpeed(0);         
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         else if (-(map.getX() - dtX) >= leftBound) {
-            car.speedDown();           
+            car.setCurrentSpeed(0);         
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         if ((map.getY() + dtY) >= topBound) {
-            car.speedDown();           
+            car.setCurrentSpeed(0);         
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
         else if (-(map.getY() + dtY) >= bottomBound) {
-            car.speedDown();           
+            car.setCurrentSpeed(0);         
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
 
         /* Car will passively stop if it collides with any corner of the track. */
         if ((map.getX() - dtX) >= rightBound && (map.getY() + dtY) >= topBound) {
-            car.speedDown();
+            car.setCurrentSpeed(0);         
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         }
         else if ((map.getX() - dtX) >= rightBound && -(map.getY() + dtY) >= bottomBound) {
-            car.speedDown();
+            car.setCurrentSpeed(0);         
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         }
         if (-(map.getX() - dtX) >= leftBound && (map.getY() + dtY) >= topBound) {
-            car.speedDown();
+            car.setCurrentSpeed(0);         
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         } 
         else if (-(map.getX() - dtX) >= leftBound && -(map.getY() + dtY) >= bottomBound) {
-            car.speedDown();
+            car.setCurrentSpeed(0);         
             map.setPosition((map.getX() + dtX), (map.getY() - dtY));
         }
 

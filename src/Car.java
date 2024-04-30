@@ -49,6 +49,10 @@ private final double passiveDeceleration = .001;
         return velocityY;
     }
 
+    public void setCurrentSpeed(double dt){
+        currentSpeed = dt;
+    }
+
     // puts the car physically in the canvas
     public void addCarToCanvas(CanvasWindow canvas){
         canvas.add(carModel);
@@ -57,18 +61,28 @@ private final double passiveDeceleration = .001;
 
     //rotates car Right
     public void turnRight(){
+        double turningValue = -((tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine.getWeight())));
+
         if(currentSpeed > 1){
-            double turningValue = -((tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine.getWeight())));
             updateAngle(turningValue);
         }
+        else if (currentSpeed < 0 && currentSpeed >= -10){
+            updateAngle(-turningValue);
+        }
+
     }
 
     //rotates car Left
     public void turnLeft(){
+        double turningValue = (tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine.getWeight()));
+
         if(currentSpeed > 1){
-            double turningValue = (tyre.getGrip()/currentSpeed) - (.2 * (racer.getWeight() + engine.getWeight()));
             updateAngle(turningValue);
         }
+        else if (currentSpeed < 0 && currentSpeed >= -10){
+            updateAngle(-turningValue);
+        }
+
     }
 
     //speeds up car
@@ -89,10 +103,22 @@ private final double passiveDeceleration = .001;
         if(currentSpeed > 0){
             currentSpeed -= racer.getBrakepower();
         }
-        else if(currentSpeed <= 0){
+        else if(currentSpeed <= 0 && !isreverseCar()){
             currentSpeed = 0;
         }
         updateSpeed();
+    }
+
+    public boolean isreverseCar(){
+        if (currentSpeed <= 0 && currentSpeed >= -10) {
+            currentSpeed -= 0.43;
+            updateSpeed();
+            return true;
+            
+        } else {
+            return false;
+        }
+
     }
 
     //car speeds down passively due to friction
@@ -115,6 +141,8 @@ private final double passiveDeceleration = .001;
         velocityY = currentSpeed * -Math.sin(Math.toRadians(currentAngle - 90));
     }
     
+    //updates the angle of the car and reflects it on the canvas.
+    //when updating the angle, the durability of the tires degrade whenever the car turns.
     private void updateAngle(double turning){
         currentAngle += turning;
         carModel.rotateBy(turning);

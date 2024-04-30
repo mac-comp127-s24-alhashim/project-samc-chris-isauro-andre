@@ -27,7 +27,7 @@ public class RacingObjects {
      */
     private void createTracks(){
         tracks.put("Suzuka", 
-            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), 5, 2, 6, 8));
+            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), 5, 2, 6, 6));
         tracks.put("Watkins", 
             new Track("Watkins", new Image("images/TrackBaseImages/watkins.png"), 30, 30, 10, 1));
         tracks.put("Barcelona", 
