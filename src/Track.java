@@ -50,17 +50,17 @@ public class Track {
     public void moveMap(double dtX, double dtY, Car car){
         
         /* Different variables used for easy readability. */       
-        double rightBound = (map.getImageWidth() / 2) * (zoom - 1);
-        double leftBound = (map.getImageWidth() / 2) * (zoom - 1.5);
+        double leftBound = (map.getImageWidth() / 2) * (zoom - 1);
+        double rightBound = ((map.getImageWidth() / 2) * (zoom - 1.5)) * 1.3;
         double topBound = (map.getImageHeight() / 2) * (zoom - 1);
         double bottomBound = (map.getImageHeight() / 2) * (zoom - 0.40625);
 
         /* Car will passively speed down if it collides with any side of the track. */
-        if ((map.getX() - dtX) >= rightBound || (map.getY() + dtY) >= topBound) {
+        if ((map.getX() - dtX) >= leftBound || (map.getY() + dtY) >= topBound) {
             car.setCurrentSpeed(0);         
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }
-        else if (-(map.getX() - dtX) >= leftBound || -(map.getY() + dtY) >= bottomBound) {
+        else if (-(map.getX() - dtX) >= rightBound || -(map.getY() + dtY) >= bottomBound) {
             car.setCurrentSpeed(0);         
             map.setPosition(map.getX() + dtX, map.getY() - dtY);
         }

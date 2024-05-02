@@ -65,11 +65,11 @@
 //                     car.speedUp();
 //                 } 
                 
-            //     if(!canvas.getKeysPressed().contains(Key.W)){
-            //         car.passiveSpeedDown();
-            //     }
-            //     track.moveMap(car.getVelocityX(), car.getVelocityY(), car);
-            // });
+//                 if(!canvas.getKeysPressed().contains(Key.W)){
+//                     car.passiveSpeedDown();
+//                 }
+//                 track.moveMap(car.getVelocityX(), car.getVelocityY(), car);
+//             });
 
 //         }
 //     }

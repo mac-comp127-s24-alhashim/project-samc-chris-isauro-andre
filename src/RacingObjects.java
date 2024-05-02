@@ -26,11 +26,11 @@ public class RacingObjects {
      */
     private void createTracks(){
         tracks.put("Suzuka", 
-            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), -1000, 1000, 5, 6));
+            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), -21980, 2350, 135, 7));
         tracks.put("Watkins", 
-            new Track("Watkins", new Image("images/TrackBaseImages/watkins.png"), -1000, 1000, 10, 6));
+            new Track("Watkins", new Image("images/TrackBaseImages/watkins.png"), 9330, -14045, 270, 7));
         tracks.put("Barcelona", 
-            new Track("Barcelona", new Image("images/TrackBaseImages/barcelona.png"), -1000, 1000, 20, 6));
+            new Track("Barcelona", new Image("images/TrackBaseImages/barcelona.png"), -12070, -1040, 210, 7));
     }
 
     /**
