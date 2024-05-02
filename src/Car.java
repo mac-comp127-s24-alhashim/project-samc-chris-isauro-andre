@@ -12,6 +12,16 @@ private double currentSpeed, currentAngle, velocityX, velocityY;
 
 private final double passiveDeceleration = .001;
 
+    /** 
+     * Creates a new car for the canvas.
+     * 
+     * @param engineType        The selected engine of the car.
+     * @param tyreType          The selected tire of the car.
+     * @param centerX           The horizontal center position of the car.
+     * @param centerY           The vertical center position of the car.
+     * @param angle             The angle in which the car will be initially drawn in.
+     * @param scale             The size of the car in comparison to the canvas window.
+    */
     public Car(
         Engine engineType, 
         Tire tyreType, 

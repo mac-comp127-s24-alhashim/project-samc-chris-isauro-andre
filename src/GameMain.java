@@ -39,7 +39,7 @@ public class GameMain{
             final double carPositionY = canvas.getHeight()/4.7;
 
             // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
-            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), 0, 0, 0, 3);
+            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), 0, 0, 0, 9);
             
             // Speedometer Creation formatted to 2 places
             TextField speedHUD = new TextField();

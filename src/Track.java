@@ -5,6 +5,16 @@ public class Track {
     private Image map;
     private double startingAngle, zoom;
     
+    /**
+     * The identification and stats of the track.
+     * 
+     * @param trackKey          The key of the selected track.
+     * @param map               The visual representation of the selected track.
+     * @param startingX         The starting horizontal position of the selected track on the canvas.
+     * @param startingY         The starting vertical position of the selected track on the canvas.
+     * @param startingAngle     The starting angle of thhe selected track.
+     * @param zoom              The zoom of the selected trqack in comparison to the canvas window.
+     */
     public Track (String trackKey, Image map, double startingX, double startingY, double startingAngle, double zoom){
         TRKey = trackKey;
 

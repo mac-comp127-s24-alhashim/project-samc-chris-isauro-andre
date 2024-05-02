@@ -13,6 +13,18 @@ public class Tire{
     private int grip;    
     
 
+    /**
+     * The identification and stats of a track.
+     * 
+     * @param tireKey                   The key of the selected tire.
+     * @param path                      The file representation of the selected tire.
+     * @param wheelPreviewImagePath     The visual representation of the selected tire.
+     * @param friction                  The selected tire's friction.
+     * @param angle                     The starting angle of the selected tires.
+     * @param scale                     The scaling of the selected tires.
+     * @param grip                      The grip of the selected tires.
+     * @param durability                The selected tire's durability.
+     */
     public Tire(
         String tireKey,
         File path, 
