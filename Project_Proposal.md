@@ -34,7 +34,7 @@ Splitting up work:
   + Chris - Additonal Mechanics (Simulation UI, etc...)
 
 **Prototype Illustration:**
-![Sketch of Prototype](res/images/Projectimage.png)
+![Sketch of Prototype](res/images/Documentation/Projectimage.png)
 
 **UML Diagram:**
-![](res/images/UMLimage.png)
+![](res/images/Documentation/UMLimage.png)
