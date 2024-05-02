@@ -100,7 +100,6 @@ public class GameMain{
                 speedHUD.setPosition(canvas.getWidth()*2/3, canvas.getHeight()*2/3);
 
             });
-
         }
     }
     

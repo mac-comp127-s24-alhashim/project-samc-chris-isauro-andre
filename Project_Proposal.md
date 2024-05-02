@@ -30,8 +30,8 @@ Splitting up work:
 
   + Sam C - UI/UX Mechanics and asset designing (Map/Cars/... etc.)
   + Andre M - Car Mechanics (Accelaration, Engine class.. etc.)
-  + Isauro - Racer Mechanics (Brake Power and Weight)
-  + Chris - UI/UX connection with the other mechanics
+  + Isauro - Track Mechanics/Additional Mechanics (Out-of-Bounds interaction, map movement, etc...)
+  + Chris - Additonal Mechanics (Simulation UI, etc...)
 
 **Prototype Illustration:**
 ![Sketch of Prototype](res/images/Projectimage.png)
