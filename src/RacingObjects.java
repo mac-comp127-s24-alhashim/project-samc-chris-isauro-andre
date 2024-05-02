@@ -3,8 +3,8 @@ import edu.macalester.graphics.*;
 import java.io.File;
 
 /**
- * This object creates and stores all of the Track, Racer, Tire, and Engine objects needed for the game in Maps which can then be
- * accessed using getter methods.
+ * This object creates and stores all of the Track, Racer, Tire, and Engine objects needed for the game with Strings as keys
+ * in HashMap objects which can then be accessed using getter methods.
  */
 public class RacingObjects {
     private Map<String, Track> tracks = new HashMap<String, Track>();
