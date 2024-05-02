@@ -1,18 +1,5 @@
 import edu.macalester.graphics.*;
 
-/**
- * This class is responsible for all behaviors and attributes of the car.
- * The class translates the inputs of the user into methods that control the car.
- * 
- * @param engineType    Engine object that possess the attributes of the selected engine from the menu
- * @param tyreType      Tyre object that possess the attributes of the selected tyre from the menu
- * @param racerType     racer object that possess the attributes of the selected racer from the menu
- * @param centerX       X position of the car
- * @param centerY       Y position of the car
- * @param angle         the initial angle in which the car is rotated by
- * @param scale         the size of the car
- */
-
 public class Car{
 
 private Engine engine;
@@ -26,16 +13,18 @@ private double currentSpeed, currentAngle, velocityX, velocityY;
 
 private final double frictionConstant = .002;
 
-    /** 
-     * Creates a new car for the canvas.
+    /**
+     * This class is responsible for all behaviors and attributes of the car.
+     * The class translates the inputs of the user into methods that control the car.
      * 
-     * @param engineType        The selected engine of the car.
-     * @param tyreType          The selected tire of the car.
-     * @param centerX           The horizontal center position of the car.
-     * @param centerY           The vertical center position of the car.
-     * @param angle             The angle in which the car will be initially drawn in.
-     * @param scale             The size of the car in comparison to the canvas window.
-    */
+     * @param engineType    Engine object that possess the attributes of the selected engine from the menu
+     * @param tyreType      Tyre object that possess the attributes of the selected tyre from the menu
+     * @param racerType     racer object that possess the attributes of the selected racer from the menu
+     * @param centerX       X position of the car
+     * @param centerY       Y position of the car
+     * @param angle         the initial angle in which the car is rotated by
+     * @param scale         the size of the car
+     */
     public Car(
         Engine engineType, 
         Tire tyreType, 

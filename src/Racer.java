@@ -1,16 +1,5 @@
 import edu.macalester.graphics.Image;
 
-/**
- * This class is to create unique Racer objects that is put in the menu for different Racer objects with differing
- * attributes be selected in the menu. The class is responsible for the how the car looks and how fast the car can
- * break (decrease speed).
- * 
- * @param racerKey          a key string to a map to match a Racer object with unique attributes.
- * @param racerCarImagePath file path to the image of the car.
- * @param weight            value that is used in calculations in the car class.
- * @param brakepower        how fast the car brakes (slows down).
- * 
- */
 public class Racer {
     private String racerCarPreview, Rkey;
     private Image racerCar;
@@ -18,12 +7,15 @@ public class Racer {
     private int weight;
     
     /**
-     * The identification and stats of a racer.
+     * This class is to create unique Racer objects that is put in the menu for different Racer objects with differing
+     * attributes be selected in the menu. The class is responsible for the how the car looks and how fast the car can
+     * break (decrease speed).
      * 
-     * @param racerKey              The key of the selected racer.
-     * @param racerCarImagePath     The visual representation of the selected racer.
-     * @param weight                The weight of the selected racer
-     * @param brakepower            The selected racer's brakepower
+     * @param racerKey          a key string to a map to match a Racer object with unique attributes.
+     * @param racerCarImagePath file path to the image of the car.
+     * @param weight            value that is used in calculations in the car class.
+     * @param brakepower        how fast the car brakes (slows down).
+     * 
      */
     public Racer(String racerKey, String racerCarImagePath, int weight, double brakepower){
         racerCar = new Image(racerCarImagePath);
