@@ -1,6 +1,5 @@
 import java.util.*; 
 import edu.macalester.graphics.*;
-import java.io.File;
 
 /**
  * This object creates and stores all of the Track, Racer, Tire, and Engine objects needed for the game in Maps which can then be
@@ -49,15 +48,15 @@ public class RacingObjects {
     private void createTires(){
         tires.put("Soft", new Tire(
             "Soft",
-            new File("res/images/WheelImages/tireSoft"), "images/WheelImages/tireSoft/tireSoft1.png",
+            "images/WheelImages/tireSoft/tireSoft1.png",
             0.002, 0.0, 0.2, 3, 100));
         tires.put("Medium", new Tire(
             "Medium",
-            new File("res/images/WheelImages/tireMedium"), "images/WheelImages/tireMedium/tireMedium1.png",
+            "images/WheelImages/tireMedium/tireMedium1.png",
             0.4, 0.0, 0.4, 4, 100));
         tires.put("Hard", new Tire(
             "Hard",
-            new File("res/images/WheelImages/tireHard"), "images/WheelImages/tireHard/tireHard1.png", 
+            "images/WheelImages/tireHard/tireHard1.png", 
             0.6, 0.0, 0.4, 5, 100));
     }
 

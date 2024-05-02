@@ -1,12 +1,21 @@
 import edu.macalester.graphics.*;
 
-import java.io.File;
-import java.util.ArrayList;
+/**
+ * This class is to create unique Racer objects that is put in the menu for different Racer objects with differing
+ * attributes be selected in the menu. The class is responsible for slightly impacting how fast the car speeds and up,
+ * but is mainly responsible for how much the car turns.
+ * 
+ * @param tireKey               a key string in a map to match a Tire object with unique attributes.
+ * @param wheelPreviewImagePath file path to the image of the wheel.
+ * @param friction              value that affects how fast the car speeds up.
+ * @param angle                 the initial angle in which wheel car is rotated by in the canvas.
+ * @param scale                 how big the wheels appears.
+ * @param grip                  value that affects how much the car turns.
+ * @param durability            how long the tire can last before not being able to accelarate.
+ */
 
 public class Tire{
     private String TIKey;
-    private File pathFile;
-    private ArrayList<Image> wheels = new ArrayList<>();
     private String wheelPreview;
     private Image wheel;
     private double friction, durability;
@@ -15,7 +24,6 @@ public class Tire{
 
     public Tire(
         String tireKey,
-        File path, 
         String wheelPreviewImagePath,
         double friction, 
         double angle,
@@ -25,20 +33,12 @@ public class Tire{
 
         TIKey = tireKey;
         wheelPreview = wheelPreviewImagePath;
-        pathFile = path;
 
         this.friction = friction;
         this.durability = durability;
         this.grip = grip;
 
-        File[] files = pathFile.listFiles();
-        for (int i = 0; i < files.length; i++){
-            if(files[i].isFile()){
-                wheels.add(loadImages(files[i]));
-            }
-        }
-
-        wheel = wheels.get(0);
+        wheel = new Image(wheelPreviewImagePath);
 
     }
 
@@ -68,25 +68,6 @@ public class Tire{
 
     public Image getWheel() {
         return wheel;
-    }
-
-    public Image animateWheel(){
-        for (int i = 0; i < wheels.size() - 1;i++ ){
-            if (i < wheels.size() - 1){
-                wheel = wheels.get(i);
-                return getWheel();
-            } else {
-                i = 0;
-            }
-        }
-        return getWheel();
-    }
-
-    private static Image loadImages(File file){
-        String imagePath = file.getPath();
-        imagePath = imagePath.substring(4, imagePath.length());
-        Image image = new Image(imagePath);
-        return image;
     }
 
 }
