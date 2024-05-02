@@ -2,140 +2,56 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-MacF1 is a racing sim that allows the user to customize a car to drive around a huge map. The 
+MacF1 is a racing sim that allows the user to customize a car to drive around a huge map. The simulation is made to try implementing basic car physics in Java
+using physics formulas that are translated into calculations in the simulation. 
 
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
+#### Made With 
+* Java 1.8.0_381-b09
+* [Macalester kilt-graphics API](https://github.com/mac-comp127/kilt-graphics/tree/main/src/edu/macalester/graphics).
+* Visual Studio Code
+  
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+**To install:**
+1. Download [Java](https://www.java.com/download/ie_manual.jsp).
+2. Install Visual Studio Code and GitHub Desktop
+3. In the main page, click the dropdown <> Code, in it, click Open with GitHub Desktop
+4. In GitHub Desktop, clone the repository, then open it on Visual Studio Code
+5. Run the program.
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## How-To
+**Demo Video:** [Here](DemoVidLink)
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Once the program has started, a menu pops up, this is where you customize the car and choose the track
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+![image](https://github.com/mac-comp127-s24-alhashim/project-samc-chris-isauro-andre/assets/150849872/593c2b98-39ef-430f-88aa-98b3bc8dd3d0)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Click the start button to start the simulation and the car is spawned on the beginning of the track
 
+![image](https://github.com/mac-comp127-s24-alhashim/project-samc-chris-isauro-andre/assets/150849872/8c8639b1-c8b1-40d1-b4b9-60c8b839c2a2)
 
+To control the car use the "WASD" keys.
+* "W" key to speed up
+* "A" key to turn left
+* "S" key to turn right
+* "D" key to slow down and reverse
 
-<!-- ROADMAP -->
-## Roadmap
+If the car is out of bounds, the car stops.
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+Happy Driving!
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+## Known Bugs
+As of this version, the car must be speeding up to a certain amount to go in the correct direction after reversing.
+The car might experience infinite turning speed as it slows down near 0 mph.
+Depending on the device the software is run on, it might take some time for the track images in the simulation to load and may appear as missing images.
+![image](https://github.com/mac-comp127-s24-alhashim/project-samc-chris-isauro-andre/assets/150849872/0cbe917c-c3fa-4cf1-ba84-4d87b2318e3c)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Resource Library
+This project was inspired by: https://ultimateracing2d.com/
 
+Credits to: RyiSnow's Youtube Series ["How To Make a Game in Java"](https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq)
+for some of the mechanics of the game
 
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+For information on how the project was made.
+See [project documentation and proposal](https://github.com/mac-comp127-s24-alhashim/project-samc-chris-isauro-andre/blob/main/Project_Proposal.md)
