@@ -1,17 +1,5 @@
 import edu.macalester.graphics.*;
 
-/**
- * This class is to create unique Racer objects that is put in the menu for different Racer objects with differing
- * attributes be selected in the menu. The class is responsible for slightly impacting how fast the car speeds and up,
- * but is mainly responsible for how much the car turns.
- * 
- * @param tireKey               a key string in a map to match a Tire object with unique attributes.
- * @param wheelPreviewImagePath file path to the image of the wheel.
- * @param friction              value that affects how fast the car speeds up.
- * @param grip                  value that affects how much the car turns.
- * @param durability            how long the tire can last before not being able to accelarate.
- */
-
 public class Tire{
     private String TIKey;
     private String wheelPreview;
@@ -26,8 +14,6 @@ public class Tire{
      * 
      * @param tireKey               a key string in a map to match a Tire object with unique attributes.
      * @param wheelPreviewImagePath file path to the image of the wheel.
-     * @param friction              value that affects how fast the car speeds up.
-     * @param angle                 the initial angle in which wheel car is rotated by in the canvas.
      * @param scale                 how big the wheels appears.
      * @param grip                  value that affects how much the car turns.
      * @param durability            how long the tire can last before not being able to accelarate.
