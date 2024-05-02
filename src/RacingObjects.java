@@ -28,9 +28,9 @@ public class RacingObjects {
         tracks.put("Suzuka", 
             new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), -1000, 1000, 5, 6));
         tracks.put("Watkins", 
-            new Track("Watkins", new Image("images/TrackBaseImages/watkins.png"), -1000, 1000, 10, 1));
+            new Track("Watkins", new Image("images/TrackBaseImages/watkins.png"), -1000, 1000, 10, 6));
         tracks.put("Barcelona", 
-            new Track("Barcelona", new Image("images/TrackBaseImages/barcelona.png"), -1000, 1000, 20, 1));
+            new Track("Barcelona", new Image("images/TrackBaseImages/barcelona.png"), -1000, 1000, 20, 6));
     }
 
     /**
@@ -38,8 +38,8 @@ public class RacingObjects {
      */
     private void createRacers(){
         racers.put("Max",  new Racer("Max", "images/driver-body1.png", 5, 0.67));
-        racers.put("Lewis", new Racer("Lewis", "images/driver-body2.png", 2, 0));
-        racers.put("Yuki",  new Racer("Yuki", "images/driver-body3.png", 4, 24));
+        racers.put("Lewis", new Racer("Lewis", "images/driver-body2.png", 2, 0.97));
+        racers.put("Yuki",  new Racer("Yuki", "images/driver-body3.png", 4, 0.24));
     }
 
     /**
@@ -53,11 +53,11 @@ public class RacingObjects {
         tires.put("Medium", new Tire(
             "Medium",
             "images/WheelImages/tireMedium/tireMedium1.png",
-            0.4, 4, 150));
+            0.004, 4, 150));
         tires.put("Hard", new Tire(
             "Hard",
             "images/WheelImages/tireHard/tireHard1.png", 
-            0.6, 5, 200));
+            0.006, 5, 200));
     }
 
     /**
