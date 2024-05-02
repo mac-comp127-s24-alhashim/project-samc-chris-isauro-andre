@@ -4,6 +4,11 @@ import edu.macalester.graphics.*;
 import edu.macalester.graphics.events.Key;
 import edu.macalester.graphics.ui.TextField;
 
+/**
+ * This class is where the simulation is created. It creates the menu first to select the objects that creates the car and track,
+ * then is started when the user hits the start button.
+ */
+
 public class GameMain{
 
         private CanvasWindow canvas;
@@ -38,9 +43,8 @@ public class GameMain{
             final double carPositionX = canvas.getWidth()/2.34;
             final double carPositionY = canvas.getHeight()/4.7;
 
-            // Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
-            Track track = new Track("Suzuka", new Image("images/TrackBaseImages/trackTest.png"), 0, 0, 0, 3);
-            
+            Track track = carObjects.getTracks().get(menu.getSelectedTrack().getKey());
+
             // Speedometer Creation formatted to 2 places
             TextField speedHUD = new TextField();
             canvas.add(speedHUD);
@@ -56,6 +60,8 @@ public class GameMain{
             car.addCarToCanvas(canvas);
             canvas.draw();
 
+            // the code below is the primary input listeners that control the car and map.
+            
             canvas.animate(() -> {
                 if(canvas.getKeysPressed().contains(Key.D)){
                     car.turnRight();
@@ -67,8 +73,12 @@ public class GameMain{
 
                 if(canvas.getKeysPressed().contains(Key.S)){
                     car.speedDown();
-                    car.isreverseCar();
+                    car.isReversing();
                 }
+
+                if(!canvas.getKeysPressed().contains(Key.S)){
+                    car.passiveSpeedUp();
+                }        
 
                 if(canvas.getKeysPressed().contains(Key.W)){
                     car.speedUp();
@@ -78,7 +88,7 @@ public class GameMain{
                     car.passiveSpeedDown();
                 }                 
 
-                track.moveMap(canvas, car.getVelocityX(), car.getVelocityY(), car);
+                track.moveMap(car.getVelocityX(), car.getVelocityY(), car);
 
                 //Speedometer calculations
                 speedHUD.setText(

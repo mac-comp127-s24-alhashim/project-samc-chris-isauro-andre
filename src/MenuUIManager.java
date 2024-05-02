@@ -26,6 +26,12 @@ public class MenuUIManager {
     private Menu menu;
     private CanvasWindow canvas;
 
+    /**
+     * The visual menu manager.
+     * 
+     * @param menu      The specific menu being observed.
+     * @param canvas    Where the following observation will take place.
+     */
     public MenuUIManager(Menu menu, CanvasWindow canvas){
         this.canvas = canvas;
         this.menu = menu;

@@ -11,9 +11,14 @@ public class Menu {
     private boolean previewRacerCarDisplayed;
     private boolean previewRacerTiresDisplayed;
     private boolean ifMenuOpen = true;
-    public MenuUIManager buttonManager;
+    private MenuUIManager buttonManager;
 
 
+    /**
+     * The homescreen of our game. Where all the "Menu-" related objects will be harbored.
+     * 
+     * @param canvas Where are main screen will be placed.
+     */
     public Menu(CanvasWindow canvas){
         buttonManager = new MenuUIManager(this, canvas);
         this.canvas = canvas;
