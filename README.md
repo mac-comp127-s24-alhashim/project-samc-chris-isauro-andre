@@ -21,7 +21,7 @@ using physics formulas that are translated into calculations in the simulation.
 
 <!-- USAGE EXAMPLES -->
 ## How-To
-**Demo Video:** [Here](DemoVidLink)
+**Demo Video:** [Here](https://drive.google.com/file/d/1THGurXrps2vQ8SkUke7QnoA17MXivBud/view)
 
 Once the program has started, a menu pops up, this is where you customize the car and choose the track
 
