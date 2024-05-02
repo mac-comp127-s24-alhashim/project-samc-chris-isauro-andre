@@ -33,5 +33,8 @@ Splitting up work:
   + Isauro - Racer Mechanics (Brake Power and Weight)
   + Chris - UI/UX connection with the other mechanics
 
-Prototype Illustration:
+**Prototype Illustration:**
 ![Sketch of Prototype](res/images/Projectimage.png)
+
+**UML Diagram:**
+![](res/images/UMLimage.png)

@@ -23,6 +23,7 @@ public class Track {
 
     /* Canvas will move specifically based on the conditions below */
     public void moveMap(CanvasWindow canvas, double dtX, double dtY, Car car){
+        
         /* Different variables used for easy readability. */       
         double rightBound = (map.getImageWidth() / 2) * (zoom - 1);
         double leftBound = (map.getImageWidth() / 2) * (zoom - 1.5);
