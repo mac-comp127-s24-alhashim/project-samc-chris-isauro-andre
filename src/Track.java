@@ -1,23 +1,22 @@
 import edu.macalester.graphics.*;
 
-/**
- * This class is to create unique Track objects that is put in the menu for different Track objects with differing
- * attributes be selected in the menu. The class is mainly responsible for the creation of the race track where the
- * car is driving. It possess behaviors that reflects the car's movement in the canvas.
- * 
- * @param trackKey  a key string in a map to match a Track object with unique attributes
- * @param map       file path to the map image
- * @param startingX initial x coordinate of where the map is on the canvas
- * @param startingY initial y coordinate of where the map is on the canvas
- * @param startingAngle initial angle that the car is placed.
- * @param zoom      how big the map is relative to the car.
- */
-
 public class Track {
     private String TRKey;
     private Image map;
     private double startingAngle, zoom;
     
+    /**
+     * This class is to create unique Track objects that is put in the menu for different Track objects with differing
+     * attributes be selected in the menu. The class is mainly responsible for the creation of the race track where the
+     * car is driving. It possess behaviors that reflects the car's movement in the canvas.
+     * 
+     * @param trackKey  a key string in a map to match a Track object with unique attributes
+     * @param map       file path to the map image
+     * @param startingX initial x coordinate of where the map is on the canvas
+     * @param startingY initial y coordinate of where the map is on the canvas
+     * @param startingAngle initial angle that the car is placed.
+     * @param zoom      how big the map is relative to the car.
+     */
     public Track (String trackKey, Image map, double startingX, double startingY, double startingAngle, double zoom){
         TRKey = trackKey;
 

@@ -18,7 +18,17 @@ public class MenuRacerButton implements MenuButton {
      * If then takes the strings restingImageString and pressedImageString and converts them to Image objects, and then scales and 
      * positions them using the fed in x, y, and scalefactor variables. It then displays the restingImage and sets up a listen to 
      * listen for a click on the pressed image. It also stores the given Racer object.
-     */    
+     * 
+     * @param racer                 Selected racer.
+     * @param restingImageString    Image name of when button is idle.
+     * @param pressedImageString    Image name of when button is pressed.
+     * @param scalefactor           The size of the button in comparison to the menu.
+     * @param x                     Button's x position.
+     * @param y                     Button's y position.
+     * @param buttonManager         The main mechanics of the button.
+     * @param menu                  Where this button will be harbored.
+     * @param canvas                Where this button will be placed on the screen.
+     */
     public MenuRacerButton(Racer racer, String restingImageString, String pressedImageString, 
             double scalefactor, double x, double y, MenuUIManager buttonManager, Menu menu, CanvasWindow canvas){
         this.racer = racer;
