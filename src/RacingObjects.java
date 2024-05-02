@@ -26,7 +26,7 @@ public class RacingObjects {
      */
     private void createTracks(){
         tracks.put("Suzuka", 
-            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), 5, 2, 6, 6));
+            new Track("Suzuka", new Image("images/TrackBaseImages/suzuka.png"), 5, 1000, 1000, 6));
         tracks.put("Watkins", 
             new Track("Watkins", new Image("images/TrackBaseImages/watkins.png"), 30, 30, 10, 1));
         tracks.put("Barcelona", 
@@ -49,15 +49,15 @@ public class RacingObjects {
         tires.put("Soft", new Tire(
             "Soft",
             "images/WheelImages/tireSoft/tireSoft1.png",
-            0.002, 0.0, 0.2, 3, 100));
+            0.002, 3, 100));
         tires.put("Medium", new Tire(
             "Medium",
             "images/WheelImages/tireMedium/tireMedium1.png",
-            0.4, 0.0, 0.4, 4, 100));
+            0.4, 4, 150));
         tires.put("Hard", new Tire(
             "Hard",
             "images/WheelImages/tireHard/tireHard1.png", 
-            0.6, 0.0, 0.4, 5, 100));
+            0.6, 5, 200));
     }
 
     /**
