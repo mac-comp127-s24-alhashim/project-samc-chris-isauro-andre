@@ -21,7 +21,7 @@ using physics formulas that are translated into calculations in the simulation.
 
 <!-- USAGE EXAMPLES -->
 ## How-To
-**Demo Video:** [Here](DemoVidLink).
+**Demo Video:** [Here](DemoVidLink)
 
 Once the program has started, a menu pops up, this is where you customize the car and choose the track
 
@@ -53,4 +53,5 @@ This project was inspired by: https://ultimateracing2d.com/
 Credits to: RyiSnow's Youtube Series ["How To Make a Game in Java"](https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq)
 for some of the mechanics of the game
 
-
+For information on how the project was made.
+See [project documentation and proposal](https://github.com/mac-comp127-s24-alhashim/project-samc-chris-isauro-andre/blob/main/Project_Proposal.md)
